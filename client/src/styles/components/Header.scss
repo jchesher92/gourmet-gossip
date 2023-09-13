@@ -1,0 +1,12 @@
+header {
+  background-color: $green;
+  padding: 10px 0;
+}
+
+.navbar-right {
+  @extend %flex-end;
+}
+
+header a {
+  @include link($white);
+}
