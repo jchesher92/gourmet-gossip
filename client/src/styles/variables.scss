@@ -1,0 +1,18 @@
+$green: #226A57;
+$red: #FF5F40;
+$light-grey: #ECECEC;
+$light-pink: #FFDEE6;
+$black: #000;
+$white: #fff;
+
+%flex-end {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  align-items: center;
+}
+
+@mixin link ($color) {
+  color: $color;
+  text-decoration: none;
+}
