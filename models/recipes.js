@@ -11,17 +11,15 @@ const recipeSchema = new mongoose.Schema({
   time: { type: Number, required: true },
   method: { type: String, required: true },
   serves: { type: Number, required: true },
-  ingredients: [{ type: String }],
+  ingredients: [{}],
   image: { type: String, required: true },
   author: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User',
-    required: true
+    ref: 'User'
   },
   reviews: [{
     type: mongoose.Schema.ObjectId,
-    ref: 'Review',
-    required: true
+    ref: 'Review'
   }]
 })
 

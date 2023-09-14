@@ -21,7 +21,7 @@ const seedDatabase = async () => {
 
     // Delete all the documents from all of our collections
     const { deletedCount: recipesDeleted } = await Recipe.deleteMany()
-    console.log(`❌ Deleted ${recipesDeleted} documents from the movies collection`)
+    console.log(`❌ Deleted ${recipesDeleted} documents from the recipes collection`)
 
     // Input the userData we've imported into the database as individual documents
     const usersAdded = await User.create(userData)
