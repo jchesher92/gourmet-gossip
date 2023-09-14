@@ -13,7 +13,7 @@ const recipeSchema = new mongoose.Schema({
   serves: { type: Number, required: true },
   ingredients: [{}],
   image: { type: String, required: true },
-  author: {
+  addedBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: true
