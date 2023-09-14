@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+
+// ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 // BOOTSTRAP
 import Container from 'react-bootstrap/Container'
@@ -11,13 +14,10 @@ export default function Header() {
     <header>
       <Container className='header'>
         <Row>
-          <Col md='5'><h1>Gourmet Gossip</h1></Col>
+          <Col md='5'><Link to='/'><h1>Gourmet Gossip</h1></Link></Col>
           <Col md='7' className='navbar-right'>
-            <FontAwesomeIcon icon="fa-solid fa-user" style={{ color: '#ffffff' }} />
-            <FontAwesomeIcon icon="fa-solid fa-check-square" />
             <Link to='/recipes'>All recipes</Link>
-            <Link to='/'></Link>
-            
+            <Link to='/'><FontAwesomeIcon icon={faUser} size='lg' style={{ color: '#fff' }} /></Link>
           </Col>
         </Row>
       </Container>

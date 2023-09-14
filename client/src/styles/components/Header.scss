@@ -1,12 +1,15 @@
 header {
   background-color: $green;
-  padding: 10px 0;
+  padding: 16px 0;
+  a {
+    @include link($white);
+  }
+  h1 {
+    font-family: 'Lobster', cursive;
+    color: $white;
+  }
 }
 
 .navbar-right {
   @extend %flex-end;
-}
-
-header a {
-  @include link($white);
 }
