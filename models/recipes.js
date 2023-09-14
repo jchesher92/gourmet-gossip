@@ -1,10 +1,7 @@
 // ! Imports
 import mongoose from 'mongoose'
-import User from './users.js'
-
 
 // ! Recipe Schema
-
 const recipeSchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
   category: { type: String, required: true },
@@ -16,18 +13,17 @@ const recipeSchema = new mongoose.Schema({
   serves: { type: Number, required: true },
   ingredients: [{ type: String }],
   image: { type: String, required: true },
-  author: { type: String, required: true },
-  reviews: {
-    type: mongoose.ObjectId,
-    ref: 'Reviews'
-  }
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  reviews: [{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Review',
+    required: true
+  }]
 })
 
-const reviewsSchema = new mongoose.Schema({
-  rating: { type: Number },
-  author: { type: User },
-  comment: { type: String }
-})
 
 export default mongoose.model('Recipe', recipeSchema)
-const Reviews = mongoose.model('Reviews', reviewsSchema)
