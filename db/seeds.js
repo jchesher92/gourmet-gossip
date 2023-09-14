@@ -27,14 +27,14 @@ const seedDatabase = async () => {
     const usersAdded = await User.create(userData)
     console.log(`🌱 Seeded ${usersAdded.length} documents into the users collection`)
 
-    // Just before adding recipes into the database, we'll add a addedBy field, with a user id as the value
-    const recipesWithAddedBy = recipesData.map(recipe => {
+    // Just before adding recipes into the database, we'll add a Author field, with a user id as the value
+    const recipesWithAuthor = recipesData.map(recipe => {
       const randomUserId = Math.floor(Math.random() * usersAdded.length)
-      return { ...recipe, addedBy: usersAdded[randomUserId]._id }
+      return { ...recipe, author: usersAdded[randomUserId]._id }
     })
 
     // Input the recipesData we've imported into the database as individual documents
-    const recipesAdded = await Recipe.create(recipesWithAddedBy)
+    const recipesAdded = await Recipe.create(recipesWithAuthor)
     console.log(`🌱 Seeded ${recipesAdded.length} documents into the recipes collection`)
 
     // Close our connection to the database

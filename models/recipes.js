@@ -15,7 +15,8 @@ const recipeSchema = new mongoose.Schema({
   image: { type: String, required: true },
   author: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
   reviews: [{
     type: mongoose.Schema.ObjectId,
