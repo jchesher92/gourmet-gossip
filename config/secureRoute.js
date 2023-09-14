@@ -1,19 +1,19 @@
 import jwt from 'jsonwebtoken'
-import User from '../models/users.js'
+import User from '../models/user.js'
 
 
 export const secureRoute = async (req, res, next) => {
 
   try {
-    if(!req.headers.authorization) throw new Error('Missing authorization header')
+    if (!req.headers.authorization) throw new Error('Missing authorization header')
 
     const token = req.headers.authorization.replace('Bearer ', '')
-    
+
     const { sub: userId } = jwt.verify(token, process.env.SECRET)
 
     const foundUser = await User.findById(userId)
 
-    if(!foundUser){
+    if (!foundUser) {
       throw new Error('User not found')
     }
 
