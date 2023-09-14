@@ -1,0 +1,22 @@
+.search-container {
+  padding: 30px;
+  background: $white;
+  .form-control:focus {
+    border-color: $green;
+  }
+  .btn {
+    border-color: $green;
+    background: $green;
+    color: $white;
+  }
+  .btn:active, .btn:hover {
+    border-color: $red;
+    background: $red;
+  }
+}
+
+@media (min-width: 992px) {
+  .search-container {
+    padding: 60px;
+  }
+}
