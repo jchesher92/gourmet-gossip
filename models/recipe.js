@@ -1,6 +1,16 @@
 // ! Imports
 import mongoose from 'mongoose'
 
+// ! Review Schema
+const reviewSchema = new mongoose.Schema({
+  rating: { type: Number },
+  addedBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+  },
+  comment: { type: String }
+})
+
 // ! Recipe Schema
 const recipeSchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
@@ -13,15 +23,14 @@ const recipeSchema = new mongoose.Schema({
   serves: { type: Number, required: true },
   ingredients: [{}],
   image: { type: String, required: true },
-  author: {
+  addedBy: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
-  reviews: [{
-    type: mongoose.Schema.ObjectId,
-    ref: 'Review'
-  }]
+  reviews: [
+    reviewSchema
+  ]
 })
-
 
 export default mongoose.model('Recipe', recipeSchema)

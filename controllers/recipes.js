@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import Recipe from '../models/recipes.js'
+import Recipe from '../models/recipe.js'
 
 // ! Index route
 // Endpoint: GET /recipes
@@ -15,14 +15,14 @@ export const getAllRecipes = async (req, res) => {
 export const getSingleRecipe = async (req, res) => {
   const { id } = req.params
 
-  if (!mongoose.isValidObjectId(id)){
+  if (!mongoose.isValidObjectId(id)) {
     return res.status(422).json({ error: 'Invalid ObjectID' })
   }
 
   try {
     const recipe = await Recipe.findById(id).populate('addedBy').populate('reviews.addedBy')
 
-    if(!recipe){
+    if (!recipe) {
       throw new Error('Recipe not found')
     }
 
@@ -42,7 +42,7 @@ export const createRecipe = async (req, res) => {
     return res.status(201).json(recipeCreated)
   } catch (error) {
     console.log(error.code)
-    if(error.code === 11000){
+    if (error.code === 11000) {
       return res.status(422).json({
         error: {
           name: 'Duplicate key',
@@ -60,14 +60,14 @@ export const createRecipe = async (req, res) => {
 export const updateRecipe = async (req, res) => {
   const { id } = req.params
 
-  if(!mongoose.isValidObjectId(id)){
+  if (!mongoose.isValidObjectId(id)) {
     return res.status(422).json({ error: 'Invalid ObjectID' })
   }
 
   try {
     const updatedRecipe = await Recipe.findById(id)
 
-    if(!updatedRecipe) {
+    if (!updatedRecipe) {
       return res.status(404).json({ message: 'Recipe not found' })
     }
 
@@ -88,19 +88,19 @@ export const deleteRecipe = async (req, res) => {
   const { id } = req.params
 
   // Check id is valid, return 422 if not
-  if(!mongoose.isValidObjectId(id)){
+  if (!mongoose.isValidObjectId(id)) {
     return res.status(422).json({ error: 'Invalid ObjectID' })
   }
   try {
     const foundRecipe = await Recipe.findById(id)
 
-    if(!foundRecipe.addedBy.equals(req.user._id)){
+    if (!foundRecipe.addedBy.equals(req.user._id)) {
       return res.status(401).json({ error: 'Unauthorized' })
     }
 
     const recipeDeleted = await Recipe.findByIdAndDelete(id)
-    
-    if(!recipeDeleted) throw new Error('Recipe not found')
+
+    if (!recipeDeleted) throw new Error('Recipe not found')
 
     return res.sendStatus(204)
   } catch (err) {
@@ -114,7 +114,7 @@ export const likeRecipe = async (req, res) => {
   const { id } = req.params
   const recipe = await Recipe.findById(id)
 
-  if(!recipe.likes.includes(req.user._id)){
+  if (!recipe.likes.includes(req.user._id)) {
     recipe.likes.push(req.user._id)
     await recipe.save()
   }

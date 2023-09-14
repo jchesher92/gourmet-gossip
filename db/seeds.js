@@ -2,12 +2,13 @@ import mongoose from 'mongoose'
 import 'dotenv/config'
 
 // Model
-import Recipe from '../models/recipes.js'
-import User from '../models/users.js'
+import Recipe from '../models/recipe.js'
+import User from '../models/user.js'
 
 // Data
 import recipesData from './data/recipes.js'
 import userData from './data/users.js'
+import reviewsData from './data/reviews.js'
 
 const seedDatabase = async () => {
   try {
@@ -27,10 +28,17 @@ const seedDatabase = async () => {
     const usersAdded = await User.create(userData)
     console.log(`🌱 Seeded ${usersAdded.length} documents into the users collection`)
 
+    //  Add a random user to each of the reviews
+    const reviewsWithAddedBy = reviewsData.map(review => {
+      const randomUserId = Math.floor(Math.random() * usersAdded.length)
+      return { ...review, addedBy: usersAdded[randomUserId]._id }
+    })
+
     // Just before adding recipes into the database, we'll add a addedBy field, with a user id as the value
     const recipesWithAddedBy = recipesData.map(recipe => {
       const randomUserId = Math.floor(Math.random() * usersAdded.length)
-      return { ...recipe, addedBy: usersAdded[randomUserId]._id }
+      const randomReview = Math.floor(Math.random() * reviewsWithAddedBy.length)
+      return { ...recipe, addedBy: usersAdded[randomUserId]._id, reviews: reviewsWithAddedBy[randomReview] }
     })
 
     // Input the recipesData we've imported into the database as individual documents
