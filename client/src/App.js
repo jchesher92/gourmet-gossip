@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -20,6 +20,9 @@ import NotFound from './components/NotFound'
 
 
 export default function App() {
+
+  const [ user, setUser ] = useState(true)
+  console.log('user is:', user)
   // useEffect(() => {
   //   async function getData(){
   //     try {
@@ -33,7 +36,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header user={user} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/recipes' element={<AllRecipes />} />

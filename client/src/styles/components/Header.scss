@@ -8,6 +8,19 @@ header {
     font-family: 'Lobster', cursive;
     color: $white;
   }
+  .dropdown {
+    .btn, .btn:hover, .btn:active, .btn:focus-visible {
+      background: none !important;
+      border: none !important;
+    }
+    .dropdown-item.active, .dropdown-item:active {
+      background-color: var(--bs-dropdown-link-hover-bg);
+      color: var(--bs-dropdown-link-color);
+    }
+    a {
+      padding: 10px 20px;
+    }
+  }
 }
 
 .navbar-right {
