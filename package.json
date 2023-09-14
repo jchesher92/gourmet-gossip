@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "npx nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "seed": "node db/seeds.js"
   },
   "repository": {
     "type": "git",
