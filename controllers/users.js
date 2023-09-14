@@ -18,11 +18,11 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
 
   const { email, password } = req.body
-
   try {
     // search the database for the user by the email provided
     const userToLogin = await User.findOne({ email: email })
 
+    console.log(userToLogin)
     // If email doesn't match any users, throw an error
     if (!userToLogin) throw new Error('User not found')
 

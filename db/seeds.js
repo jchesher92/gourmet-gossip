@@ -27,7 +27,7 @@ const seedDatabase = async () => {
     // Input the userData we've imported into the database as individual documents
     const usersAdded = await User.create(userData)
     console.log(`🌱 Seeded ${usersAdded.length} documents into the users collection`)
-
+    console.log(usersAdded)
     //  Add a random user to each of the reviews
     const reviewsWithAddedBy = reviewsData.map(review => {
       const randomUserId = Math.floor(Math.random() * usersAdded.length)
