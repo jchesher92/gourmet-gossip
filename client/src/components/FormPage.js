@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
 
-export default function FormPage({ title, formStructure, request }) {
+export default function FormPage({ title, formStructure, request, setUser }) {
   const [formData, setFormData] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
@@ -19,6 +19,7 @@ export default function FormPage({ title, formStructure, request }) {
       const { data } = await request(formData)
       if (data.token) {
         setToken(data.token)
+        setUser(true)
       }
       // navigate('/profile')
     } catch (error) {

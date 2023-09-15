@@ -21,7 +21,7 @@ import NotFound from './components/NotFound'
 
 export default function App() {
 
-  const [ user, setUser ] = useState(true)
+  const [user, setUser] = useState(false)
 
   // SEARCH FUNCTION
 
@@ -68,6 +68,9 @@ export default function App() {
     setFilteredRecipes(filteredArray)
   }, [filter, recipes])
 
+
+
+
   return (
     <BrowserRouter>
       <Header
@@ -82,8 +85,8 @@ export default function App() {
           filteredRecipes={filteredRecipes}
           handleChange={handleChange} />} />
         <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login setUser={setUser} />} />
+        <Route path='/register' element={<Register setUser={setUser} />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/recipes/add' element={<AddRecipe />} />
