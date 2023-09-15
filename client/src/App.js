@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, createContext } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -18,9 +18,9 @@ import SingleRecipe from './components/SingleRecipe'
 import UpdateRecipe from './components/UpdateRecipe'
 import NotFound from './components/NotFound'
 
+export const UserContext = createContext()
 
 export default function App() {
-
   const [user, setUser] = useState(false)
   console.log('user is:', user)
   // useEffect(() => {
@@ -36,20 +36,22 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header user={user} />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/recipes' element={<AllRecipes />} />
-        <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
-        <Route path='/login' element={<Login setUser={setUser} />} />
-        <Route path='/register' element={<Register setUser={setUser} />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/favorites' element={<Favorites />} />
-        <Route path='/recipes/add' element={<AddRecipe />} />
-        <Route path='/recipes/:recipeId/update' element={<UpdateRecipe />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/recipes' element={<AllRecipes />} />
+          <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/favorites' element={<Favorites />} />
+          <Route path='/recipes/add' element={<AddRecipe />} />
+          <Route path='/recipes/:recipeId/update' element={<UpdateRecipe />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </UserContext.Provider>
     </BrowserRouter>
   )
 }

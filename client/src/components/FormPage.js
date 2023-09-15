@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
+import { UserContext } from '../App.js'
 
-export default function FormPage({ title, formStructure, request, setUser }) {
+export default function FormPage({ title, formStructure, request }) {
+  const { user, setUser } = useContext(UserContext)
   const [formData, setFormData] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
