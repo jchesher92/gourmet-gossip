@@ -68,16 +68,13 @@ export default function App() {
     setFilteredRecipes(filteredArray)
   }, [filter, recipes])
 
-
-
-
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/recipes' element={<AllRecipes />} />
+          <Route path='/recipes' element={<AllRecipes recipes={recipes} filteredRecipes={filteredRecipes} handleChange={handleChange} />} />
           <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />

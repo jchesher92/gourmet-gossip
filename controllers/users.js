@@ -39,7 +39,13 @@ export const loginUser = async (req, res) => {
   }
 }
 
+// End point '/profile'
 export const getUserProfile = async (req, res) => {
-  const user = await User.findById(req.user._id).populate('recipesAdded')
-  return res.json(user)
+  try {
+    const user = await User.findById(req.user._id).populate('recipesAdded')
+    return res.json(user)
+  } catch (error) {
+    console.log(error)
+    return res.status(404.).json({ message: 'Failed' })
+  }
 }
