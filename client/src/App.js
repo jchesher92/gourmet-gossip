@@ -21,7 +21,7 @@ import NotFound from './components/NotFound'
 
 export default function App() {
 
-  const [ user, setUser ] = useState(true)
+  const [user, setUser] = useState(true)
   console.log('user is:', user)
   // useEffect(() => {
   //   async function getData(){
