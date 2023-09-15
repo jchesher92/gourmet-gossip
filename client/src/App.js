@@ -21,7 +21,7 @@ import NotFound from './components/NotFound'
 
 export default function App() {
 
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
   console.log('user is:', user)
   // useEffect(() => {
   //   async function getData(){
@@ -41,8 +41,8 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/recipes' element={<AllRecipes />} />
         <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login setUser={setUser} />} />
+        <Route path='/register' element={<Register setUser={setUser} />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/recipes/add' element={<AddRecipe />} />

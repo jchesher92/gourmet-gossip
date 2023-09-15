@@ -1,7 +1,7 @@
 import FormPage from './FormPage'
 import axios from 'axios'
 
-export default function Register() {
+export default function Register({ setUser }) {
   // * Set the structure for the register form
   const formStructure = [
     {
@@ -26,6 +26,6 @@ export default function Register() {
     return axios.post('/register', formData)
   }
   return (
-    <FormPage title='Register' formStructure={formStructure} request={register} />
+    <FormPage title='Register' formStructure={formStructure} request={register} setUser={setUser} />
   )
 }

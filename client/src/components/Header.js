@@ -24,7 +24,7 @@ export default function Header({ user }) {
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic"><FontAwesomeIcon icon={faUser} size='lg' style={{ color: '#fff' }} /></Dropdown.Toggle>
               <Dropdown.Menu>
-                { user ?
+                {user ?
                   <>
                     <Dropdown.Item as={NavLink} to="/profile">Profile</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/favorites">Favorites</Dropdown.Item>
