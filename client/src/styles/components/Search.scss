@@ -4,7 +4,7 @@
   .form-control:focus {
     border-color: $green;
   }
-  .btn {
+  .btn, .btn-red:hover {
     border-color: $green;
     background: $green;
     color: $white;
@@ -12,6 +12,14 @@
   .btn:active, .btn:hover {
     border-color: $red;
     background: $red;
+  }
+  .btn-red {
+    background: $red;
+    border-color: $red;
+  }
+  .btn-red:hover {
+    border-color: $green;
+    background: $green;
   }
   .row>* {
     padding-right: calc(var(--bs-gutter-x) * .2);
