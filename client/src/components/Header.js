@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from '../App'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,8 +12,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-export default function Header({ user, setUser }) {
-
+export default function Header() {
+  const { user, setUser } = useContext(UserContext)
 
   return (
     <header>
@@ -29,7 +30,9 @@ export default function Header({ user, setUser }) {
                     <Dropdown.Item as={NavLink} to="/profile">Profile</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/favorites">Favorites</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/recipes/add">Add Recipe</Dropdown.Item>
-                    <Dropdown.Item as={NavLink} onClick={() => setUser(false)}>Logout</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/" onClick={() => {
+                      setUser(false)
+                    }}>Logout</Dropdown.Item>
                   </>
                   :
                   <>

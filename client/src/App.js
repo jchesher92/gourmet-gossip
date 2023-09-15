@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState, createContext } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -18,16 +18,16 @@ import SingleRecipe from './components/SingleRecipe'
 import UpdateRecipe from './components/UpdateRecipe'
 import NotFound from './components/NotFound'
 
+export const UserContext = createContext()
 
 export default function App() {
-
   const [user, setUser] = useState(false)
 
   // SEARCH FUNCTION
 
-  const [ recipes, setRecipes ] = useState([])
-  const [ filteredRecipes, setFilteredRecipes ] = useState([])
-  const [ filter, setFilter ] = useState({
+  const [recipes, setRecipes] = useState([])
+  const [filteredRecipes, setFilteredRecipes] = useState([])
+  const [filter, setFilter] = useState({
     search: '',
     category: 'All',
     diet: 'All',
@@ -82,31 +82,33 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Header
-        user={user}
-        setUser={setUser}
-      />
-      <Routes>
-        <Route path='/' element={<Home
-          handleChange={handleChange} />} />
-        <Route path='/recipes' element={<AllRecipes
-          recipes={recipes}
-          filteredRecipes={filteredRecipes}
-          newSearch={newSearch}
-          newCategory={newCategory}
-          newDiet={newDiet}
-          newDifficulty={newDifficulty}
-          handleChange={handleChange} />} />
-        <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
-        <Route path='/login' element={<Login setUser={setUser} />} />
-        <Route path='/register' element={<Register setUser={setUser} />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/favorites' element={<Favorites />} />
-        <Route path='/recipes/add' element={<AddRecipe />} />
-        <Route path='/recipes/:recipeId/update' element={<UpdateRecipe />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header
+          user={user}
+          setUser={setUser}
+        />
+        <Routes>
+          <Route path='/' element={<Home
+            handleChange={handleChange} />} />
+          <Route path='/recipes' element={<AllRecipes
+            recipes={recipes}
+            filteredRecipes={filteredRecipes}
+            newSearch={newSearch}
+            newCategory={newCategory}
+            newDiet={newDiet}
+            newDifficulty={newDifficulty}
+            handleChange={handleChange} />} />
+          <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
+          <Route path='/login' element={<Login setUser={setUser} />} />
+          <Route path='/register' element={<Register setUser={setUser} />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/favorites' element={<Favorites />} />
+          <Route path='/recipes/add' element={<AddRecipe />} />
+          <Route path='/recipes/:recipeId/update' element={<UpdateRecipe />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </UserContext.Provider>
     </BrowserRouter>
   )
 }
