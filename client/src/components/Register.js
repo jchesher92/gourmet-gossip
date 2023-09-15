@@ -23,7 +23,7 @@ export default function Register({ setUser }) {
   ]
   // * Set the request type for axios
   function register(formData) {
-    return axios.post('/register', formData)
+    return axios.post('/api/register', formData)
   }
   return (
     <FormPage title='Register' formStructure={formStructure} request={register} setUser={setUser} />

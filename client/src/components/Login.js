@@ -1,7 +1,7 @@
 import FormPage from './FormPage'
 import axios from 'axios'
 
-export default function Login({ setUser }) {
+export default function Login() {
   const formStructure = [
     {
       type: 'email',
@@ -14,10 +14,10 @@ export default function Login({ setUser }) {
   ]
 
   function login(formData) {
-    return axios.post('/login', formData)
+    return axios.post('/api/login', formData)
   }
 
   return (
-    <FormPage title='Login' formStructure={formStructure} request={login} setUser={setUser} />
+    <FormPage title='Login' formStructure={formStructure} request={login} />
   )
 }

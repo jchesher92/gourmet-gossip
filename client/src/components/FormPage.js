@@ -23,7 +23,7 @@ export default function FormPage({ title, formStructure, request }) {
         setToken(data.token)
         setUser(true)
       }
-      // navigate('/profile')
+      navigate('/profile')
     } catch (error) {
       console.log(error)
       setErrorMessage(error.response.data.error)

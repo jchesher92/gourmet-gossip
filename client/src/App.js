@@ -17,11 +17,24 @@ import AddRecipe from './components/AddRecipe'
 import SingleRecipe from './components/SingleRecipe'
 import UpdateRecipe from './components/UpdateRecipe'
 import NotFound from './components/NotFound'
+import { getToken } from './utility/auth'
 
-export const UserContext = createContext()
+export const UserContext = createContext(() => {
+  const token = getToken()
+  if (token) {
+    return true
+  }
+  return false
+})
 
 export default function App() {
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(() => {
+    const token = getToken()
+    if (token) {
+      return true
+    }
+    return false
+  })
 
   // SEARCH FUNCTION
 
