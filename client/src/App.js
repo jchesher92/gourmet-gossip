@@ -17,11 +17,24 @@ import AddRecipe from './components/AddRecipe'
 import SingleRecipe from './components/SingleRecipe'
 import UpdateRecipe from './components/UpdateRecipe'
 import NotFound from './components/NotFound'
+import { getToken } from './utility/auth'
 
-export const UserContext = createContext()
+export const UserContext = createContext(() => {
+  const token = getToken()
+  if (token) {
+    return true
+  }
+  return false
+})
 
 export default function App() {
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(() => {
+    const token = getToken()
+    if (token) {
+      return true
+    }
+    return false
+  })
 
   // SEARCH FUNCTION
 
@@ -32,10 +45,10 @@ export default function App() {
     difficulty: 'All',
   })
 
-  const [ newSearch, setNewSearch ] = useState('')
-  const [ newCategory, setNewCategory ] = useState('')
-  const [ newDiet, setNewDiet ] = useState('')
-  const [ newDifficulty, setNewDifficulty ] = useState('')
+  const [newSearch, setNewSearch] = useState('')
+  const [newCategory, setNewCategory] = useState('')
+  const [newDiet, setNewDiet] = useState('')
+  const [newDifficulty, setNewDifficulty] = useState('')
 
   function handleChange(e) {
     const newFilterState = { ...filter, [e.target.name]: e.target.value }
@@ -62,10 +75,16 @@ export default function App() {
       diet: 'All',
       difficulty: 'All',
     })
+<<<<<<< HEAD
   }
 
   
   
+=======
+    setFilteredRecipes(filteredArray)
+  }, [filter, recipes])
+
+>>>>>>> development
 
   return (
     <BrowserRouter>

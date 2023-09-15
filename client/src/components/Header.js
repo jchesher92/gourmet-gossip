@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { UserContext } from '../App'
+import { deleteToken } from '../utility/auth'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,11 +33,12 @@ export default function Header({ resetFilters }) {
                     <Dropdown.Item as={NavLink} to="/recipes/add">Add Recipe</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/" onClick={() => {
                       setUser(false)
+                      deleteToken()
                     }}>Logout</Dropdown.Item>
                   </>
                   :
                   <>
-                    <Dropdown.Item as={NavLink} to="/login" onClick={() => setUser(true)}>Login</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/login">Login</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/register">Register</Dropdown.Item>
                   </>
                 }
