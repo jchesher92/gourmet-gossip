@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-export default function Home({ handleChange, handleSubmit }) {
+export default function Home({ handleChange, newSearch, setNewSearch }) {
   return (
     <Container>
       <Row>
@@ -16,7 +16,9 @@ export default function Home({ handleChange, handleSubmit }) {
       </Row>
       <Row>
         <Search 
-          handleSubmit={handleSubmit} />
+          handleChange={handleChange}
+          newSeach={newSearch}
+          setNewSearch={setNewSearch} />
       </Row>
       <Row>
         <TopRated />

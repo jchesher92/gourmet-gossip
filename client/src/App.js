@@ -34,14 +34,25 @@ export default function App() {
     difficulty: 'All',
   })
 
+  const [newSearch, setNewSearch] = useState('')
+  const [newCategory, setNewCategory] = useState('')
+  const [newDiet, setNewDiet] = useState('')
+  const [newDifficulty, setNewDifficulty] = useState('')
+
   function handleChange(e) {
     const newFilterState = { ...filter, [e.target.name]: e.target.value }
     setFilter(newFilterState)
+    if (e.target.name === 'search') {
+      setNewSearch(e.target.value)
+    } else if (e.target.name === 'category') {
+      setNewCategory(e.target.value)
+    } else if (e.target.name === 'diet') {
+      setNewDiet(e.target.value)
+    } else if (e.target.name === 'difficulty') {
+      setNewDifficulty(e.target.value)
+    }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-  }
 
   useEffect(() => {
     const getRecipeData = async () => {
@@ -68,16 +79,28 @@ export default function App() {
     setFilteredRecipes(filteredArray)
   }, [filter, recipes])
 
+
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
-        <Header />
+        <Header
+          user={user}
+          setUser={setUser}
+        />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/recipes' element={<AllRecipes recipes={recipes} filteredRecipes={filteredRecipes} handleChange={handleChange} />} />
+          <Route path='/' element={<Home
+            handleChange={handleChange} />} />
+          <Route path='/recipes' element={<AllRecipes
+            recipes={recipes}
+            filteredRecipes={filteredRecipes}
+            newSearch={newSearch}
+            newCategory={newCategory}
+            newDiet={newDiet}
+            newDifficulty={newDifficulty}
+            handleChange={handleChange} />} />
           <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login setUser={setUser} />} />
+          <Route path='/register' element={<Register setUser={setUser} />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/recipes/add' element={<AddRecipe />} />
