@@ -9,7 +9,7 @@ export const registerUser = async (req, res) => {
     return res.status(201).json({ message: `Welcome ${user.username}` })
   } catch (error) {
     console.log(error)
-    return res.status(422).json(error)
+    return res.status(422).json(error.errors)
   }
 }
 
@@ -22,7 +22,6 @@ export const loginUser = async (req, res) => {
     // search the database for the user by the email provided
     const userToLogin = await User.findOne({ email: email })
 
-    console.log(userToLogin)
     // If email doesn't match any users, throw an error
     if (!userToLogin) throw new Error('User not found')
 

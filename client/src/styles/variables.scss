@@ -38,3 +38,14 @@ $grey: #212529;
   font-size: 17px;
   letter-spacing: 1px;
 }
+
+@mixin flex-align-justify-center($direction) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin box-shadow-regular {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
