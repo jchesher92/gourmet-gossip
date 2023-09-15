@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 })
 
 // ! Specifc routes
-app.use(router)
+app.use('/api', router)
 
 // ?  Route Not Found
 app.use((req, res) => {
@@ -26,7 +26,7 @@ const startServer = async () => {
   try {
     // Connect to the database
     await mongoose.connect(process.env.CONNECTION_STRING)
-    console.log(`🌱 Database connection established`)
+    console.log('🌱 Database connection established')
     // Listen
     app.listen(process.env.PORT, () => console.log(`🚀 Server listening on port ${process.env.PORT}`))
   } catch (error) {

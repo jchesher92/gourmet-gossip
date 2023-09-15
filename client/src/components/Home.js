@@ -8,14 +8,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-export default function Home() {
+export default function Home({ handleChange, handleSubmit }) {
   return (
     <Container>
       <Row>
         <Col><h1>Home</h1></Col>
       </Row>
       <Row>
-        <Search />
+        <Search 
+          handleSubmit={handleSubmit} />
       </Row>
       <Row>
         <TopRated />

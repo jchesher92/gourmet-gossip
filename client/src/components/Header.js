@@ -11,7 +11,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-export default function Header({ user }) {
+export default function Header({ user, setUser }) {
 
 
   return (
@@ -29,11 +29,11 @@ export default function Header({ user }) {
                     <Dropdown.Item as={NavLink} to="/profile">Profile</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/favorites">Favorites</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/recipes/add">Add Recipe</Dropdown.Item>
-                    <Dropdown.Item as={NavLink} to="/">Logout</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} onClick={() => setUser(false)}>Logout</Dropdown.Item>
                   </>
                   :
                   <>
-                    <Dropdown.Item as={NavLink} to="/login">Login</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/login" onClick={() => setUser(true)}>Login</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/register">Register</Dropdown.Item>
                   </>
                 }
