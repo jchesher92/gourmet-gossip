@@ -9,7 +9,7 @@ export const registerUser = async (req, res) => {
     return res.status(201).json({ message: `Welcome ${user.username}` })
   } catch (error) {
     console.log(error)
-    return res.status(422).json(error)
+    return res.status(422).json(error.errors)
   }
 }
 

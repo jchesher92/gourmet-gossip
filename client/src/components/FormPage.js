@@ -1,22 +1,30 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
+import { setToken } from '../utility/auth.js'
+import { useNavigate } from 'react-router'
 
 export default function FormPage({ title, formStructure, request }) {
   const [formData, setFormData] = useState({})
+  const [errorMessage, setErrorMessage] = useState('')
+  const navigate = useNavigate()
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setErrorMessage('')
   }
 
   async function handleSubmit(e) {
     e.preventDefault()
     try {
       const { data } = await request(formData)
-      console.log(data)
+      if (data.token) {
+        setToken(data.token)
+      }
+      // navigate('/profile')
     } catch (error) {
-      console.log(error.message)
+      console.log(error)
+      setErrorMessage(error.response.data.error)
     }
-
   }
 
   return (
@@ -34,6 +42,7 @@ export default function FormPage({ title, formStructure, request }) {
               )
             })
           }
+          {errorMessage && <h2>{errorMessage}</h2>}
           <Button onClick={handleSubmit}>{title}</Button>
         </form>
       </section>
