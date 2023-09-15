@@ -75,16 +75,7 @@ export default function App() {
       diet: 'All',
       difficulty: 'All',
     })
-<<<<<<< HEAD
   }
-
-  
-  
-=======
-    setFilteredRecipes(filteredArray)
-  }, [filter, recipes])
-
->>>>>>> development
 
   return (
     <BrowserRouter>
