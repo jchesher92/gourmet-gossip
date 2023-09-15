@@ -18,6 +18,27 @@ $grey: #212529;
   text-decoration: none;
 }
 
+%red-button {
+  display: block;
+  width: 100%;
+  color: $white;
+  background: $red;
+  border: none;
+  padding: 8px 8px 8px 18px;
+  text-align: left;
+  margin-top: 30px;
+}
+
+%green-button-diet {
+  background: $green;
+  color: $white;
+  display: table;
+  padding: 7px 23px;
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
 @mixin flex-align-justify-center($direction) {
   display: flex;
   flex-direction: $direction;

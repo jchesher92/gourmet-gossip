@@ -22,17 +22,54 @@ export const UserContext = createContext()
 
 export default function App() {
   const [user, setUser] = useState(false)
-  console.log('user is:', user)
-  // useEffect(() => {
-  //   async function getData(){
-  //     try {
-  //       await axios.get('/api/products') // <---- Replace with your endpoint to test the proxy
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   getData()
-  // }, [])
+
+  // SEARCH FUNCTION
+
+  const [recipes, setRecipes] = useState([])
+  const [filteredRecipes, setFilteredRecipes] = useState([])
+  const [filter, setFilter] = useState({
+    search: '',
+    category: 'All',
+    diet: 'All',
+    difficulty: 'All',
+  })
+
+  function handleChange(e) {
+    const newFilterState = { ...filter, [e.target.name]: e.target.value }
+    setFilter(newFilterState)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
+
+  useEffect(() => {
+    const getRecipeData = async () => {
+      try {
+        const { data } = await axios.get('/api/recipes')
+        setRecipes(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getRecipeData()
+  }, [])
+
+  useEffect(() => {
+    const regex = new RegExp(filter.search, 'i')
+    const filteredArray = recipes.filter(recipe => {
+      return (
+        (regex.test(recipe.title) || regex.test(recipe.description)) &&
+        (filter.category === recipe.category || filter.category === 'All') &&
+        (filter.diet === recipe.diet || filter.diet === 'All') &&
+        (filter.difficulty === recipe.difficulty || filter.difficulty === 'All')
+      )
+    })
+    setFilteredRecipes(filteredArray)
+  }, [filter, recipes])
+
+
+
 
   return (
     <BrowserRouter>

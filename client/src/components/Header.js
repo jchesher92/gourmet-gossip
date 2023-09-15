@@ -36,7 +36,7 @@ export default function Header() {
                   </>
                   :
                   <>
-                    <Dropdown.Item as={NavLink} to="/login">Login</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/login" onClick={() => setUser(true)}>Login</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/register">Register</Dropdown.Item>
                   </>
                 }

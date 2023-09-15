@@ -46,8 +46,8 @@ export const createRecipe = async (req, res) => {
       return res.status(422).json({
         error: {
           name: 'Duplicate key',
-          field: error.keyValue
-        }
+          field: error.keyValue,
+        },
       })
     }
     return res.status(422).json(error)
