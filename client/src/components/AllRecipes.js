@@ -16,12 +16,16 @@ import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function AllRecipes({ recipes, filteredRecipes, handleChange }) {
+export default function AllRecipes({ recipes, filteredRecipes, handleChange, newSearch, newCategory, newDiet, newDifficulty }) {
 
   return (
     <>
       <Search
         handleChange={handleChange}
+        newSearch={newSearch}
+        newCategory={newCategory}
+        newDiet={newDiet}
+        newDifficulty={newDifficulty}
       />
 
       { recipes.length > 0 ?

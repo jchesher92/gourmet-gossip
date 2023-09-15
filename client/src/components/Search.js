@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 
 // BOOTSTRAP
 import Container from 'react-bootstrap/Container'
@@ -6,7 +7,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-export default function Search({ handleChange }) {
+export default function Search({ handleChange, newSearch, newCategory, newDiet, newDifficulty }) {
+
+  // const location = useLocation()
 
   return (
     <Container className="search-container">
@@ -14,11 +17,11 @@ export default function Search({ handleChange }) {
         <Row>
           <Col md='4'>
             <label hidden htmlFor="search-recipe">Search Recipe</label>
-            <input className="form-control" type="search" placeholder="Search recipe ..." name="search" onChange={handleChange} />
+            <input className="form-control" type="search" placeholder="Search recipe ..." name="search" value={newSearch} onChange={handleChange} />
           </Col>
           <Col md='2'>
-            <select className="form-control" name="category" onChange={handleChange}>
-              <option value="All">Category</option>
+            <select className="form-control" name="category" value={newCategory} onChange={handleChange}>
+              <option value="All">- Category -</option>
               <option value="Breakfast">Breakfast</option>
               <option value="Lunch">Lunch</option>
               <option value="Diner">Diner</option>
@@ -27,8 +30,8 @@ export default function Search({ handleChange }) {
             </select>
           </Col>
           <Col md='2'>
-            <select className="form-control" name="diet" onChange={handleChange}>
-              <option value="All">Diet</option>
+            <select className="form-control" name="diet" value={newDiet} onChange={handleChange}>
+              <option value="All">- Diet -</option>
               <option value="Meat">Meat</option>
               <option value="Fish">Fish</option>
               <option value="Vegetarian">Vegetarian</option>
@@ -36,16 +39,18 @@ export default function Search({ handleChange }) {
             </select>
           </Col>
           <Col md='2'>
-            <select className="form-control" name="difficulty" onChange={handleChange}>
-              <option value="All">Difficulty</option>
+            <select className="form-control" name="difficulty" value={newDifficulty} onChange={handleChange}>
+              <option value="All">- Difficulty -</option>
               <option value="Easy">Easy</option>
               <option value="Intermediate">Intermediate</option>
               <option value="Advanced">Advanced</option>
             </select>
           </Col>
-          <Col>
+          {/* { location.pathname !== '/recipes' &&  */}
+          <Col md='2'>
             <Link className="btn btn-outline-dark w-100" to="/recipes">Search</Link>
           </Col>
+          {/* } */}
         </Row>
       </form>
     </Container>
