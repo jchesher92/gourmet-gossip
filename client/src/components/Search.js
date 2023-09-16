@@ -7,9 +7,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-export default function Search({ handleChange, newSearch, newCategory, newDiet, newDifficulty }) {
+export default function Search({ handleChange, newSearch, newCategory, newDiet, newDifficulty, resetFilters }) {
 
-  // const location = useLocation()
+  const location = useLocation()
 
   return (
     <Container className="search-container">
@@ -46,11 +46,15 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
               <option value="Advanced">Advanced</option>
             </select>
           </Col>
-          {/* { location.pathname !== '/recipes' &&  */}
-          <Col md='2'>
-            <Link className="btn btn-outline-dark w-100" to="/recipes">Search</Link>
-          </Col>
-          {/* } */}
+          { location.pathname !== '/recipes' ? 
+            <Col md='2'>
+              <Link className="btn btn-outline-dark w-100" to="/recipes">Search</Link>
+            </Col>
+            :
+            <Col md='2'>
+              <Link className="btn btn-outline-dark w-100 btn-red" onClick={resetFilters}>Reset</Link>
+            </Col>
+          }
         </Row>
       </form>
     </Container>

@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { UserContext } from '../App'
+import { deleteToken } from '../utility/auth'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,14 +13,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-export default function Header() {
+export default function Header({ resetFilters }) {
   const { user, setUser } = useContext(UserContext)
 
   return (
     <header>
       <Container className='header'>
         <Row>
-          <Col md='5'><Link to='/'><h1>Gourmet Gossip</h1></Link></Col>
+          <Col md='5'><Link to='/' onClick={resetFilters}><h1>Gourmet Gossip</h1></Link></Col>
           <Col md='7' className='navbar-right'>
             <NavLink to='/recipes'>All recipes</NavLink>
             <Dropdown>
@@ -32,11 +33,12 @@ export default function Header() {
                     <Dropdown.Item as={NavLink} to="/recipes/add">Add Recipe</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/" onClick={() => {
                       setUser(false)
+                      deleteToken()
                     }}>Logout</Dropdown.Item>
                   </>
                   :
                   <>
-                    <Dropdown.Item as={NavLink} to="/login" onClick={() => setUser(true)}>Login</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="/login">Login</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/register">Register</Dropdown.Item>
                   </>
                 }

@@ -17,16 +17,27 @@ import AddRecipe from './components/AddRecipe'
 import SingleRecipe from './components/SingleRecipe'
 import UpdateRecipe from './components/UpdateRecipe'
 import NotFound from './components/NotFound'
+import { getToken } from './utility/auth'
 
-export const UserContext = createContext()
+export const UserContext = createContext(() => {
+  const token = getToken()
+  if (token) {
+    return true
+  }
+  return false
+})
 
 export default function App() {
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(() => {
+    const token = getToken()
+    if (token) {
+      return true
+    }
+    return false
+  })
 
   // SEARCH FUNCTION
 
-  const [recipes, setRecipes] = useState([])
-  const [filteredRecipes, setFilteredRecipes] = useState([])
   const [filter, setFilter] = useState({
     search: '',
     category: 'All',
@@ -34,10 +45,10 @@ export default function App() {
     difficulty: 'All',
   })
 
-  const [ newSearch, setNewSearch ] = useState('')
-  const [ newCategory, setNewCategory ] = useState('')
-  const [ newDiet, setNewDiet ] = useState('')
-  const [ newDifficulty, setNewDifficulty ] = useState('')
+  const [newSearch, setNewSearch] = useState('')
+  const [newCategory, setNewCategory] = useState('')
+  const [newDiet, setNewDiet] = useState('')
+  const [newDifficulty, setNewDifficulty] = useState('')
 
   function handleChange(e) {
     const newFilterState = { ...filter, [e.target.name]: e.target.value }
@@ -53,58 +64,41 @@ export default function App() {
     }
   }
 
-
-  useEffect(() => {
-    const getRecipeData = async () => {
-      try {
-        const { data } = await axios.get('/api/recipes')
-        setRecipes(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getRecipeData()
-  }, [])
-
-  useEffect(() => {
-    const regex = new RegExp(filter.search, 'i')
-    const filteredArray = recipes.filter(recipe => {
-      return (
-        (regex.test(recipe.title) || regex.test(recipe.description)) &&
-        (filter.category === recipe.category || filter.category === 'All') &&
-        (filter.diet === recipe.diet || filter.diet === 'All') &&
-        (filter.difficulty === recipe.difficulty || filter.difficulty === 'All')
-      )
+  function resetFilters() {
+    setNewSearch('')
+    setNewCategory('')
+    setNewDiet('')
+    setNewDifficulty('')
+    setFilter({
+      search: '',
+      category: 'All',
+      diet: 'All',
+      difficulty: 'All',
     })
-    setFilteredRecipes(filteredArray)
-  }, [filter, recipes])
-  
+  }
 
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
-        <Header
-          user={user}
-          setUser={setUser}
-        />
+        <Header resetFilters={resetFilters} />
         <Routes>
           <Route path='/' element={<Home
             handleChange={handleChange} />} />
           <Route path='/recipes' element={<AllRecipes
-            recipes={recipes}
-            filteredRecipes={filteredRecipes}
+            filter={filter}
             newSearch={newSearch}
             newCategory={newCategory}
             newDiet={newDiet}
             newDifficulty={newDifficulty}
+            resetFilters={resetFilters}
             handleChange={handleChange} />} />
-          <Route path='/recipes/:recipeId' element={<SingleRecipe />} />
+          <Route path='/recipes/:id' element={<SingleRecipe />} />
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/register' element={<Register setUser={setUser} />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/recipes/add' element={<AddRecipe />} />
-          <Route path='/recipes/:recipeId/update' element={<UpdateRecipe />} />
+          <Route path='/recipes/:id/update' element={<UpdateRecipe />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
