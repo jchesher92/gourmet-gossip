@@ -13,14 +13,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-export default function Header() {
+export default function Header({ resetFilters }) {
   const { user, setUser } = useContext(UserContext)
 
   return (
     <header>
       <Container className='header'>
         <Row>
-          <Col md='5'><Link to='/'><h1>Gourmet Gossip</h1></Link></Col>
+          <Col md='5'><Link to='/' onClick={resetFilters}><h1>Gourmet Gossip</h1></Link></Col>
           <Col md='7' className='navbar-right'>
             <NavLink to='/recipes'>All recipes</NavLink>
             <Dropdown>
