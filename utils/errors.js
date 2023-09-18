@@ -48,15 +48,15 @@ export const sendErrors = (error, res) => {
 
   const { message, name, status, details } = error
 
-  status = status || 422
+  // status = status || 422
 
-  console.log('-----------------------')
-  console.log('Errors  ')
-  console.log('-----------------------')
+  console.log('---------------------------------')
+  console.log('Errors:  ')
+  console.log('---------------------------------')
   console.log('Name:', status, name)
   console.log('Message:', message)
   console.log('details:', details)
-  console.log('-----------------------')
+  console.log('---------------------------------')
 
   console.log(status || 422)
 
