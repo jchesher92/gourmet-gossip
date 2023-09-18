@@ -14,7 +14,7 @@ export default [
       { name: 'Black pepper', amount: '1/8 teaspoon' },
       { name: 'Butter', amount: '2 tablespoons' }
     ],
-    image: 'scrambled_eggs.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Vegetable Stir-Fry',
@@ -32,7 +32,7 @@ export default [
       { name: 'Sesame oil', amount: '1 tablespoon' },
       { name: 'Hoisin sauce', amount: '1 tablespoon' }
     ],
-    image: 'vegetable_stir_fry.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Grilled Chicken Salad',
@@ -54,7 +54,7 @@ export default [
       { name: 'Dijon mustard', amount: '1 teaspoon' },
       { name: 'Honey', amount: '1 teaspoon' }
     ],
-    image: 'grilled_chicken_salad.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Vegan Lentil Soup',
@@ -76,7 +76,7 @@ export default [
       { name: 'Salt', amount: '1/2 teaspoon' },
       { name: 'Black pepper', amount: '1/4 teaspoon' }
     ],
-    image: 'vegan_lentil_soup.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Spaghetti Carbonara',
@@ -94,7 +94,7 @@ export default [
       { name: 'Pecorino Romano cheese', amount: '100g, grated' },
       { name: 'Freshly ground black pepper', amount: 'To taste' }
     ],
-    image: 'spaghetti_carbonara.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Blueberry Muffins',
@@ -115,7 +115,7 @@ export default [
       { name: 'Egg', amount: '1' },
       { name: 'Blueberries', amount: '1 cup' }
     ],
-    image: 'blueberry_muffins.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Fish Tacos',
@@ -138,7 +138,7 @@ export default [
       { name: 'Lime juice', amount: '2 tablespoons' },
       { name: 'Tortillas', amount: '8' }
     ],
-    image: 'fish_tacos.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Caesar Salad',
@@ -161,7 +161,7 @@ export default [
       { name: 'Salt', amount: '1/4 teaspoon' },
       { name: 'Black pepper', amount: '1/4 teaspoon' }
     ],
-    image: 'caesar_salad.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Homemade Pizza',
@@ -178,7 +178,7 @@ export default [
       { name: 'Mozzarella cheese', amount: '2 cups, shredded' },
       { name: 'Toppings of your choice (e.g., pepperoni, bell peppers, olives)', amount: 'As desired' }
     ],
-    image: 'homemade_pizza.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Chocolate Chip Cookies',
@@ -200,7 +200,7 @@ export default [
       { name: 'Salt', amount: '1/2 teaspoon' },
       { name: 'Chocolate chips', amount: '2 cups' }
     ],
-    image: 'chocolate_chip_cookies.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   },
   {
     title: 'Berry Smoothie',
@@ -216,10 +216,6 @@ export default [
       { name: 'Greek yogurt', amount: '1 cup' },
       { name: 'Honey', amount: '2 tablespoons' }
     ],
-    image: 'berry_smoothie.jpg',
+    image: `${process.env.REACT_APP_CLOUDINARY_URL}/scrambled-eggs_fesipk.jpg`,
   }
 ]
-
-
-// ChatGPT
-// create an array of 10 recipes as javascript objects which contain the keys title, category (can be breakfast, lunch, diner, snack or desert), description, diet (can be vegetarian, vegan, fish or meat), difficulty, time as a number, method, serves as a number, ingredients as an array of objects where the first key is the name of the ingredient and the second key is the amount of the ingredient, image

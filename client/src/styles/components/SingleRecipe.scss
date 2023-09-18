@@ -1,0 +1,48 @@
+.single-recipe-container {
+  @extend %container-content;
+  img {
+    height: auto;
+    max-height: 450px;
+    width: 100%;
+  }
+}
+
+.diet-button {
+  @extend %green-button-diet;
+}
+
+.category {
+  @extend %category;
+}
+
+.p-next-icon-first {
+  margin-right: 18px;
+}
+.p-next-icon-first, .p-next-icon-second {
+  display: inline;
+  margin-left: 6px;
+}
+
+.reviews {
+  background: $green;
+  padding: 30px 30px 13px;
+  color: $white;
+  h4 {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4rem;
+    margin-bottom: 0px;
+  }
+  .admin-information {
+    text-align: right;
+  }
+}
+
+.submit-review {
+  @extend %red-button;
+}
+
+.submit-review-container {
+  display: flex;
+  align-items: end;
+}

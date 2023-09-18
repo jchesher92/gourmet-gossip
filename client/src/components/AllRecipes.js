@@ -28,6 +28,7 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
       try {
         const { data } = await axios.get('/api/recipes')
         setRecipes(data)
+        console.log('recipes', recipes)
       } catch (error) {
         console.log(error)
       }
@@ -62,7 +63,7 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
       { filteredRecipes.length > 0 ?
         <Container className='recipes-container'>
           <Row gx-5="true" >
-            {filteredRecipes.map(({ _id, diet, category, title, description, difficulty, time }) => {
+            {filteredRecipes.map(({ _id, diet, category, title, description, difficulty, time, image }) => {
               return (
                 <Col
                   lg='3'
@@ -71,7 +72,7 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
                   key={_id}
                   className="recipes-flex"
                 >
-                  <img src={foodExample} />
+                  <img src={image} />
                   <div className='recipe-colum'>
                     <span className="star-rating">
                       <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} />

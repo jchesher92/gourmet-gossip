@@ -15,7 +15,7 @@ import FloatingLabel from 'react-bootstrap/esm/FloatingLabel'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire } from '@fortawesome/free-solid-svg-icons'
+import { faFire, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import { faClock, faStar } from '@fortawesome/free-regular-svg-icons'
 
 export default function SingleRecipe() {
@@ -39,22 +39,27 @@ export default function SingleRecipe() {
   return (
     <>
       {recipe ?
-        <Container>
+        <Container className='single-recipe-container'>
           <Row>
-            <Col>
-              <Row>
+            <Col md='6' sm='12'>
+              <>
                 <img src={recipe.image}></img>
-              </Row>
-              <Row>
-                <h3>{recipe.difficulty}</h3>
-                <h3>{recipe.time} min</h3>
-              </Row>
+                <div className='mt-3'>
+                  <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
+                  <p className="p-next-icon-first">{recipe.difficulty}</p>
+                  <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
+                  <p className="p-next-icon-first">{recipe.time} min</p>
+                  <FontAwesomeIcon icon={faUtensils} style={{ color: '#FF5F40' }} />
+                  <p className="p-next-icon-first">{recipe.serves} serves</p>
+                </div>
+              </>
             </Col>
-            <Col>
-              <Button className=''>{recipe.diet}</Button>
+            <Col md='6' sm='12'>
+              <p className='diet-button'>{recipe.diet}</p>
+              <p className='category mt-4'>{recipe.category}</p>
               <h1>{recipe.title}</h1>
               <p>{recipe.description}</p>
-              <h2>Ingredients</h2>
+              <h2 className='mt-4'>Ingredients</h2>
               <ul>
                 {recipe.ingredients.map((ingredient, index) => {
                   return <li key={index}>{ingredient.amount} {ingredient.name}</li>
@@ -62,38 +67,32 @@ export default function SingleRecipe() {
               </ul>
             </Col>
           </Row>
-          <Row>
-            <h2>Method</h2>
+          <Row className='mt-5 mb-3'>
+            <h3>Method</h3>
             <p>{recipe.method}</p>
           </Row>
           {recipe.reviews.map((review, index) => {
             return (
-              <Row key={index}>
-                <Container>
-                  <Row>
-                    <Col>
-                      <h3>{review.comment}</h3>
-                    </Col>
-                    <Col>
-                      <div>
-                        {Array(review.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} key={i} />)}
-                      </div>
-                      <h3>{recipe.addedBy.username}</h3>
-                    </Col>
-                  </Row>
-                </Container>
+              <Row key={index} className='reviews'>
+                <Col md='10'>
+                  <h4>{review.comment}</h4>
+                </Col>
+                <Col className='admin-information' md='2'>
+                  <div>
+                    {Array(review.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#fff' }} key={i} />)}
+                  </div>
+                  <p>by {recipe.addedBy.username}</p>
+                </Col>
               </Row>
             )
           })}
-          <Row>
-            <Row>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Review</Form.Label>
-                <Form.Control as="textarea" rows={3} />
-              </Form.Group>
-            </Row>
-            <Row>
-              <Col>
+          <Row className='mt-4'>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Label className='fw-bold'>Write a review</Form.Label>
+              <Form.Control as="textarea" rows={2} />
+            </Form.Group>
+            <Row className='submit-review-container'>
+              <Col md='3'>
                 <FloatingLabel
                   controlId="floatingSelectGrid"
                   label="Rating"
@@ -108,9 +107,9 @@ export default function SingleRecipe() {
                   </Form.Select>
                 </FloatingLabel>
               </Col>
-              <Col>
+              <Col md='3'>
                 <Form.Group>
-                  <Button>Submit</Button>
+                  <Button className='submit-review'>Submit</Button>
                 </Form.Group>
               </Col>
             </Row>

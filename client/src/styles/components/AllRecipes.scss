@@ -1,5 +1,9 @@
 .recipes-container {
   margin-top: 24px;
+  img {
+    max-height: 200px;
+    width: auto;
+  }
 }
 
 .recipe-colum {
@@ -14,8 +18,7 @@
     @extend %green-button-diet;
   }
   .category {
-    font-style: italic;
-    margin-bottom: 0;
+    @extend %category;
   }
   h3 {
     font-size: 1.4rem;
