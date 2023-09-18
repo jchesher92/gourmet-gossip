@@ -17,7 +17,7 @@ export default function Header({ resetFilters }) {
   const { user, setUser } = useContext(UserContext)
 
   return (
-    <header>
+    <header className='mb-4'>
       <Container className='header'>
         <Row>
           <Col md='5'><Link to='/' onClick={resetFilters}><h1>Gourmet Gossip</h1></Link></Col>
