@@ -34,7 +34,7 @@ export default function FormPage({ title, formStructure, request }) {
     <>
       <section className="container form-container">
         <h1>{title}</h1>
-        <form>
+        <form noValidate>
           {
             formStructure.map((field, idx) => {
               return (

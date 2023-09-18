@@ -12,10 +12,7 @@ export default function Home({ handleChange, newSearch }) {
   return (
     <Container>
       <Row>
-        <Col><h1>Home</h1></Col>
-      </Row>
-      <Row>
-        <Search 
+        <Search
           handleChange={handleChange}
           newSeach={newSearch} />
       </Row>
