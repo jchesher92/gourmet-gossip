@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
-import Select from 'react-select'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
 import { UserContext } from '../App.js'
@@ -14,7 +13,7 @@ import Form from 'react-bootstrap/Form'
 
 export default function FormPage({ title, formStructure, setFormStructure, request, redirect }) {
 
-  const [ ingredients, setIngredients ] = useState([{}])
+  const [ingredients, setIngredients] = useState([{}])
   const { user, setUser } = useContext(UserContext)
   const [formData, setFormData] = useState(stateValues(formStructure))
   const [errorMessage, setErrorMessage] = useState('')
@@ -35,7 +34,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
   //   setFormData(stateValues(formStructure))
   //   console.log('formStructure after button', formStructure)
   // }
-  
+
   function handleChangeIngredients(index, event) {
     // console.log('ingredients changed:', event)
     if (event.target.name === 'name' || event.target.name === 'amount') {
@@ -63,7 +62,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     })
     return fieldsObj
   }
-  
+
   function formValues(formStructure) {
     return formStructure.map(field => {
       let name = field.name.replace(' ', '')
@@ -129,9 +128,9 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   </>
                   }
                   {/* INGREDIENTS */}
-                  { field.type === 'text-list' &&
+                  {field.type === 'text-list' &&
                     <>
-                      { field.ingredients.map((ingredient, index) => {
+                      {field.ingredients.map((ingredient, index) => {
                         return (
                           <Fragment key={index}>
                             <Form.Control required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
