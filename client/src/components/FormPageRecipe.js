@@ -19,6 +19,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
   const [formData, setFormData] = useState(stateValues(formStructure))
   const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
+  const [validated, setValidated] = useState(false)
 
   // function addFields(e) {
   //   console.log('button clicked')
@@ -77,6 +78,13 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
   // }
 
   async function handleSubmit(e) {
+    console.log('event', e)
+    const form = e.currentTarget
+    if (form.checkValidity() === false) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    setValidated(true)
     e.preventDefault()
     try {
       const { data } = await request(formData)
@@ -89,7 +97,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
         navigate(redirect)
       }
     } catch (error) {
-      console.log(error)
+      console.log('error:', error)
       setErrorMessage(error.response.data.error)
     }
   }
@@ -98,7 +106,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     <>
       <section className="container form-container">
         <h1>{title}</h1>
-        <form>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           {
             formValues(formStructure).map((field, idx) => {
               return (
@@ -109,13 +117,16 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   id={idx}
                 >
                   {/* SELECT */}
-                  {field.type === 'select' &&
-                    <Form.Select aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
-                      <option>- {field.name} -</option>
-                      {field.options.map((option, index) => {
-                        return <option key={index}>{option}</option>
+                  { field.type === 'select' &&
+                  <>
+                    <Form.Control as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
+                      <option value="">- {field.name} -</option>
+                      { field.options.map((option, index) => {
+                        return <option value={option} key={index}>{option}</option>
                       })}
-                    </Form.Select>
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
+                  </>
                   }
                   {/* INGREDIENTS */}
                   {field.type === 'text-list' &&
@@ -123,8 +134,10 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                       {field.ingredients.map((ingredient, index) => {
                         return (
                           <Fragment key={index}>
-                            <Form.Control type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
-                            <Form.Control type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control.Feedback type="invalid">Name of ingredient is required.</Form.Control.Feedback>
+                            <Form.Control required type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control.Feedback type="invalid">Amount of ingredient is required.</Form.Control.Feedback>
                           </Fragment>
                         )
                       })}
@@ -132,22 +145,32 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                     </>
                   }
                   {/* IMAGE */}
-                  {field.type === 'file' && <ImageUpload formData={formData} setFormData={setFormData} />}
+                  { field.type === 'file' &&
+                  <>
+                    <ImageUpload required formData={formData} setFormData={setFormData} />
+                  </>
+                  }
                   {/* TEXT -NUMBER */}
-                  {(field.type === 'text' || field.type === 'number') &&
-                    <Form.Control placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                  { (field.type === 'text' || field.type === 'number') && 
+                  <>
+                    <Form.Control required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
+                  </>
                   }
                   {/* TEXTAREA */}
-                  {field.type === 'textarea' &&
-                    <Form.Control placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                  }
+                  { field.type === 'textarea' &&
+                  <>
+                    <Form.Control required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
+                  </>
+                  }                  
                 </FloatingLabel>
               )
             })
           }
           {errorMessage && <h2>{errorMessage}</h2>}
-          <Button onClick={handleSubmit}>{title}</Button>
-        </form>
+          <Button type="submit">{title}</Button>
+        </Form>
       </section>
     </>
   )
