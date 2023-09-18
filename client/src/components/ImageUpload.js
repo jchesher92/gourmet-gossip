@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Form from 'react-bootstrap/Form'
 
 export default function ImageUpload({ formData, setFormData }) {
 
@@ -20,7 +21,8 @@ export default function ImageUpload({ formData, setFormData }) {
         <img src={formData.image} alt="uploaded image" className='image-upload' />
         :
         <>
-          <input type='file' className='form-control' name='image' onChange={handleUpload}></input>
+          <Form.Control required type='file' className='form-control' name='image' onChange={handleUpload}></Form.Control>
+          <Form.Control.Feedback type="invalid">Image is required.</Form.Control.Feedback>
           <label  htmlFor="image" className="form-label">Image Upload</label>
         </>
       }
