@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
-import Select from 'react-select'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
 import { UserContext } from '../App.js'
@@ -14,7 +13,7 @@ import Form from 'react-bootstrap/Form'
 
 export default function FormPage({ title, formStructure, setFormStructure, request, redirect }) {
 
-  const [ ingredients, setIngredients ] = useState([{}])
+  const [ingredients, setIngredients] = useState([{}])
   const { user, setUser } = useContext(UserContext)
   const [formData, setFormData] = useState(stateValues(formStructure))
   const [errorMessage, setErrorMessage] = useState('')
@@ -34,7 +33,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
   //   setFormData(stateValues(formStructure))
   //   console.log('formStructure after button', formStructure)
   // }
-  
+
   function handleChangeIngredients(index, event) {
     // console.log('ingredients changed:', event)
     if (event.target.name === 'name' || event.target.name === 'amount') {
@@ -62,7 +61,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     })
     return fieldsObj
   }
-  
+
   function formValues(formStructure) {
     return formStructure.map(field => {
       let name = field.name.replace(' ', '')
@@ -109,18 +108,18 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   id={idx}
                 >
                   {/* SELECT */}
-                  { field.type === 'select' &&
-                  <Form.Select aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
-                    <option>- {field.name} -</option>
-                    { field.options.map((option, index) => {
-                      return <option key={index}>{option}</option>
-                    })}
-                  </Form.Select>
+                  {field.type === 'select' &&
+                    <Form.Select aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
+                      <option>- {field.name} -</option>
+                      {field.options.map((option, index) => {
+                        return <option key={index}>{option}</option>
+                      })}
+                    </Form.Select>
                   }
                   {/* INGREDIENTS */}
-                  { field.type === 'text-list' &&
+                  {field.type === 'text-list' &&
                     <>
-                      { field.ingredients.map((ingredient, index) => {
+                      {field.ingredients.map((ingredient, index) => {
                         return (
                           <Fragment key={index}>
                             <Form.Control type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
@@ -132,15 +131,15 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                     </>
                   }
                   {/* IMAGE */}
-                  { field.type === 'file' && <ImageUpload formData={formData} setFormData={setFormData} /> }
+                  {field.type === 'file' && <ImageUpload formData={formData} setFormData={setFormData} />}
                   {/* TEXT -NUMBER */}
-                  { (field.type === 'text' || field.type === 'number') && 
-                  <Form.Control placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                  {(field.type === 'text' || field.type === 'number') &&
+                    <Form.Control placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
                   }
                   {/* TEXTAREA */}
-                  { field.type === 'textarea' &&
-                  <Form.Control placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                  }                  
+                  {field.type === 'textarea' &&
+                    <Form.Control placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                  }
                 </FloatingLabel>
               )
             })
