@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { UserContext } from '../App'
 import { deleteToken } from '../utility/auth'
+import headerPicture from '../images/food.jpg'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,10 +18,10 @@ export default function Header({ resetFilters }) {
   const { user, setUser } = useContext(UserContext)
 
   return (
-    <header className='mb-4'>
+    <header>
       <Container className='header'>
         <Row>
-          <Col md='5'><Link to='/' onClick={resetFilters}><h1>Gourmet Gossip</h1></Link></Col>
+          <Col md='5'><Link to='/' onClick={resetFilters}><p>Gourmet Gossip</p></Link></Col>
           <Col md='7' className='navbar-right'>
             <NavLink to='/recipes'>All recipes</NavLink>
             <Dropdown>

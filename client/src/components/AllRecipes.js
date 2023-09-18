@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import foodExample from '../images/food-example.jpg'
+import HeaderPicture from './HeaderPicture'
 
 // COMPONENTS
 import Search from './Search'
@@ -16,6 +16,7 @@ import Col from 'react-bootstrap/Col'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faStar } from '@fortawesome/free-regular-svg-icons'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
+
 
 
 export default function AllRecipes({ filter, handleChange, newSearch, newCategory, newDiet, newDifficulty, resetFilters }) {
@@ -51,6 +52,7 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
 
   return (
     <>
+      <HeaderPicture />
       <Search
         handleChange={handleChange}
         newSearch={newSearch}

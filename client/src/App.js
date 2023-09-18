@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // GLOBAL COMPONENTS
 import Header from './components/Header'
+import HeaderPicture from './components/HeaderPicture'
 import Footer from './components/Footer'
 
 // PAGE COMPONENTS
