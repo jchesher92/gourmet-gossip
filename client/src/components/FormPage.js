@@ -1,5 +1,8 @@
 import { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
+
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
 import { UserContext } from '../App.js'
@@ -8,7 +11,9 @@ export default function FormPage({ title, formStructure, request }) {
   const { user, setUser } = useContext(UserContext)
   const [formData, setFormData] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
+  const [validated, setValidated] = useState(false)
   const navigate = useNavigate()
+
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -16,6 +21,12 @@ export default function FormPage({ title, formStructure, request }) {
   }
 
   async function handleSubmit(e) {
+    const form = e.currentTarget
+    if (form.checkValidity() === false) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    setValidated(true)
     e.preventDefault()
     try {
       const { data } = await request(formData)
@@ -34,20 +45,23 @@ export default function FormPage({ title, formStructure, request }) {
     <>
       <section className="container form-container">
         <h1>{title}</h1>
-        <form noValidate>
+        <Form noValidate validated={validated} onSubmit={handleSubmit} className='mb-4'>
           {
             formStructure.map((field, idx) => {
               return (
-                <div className="form-floating mb-3" key={idx}>
-                  <input type={field.type} className="form-control" id={field.name} name={field.name} placeholder={field.name} onChange={handleChange}></input>
-                  <label htmlFor={field.name} className="form-label">{field.name}</label>
-                </div>
+                <Form.Group className="form-floating mb-3" key={idx} controlId={field.name}>
+                  <Form.Control type={field.type} name={field.name} placeholder={field.name} onChange={handleChange} required></Form.Control>
+                  <Form.Label>{field.name}</Form.Label>
+                  <Form.Control.Feedback type="invalid">
+                    {field.name} is required.
+                  </Form.Control.Feedback>
+                </Form.Group>
               )
             })
           }
           {errorMessage && <h2>{errorMessage}</h2>}
-          <Button onClick={handleSubmit}>{title}</Button>
-        </form>
+          <Button type='submit'>{title}</Button>
+        </Form>
       </section>
     </>
   )
