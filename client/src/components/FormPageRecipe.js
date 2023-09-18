@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
-import Select from 'react-select'
+// import Select from 'react-select'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
 import { UserContext } from '../App.js'
