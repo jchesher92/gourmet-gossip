@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
@@ -11,7 +11,7 @@ import { Fragment } from 'react'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Form from 'react-bootstrap/Form'
 
-export default function FormPage({ title, formStructure, setFormStructure, request, redirect }) {
+export default function FormPage({ title, formStructure, setFormStructure, request, redirect, onLoad }) {
 
   const [ingredients, setIngredients] = useState([{}])
   const { user, setUser } = useContext(UserContext)
@@ -35,23 +35,6 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
   //   console.log('formStructure after button', formStructure)
   // }
 
-  function handleChangeIngredients(index, event) {
-    // console.log('ingredients changed:', event)
-    if (event.target.name === 'name' || event.target.name === 'amount') {
-      setIngredients([{ ...ingredients[index], [event.target.name]: event.target.value }])
-      setFormData({ ...formData, ingredients })
-    } else {
-      setFormData({ ...formData, [event.target.name]: event.target.value })
-    }
-    setErrorMessage('')
-  }
-
-  function handleChange(event) {
-    // console.log('input changed but not ingredients:', event)
-    setFormData({ ...formData, [event.target.name]: event.target.value })
-    setErrorMessage('')
-  }
-
   function stateValues(formStructure) {
     const fieldsObj = {}
     // console.log('formStructure state values', formStructure)
@@ -70,6 +53,43 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
       return { ...field, variable: name }
     })
   }
+
+  useEffect(() => {
+    async function fillFormFields() {
+      try {
+        const { data } = await onLoad()
+        console.log('data', data)
+        console.log('title', data.title)
+        setFormData(data)
+        console.log('formdata', formData)
+      } catch (error) {
+        console.log(error)
+        setErrorMessage(error)
+      }
+    }
+    if (onLoad) {
+      fillFormFields()
+    }
+  }, [onLoad])
+
+  function handleChangeIngredients(index, event) {
+    // console.log('ingredients changed:', event)
+    if (event.target.name === 'name' || event.target.name === 'amount') {
+      setIngredients([{ ...ingredients[index], [event.target.name]: event.target.value }])
+      setFormData({ ...formData, ingredients })
+    } else {
+      setFormData({ ...formData, [event.target.name]: event.target.value })
+    }
+    setErrorMessage('')
+  }
+
+  function handleChange(event) {
+    // console.log('input changed but not ingredients:', event)
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+    setErrorMessage('')
+  }
+
+  
 
   // function handleChange(e) {
   //   setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -167,7 +187,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
               )
             })
           }
-          {errorMessage && <h2>{errorMessage}</h2>}
+          {/* {errorMessage && <h2>{errorMessage}</h2>} */}
           <Button type="submit">{title}</Button>
         </Form>
       </section>
