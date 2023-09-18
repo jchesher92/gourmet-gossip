@@ -24,8 +24,8 @@ export const getSingleRecipe = async (req, res) => {
 
     const { id } = req.params
 
-    checkId(id)
-    
+    // checkId(id)
+
     const recipe = await Recipe.findById(id).populate('addedBy').populate('reviews.addedBy')
 
     if (!recipe) {
