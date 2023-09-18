@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
   },
-  comment: { type: String }
+  comment: { type: String },
 })
 
 // ! Recipe Schema
@@ -26,11 +26,11 @@ const recipeSchema = new mongoose.Schema({
   addedBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
   },
   reviews: [
     reviewSchema
-  ]
+  ],
 })
 
 export default mongoose.model('Recipe', recipeSchema)
