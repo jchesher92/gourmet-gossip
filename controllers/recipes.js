@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import Recipe from '../models/recipe.js'
+import { sendErrors } from '../utils/errors.js'
 
 // ! Index route
 // Endpoint: GET /recipes
@@ -20,6 +21,11 @@ export const getSingleRecipe = async (req, res) => {
   }
 
   try {
+
+    const { id } = req.params
+
+    // checkId(id)
+
     const recipe = await Recipe.findById(id).populate('addedBy').populate('reviews.addedBy')
 
     if (!recipe) {
@@ -28,8 +34,7 @@ export const getSingleRecipe = async (req, res) => {
 
     return res.json(recipe)
   } catch (error) {
-    console.log('ERROR ->', error)
-    return res.status(404).json({ message: error.message })
+    sendErrors(error, res)
   }
 }
 
@@ -42,6 +47,7 @@ export const createRecipe = async (req, res) => {
     return res.status(201).json(recipeCreated)
   } catch (error) {
     console.log(error.code)
+    console.log(error)
     if (error.code === 11000) {
       return res.status(422).json({
         error: {
@@ -51,6 +57,8 @@ export const createRecipe = async (req, res) => {
       })
     }
     return res.status(422).json(error)
+
+    // sendErrors(error, res)
   }
 }
 
