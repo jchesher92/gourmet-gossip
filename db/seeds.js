@@ -40,6 +40,8 @@ const seedDatabase = async () => {
       return { ...recipe, addedBy: usersAdded[randomUserId]._id, reviews: reviewsWithAddedBy[randomReview] }
     })
 
+    console.log(usersAdded[0])
+
     // Input the recipesData we've imported into the database as individual documents
     const recipesAdded = await Recipe.create(recipesWithAddedBy)
     console.log(`🌱 Seeded ${recipesAdded.length} documents into the recipes collection`)

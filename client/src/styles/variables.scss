@@ -28,6 +28,12 @@ $grey: #212529;
   margin-top: 30px;
   text-decoration: none;
   width: fit-content;
+
+  &:hover {
+    border-color: $green;
+    background: $green;
+    color: $white;
+  }
 }
 
 %green-button-diet {
@@ -38,6 +44,11 @@ $grey: #212529;
   text-transform: uppercase;
   font-size: 17px;
   letter-spacing: 1px;
+
+  &:hover {
+    border-color: $red;
+    background: $red;
+  }
 }
 
 @mixin flex-align-justify-center($direction) {

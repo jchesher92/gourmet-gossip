@@ -46,7 +46,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
               <option value="Advanced">Advanced</option>
             </select>
           </Col>
-          { location.pathname !== '/recipes' ? 
+          {location.pathname !== '/recipes' ?
             <Col md='2'>
               <Link className="btn btn-outline-dark w-100" to="/recipes">Search</Link>
             </Col>
