@@ -1,26 +1,19 @@
 .search-container {
   padding: 30px;
   background: $white;
+
   .form-control:focus {
     border-color: $green;
   }
-  .btn, .btn-red:hover {
-    border-color: $green;
-    background: $green;
-    color: $white;
+
+  .btn {
+    @extend %green-button-diet
   }
-  .btn:active, .btn:hover {
-    border-color: $red;
-    background: $red;
-  }
+
   .btn-red {
-    background: $red;
-    border-color: $red;
+    @extend %red-button
   }
-  .btn-red:hover {
-    border-color: $green;
-    background: $green;
-  }
+
   .row>* {
     padding-right: calc(var(--bs-gutter-x) * .2);
     padding-left: calc(var(--bs-gutter-x) * .2);
