@@ -9,12 +9,12 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   favourites: [{
     type: mongoose.Schema.ObjectId,
-    ref: 'Recipe'
+    ref: 'Recipe',
   }],
   recipesAdded: [{
     type: mongoose.Schema.ObjectId,
-    ref: 'Recipe'
-  }]
+    ref: 'Recipe',
+  }],
 })
 
 // * Virtual fields
