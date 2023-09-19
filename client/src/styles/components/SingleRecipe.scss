@@ -25,9 +25,10 @@
 
 .reviews {
   background: $green;
-  padding: 30px 30px 13px;
+  padding: 30px;
   margin: 0px;
   color: $white;
+  border-bottom: 8px solid white;
   h4 {
     font-size: 1rem;
     font-weight: 300;
