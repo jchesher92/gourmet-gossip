@@ -3,12 +3,12 @@ import mongoose from 'mongoose'
 
 // ! Review Schema
 const reviewSchema = new mongoose.Schema({
-  rating: { type: Number },
+  rating: { type: Number, required: true },
   addedBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
   },
-  comment: { type: String },
+  comment: { type: String, required: true },
 })
 
 // ! Recipe Schema

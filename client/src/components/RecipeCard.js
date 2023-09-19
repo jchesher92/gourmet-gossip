@@ -35,7 +35,7 @@ export default function RecipeCard({ recipe }) {
         <p className="p-next-icon-first">{recipe.difficulty}</p>
         <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
         <p className="p-next-icon-second">{recipe.time} min</p>
-        <Link to={linkUrl} className="red-button">SEE RECIPE</Link>
+        <Link to={linkUrl} className="red-button mt-3">SEE RECIPE</Link>
       </div>
     </Col>
   )

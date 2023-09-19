@@ -77,20 +77,16 @@ export default function SingleRecipe() {
       setReviewSent(true)
       setNewCommentInput('')
       setNewRatingInput('')
-      if (data.token) {
-        setToken(data.token)
-        setUser(true)
-      }
+      setValidated('')
+      // if (data.token) {
+      //   setToken(data.token)
+      //   setUser(true)
+      // }
       setFormData({ rating: 5 })
-      console.log('comment value', formData.comment)
     } catch (error) {
       console.log(error)
       setErrorMessage(error.response.data.error)
     }
-  }
-
-  function handleChangeRange(e) {
-    console.log(e.target.value)
   }
 
   return (
@@ -145,11 +141,12 @@ export default function SingleRecipe() {
             )
           })}
           { user &&
-            <Form onSubmit={handleSubmit}>
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className='mt-4'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                   <Form.Label className='fw-bold'>Write a review</Form.Label>
-                  <Form.Control as="textarea" rows={3} onChange={handleChange} value={newCommentInput} name='comment' />
+                  <Form.Control as="textarea" rows={3} onChange={handleChange} value={newCommentInput} name='comment' required />
+                  <Form.Control.Feedback type="invalid">Review is required.</Form.Control.Feedback>
                 </Form.Group>
                 <Row className='submit-review-container'>
                   <Col md='4'>
@@ -187,10 +184,10 @@ export default function SingleRecipe() {
                       </datalist>
                     </Form.Group>
                   </Col>
-                  <Row>
+                  <Row className='mt-4'>
                     <Col>
                       <Form.Group>
-                        <Button type="submit" className='submit-review'>Submit</Button>
+                        <Button type="submit" className='submit-review'>Add review</Button>
                       </Form.Group>
                     </Col>
                   </Row>
