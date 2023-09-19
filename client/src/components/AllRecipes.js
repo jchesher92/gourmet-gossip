@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+
 import HeaderPicture from './HeaderPicture'
 
 // COMPONENTS
@@ -11,13 +11,9 @@ import Spinner from './Spinner'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import RecipeCard from './RecipeCard'
 
 // ICON
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faStar } from '@fortawesome/free-regular-svg-icons'
-import { faFire } from '@fortawesome/free-solid-svg-icons'
-
-
 
 export default function AllRecipes({ filter, handleChange, newSearch, newCategory, newDiet, newDifficulty, resetFilters }) {
 
@@ -29,12 +25,12 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
       try {
         const { data } = await axios.get('/api/recipes')
         setRecipes(data)
-        console.log('recipes', recipes)
       } catch (error) {
         console.log(error)
       }
     }
     getRecipeData()
+    console.log('recipes', recipes) // This is empty because setRecipes is a promise
   }, [])
 
   useEffect(() => {
@@ -62,38 +58,12 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
         resetFilters={resetFilters}
       />
 
-      { filteredRecipes.length > 0 ?
+      {filteredRecipes.length > 0 ?
         <Container className='recipes-container'>
           <Row gx-5="true" >
-            {filteredRecipes.map(({ _id, diet, category, title, description, difficulty, time, image }) => {
+            {filteredRecipes.map(recipe => {
               return (
-                <Col
-                  lg='3'
-                  md='4'
-                  sm='6'
-                  key={_id}
-                  className="recipes-flex"
-                >
-                  <img src={image} />
-                  <div className='recipe-colum'>
-                    <span className="star-rating">
-                      <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} />
-                      <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} />
-                      <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} />
-                      <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} />
-                      <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} />
-                    </span>
-                    <p className="diet-button">{diet}</p>
-                    <p className="category">{category}</p>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
-                    <p className="p-next-icon-first">{difficulty}</p>
-                    <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
-                    <p className="p-next-icon-second">{time} min</p>
-                    <Link to={_id} className="red-button">SEE RECIPE</Link>
-                  </div>
-                </Col>
+                <RecipeCard recipe={recipe} key={recipe._id} />
               )
             })}
           </Row>

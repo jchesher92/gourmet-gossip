@@ -7,6 +7,7 @@ import Spinner from './Spinner'
 import Container from 'react-bootstrap/esm/Container'
 import Row from 'react-bootstrap/esm/Row'
 import profileImg from '../images/profile-default.png'
+import RecipeCard from './RecipeCard'
 
 export default function Profile() {
   const { user, setUser } = useContext(UserContext)
@@ -28,6 +29,7 @@ export default function Profile() {
           const userRecipes = recipes.filter(recipe => recipe.addedBy === profile._id)
           setUserRecipes(userRecipes)
           setProfile(profile)
+          console.log(userRecipes)
         } else {
           redirect('/login')
         }
@@ -50,7 +52,11 @@ export default function Profile() {
             </div>
           </Row>
           <Row>
-            <h1>Recipes added: {profile.recipesAdded}</h1>
+            {userRecipes.length > 0 &&
+              userRecipes.map(recipe => {
+                return <RecipeCard key={recipe._id} recipe={recipe} />
+              })
+            }
           </Row>
         </>
         :
