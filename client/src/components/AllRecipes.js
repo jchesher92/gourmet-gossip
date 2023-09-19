@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import HeaderPicture from './HeaderPicture'
-
 // COMPONENTS
 import Search from './Search'
 import Spinner from './Spinner'
@@ -48,7 +46,6 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
 
   return (
     <>
-      <HeaderPicture />
       <Search
         handleChange={handleChange}
         newSearch={newSearch}

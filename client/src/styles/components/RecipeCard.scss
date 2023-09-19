@@ -1,0 +1,49 @@
+.recipe-colum {
+  background: $white;
+  padding: 6px 11px 24px 24px;
+
+  .star-rating {
+    text-align: right;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .diet-button {
+    @extend %green-button-diet;
+  }
+
+  .category {
+    @extend %category;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .p-next-icon-first {
+    margin-right: 18px;
+  }
+
+  .p-next-icon-first,
+  .p-next-icon-second {
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .red-button {
+    @extend %red-button;
+  }
+}
+
+.recipes-flex {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+  .recipes-container {
+    padding: 0px;
+  }
+}
