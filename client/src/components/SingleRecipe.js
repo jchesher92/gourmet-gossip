@@ -89,7 +89,7 @@ export default function SingleRecipe() {
           <Row className='mt-4'>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
               <Form.Label className='fw-bold'>Write a review</Form.Label>
-              <Form.Control as="textarea" rows={2} />
+              <Form.Control as="textarea" rows={3} />
             </Form.Group>
             <Row className='submit-review-container'>
               <Col md='3'>
