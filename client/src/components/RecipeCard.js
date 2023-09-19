@@ -1,22 +1,30 @@
 import Col from 'react-bootstrap/esm/Col'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../App.js'
+import { useContext } from 'react'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faStar } from '@fortawesome/free-regular-svg-icons'
+import { faClock, faStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 
 export default function RecipeCard({ recipe }) {
   console.log(recipe)
   const linkUrl = `/recipes/${recipe._id}`
+  const { user, setUser } = useContext(UserContext)
 
   return (
     <Col
       lg='3'
       md='4'
       sm='6'
-      className="recipes-flex"
+      className="recipes-flex favorites-icon-container"
     >
+      { user && 
+        <span className='favorites-icon'>
+          <FontAwesomeIcon icon={faHeart} size="2xl" style={{ color: '#ff5f40' }} />
+        </span>
+      }
       <img src={recipe.image} />
       <div className='recipe-colum'>
         <span className="star-rating">
@@ -35,7 +43,10 @@ export default function RecipeCard({ recipe }) {
         <p className="p-next-icon-first">{recipe.difficulty}</p>
         <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
         <p className="p-next-icon-second">{recipe.time} min</p>
-        <Link to={linkUrl} className="red-button mt-3">SEE RECIPE</Link>
+        <div className='container-recipe-buttons mt-3'>
+          <Link to={linkUrl} className="red-button">SEE RECIPE</Link>
+          
+        </div>
       </div>
     </Col>
   )
