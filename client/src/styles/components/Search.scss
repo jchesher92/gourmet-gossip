@@ -1,7 +1,7 @@
 .search-container {
   padding: 30px;
   background: $white;
-  margin-top: 170px;
+  margin-top: 320px;
 
   .form-control:focus {
     border-color: $green;
@@ -37,7 +37,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    max-height: 350px;
+    max-height: 500px;
     object-fit: cover; // This prevents the image from stretching 
   }
 }

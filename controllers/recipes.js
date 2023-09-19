@@ -10,6 +10,21 @@ export const getAllRecipes = async (req, res) => {
   return res.json(recipes)
 }
 
+// ! Random route
+// Endpoint: GET /recipes/random
+export const randomRecipe = async (req, res) => {
+  // Extract data from the database via the model
+  const random = await Recipe.aggregate().sample(1)
+  return res.json(random)
+}
+
+// // ! Top rated
+// // Endpoint: GET /recipes/random
+// export const topRatedRecipes = async (req, res) => {
+//   // Extract data from the database via the model
+//   const topRated = await Recipe.aggregate().sort({ avgRating: 'asc' })
+//   return res.json(topRated)
+// }
 
 // ! Show route
 // Endpoint: GET /recipes/:id

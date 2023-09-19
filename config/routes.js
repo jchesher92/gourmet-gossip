@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllRecipes, getSingleRecipe, createRecipe, updateRecipe, deleteRecipe, likeRecipe } from '../controllers/recipes.js'
+import { getAllRecipes, getSingleRecipe, createRecipe, updateRecipe, deleteRecipe, likeRecipe, randomRecipe } from '../controllers/recipes.js'
 import { registerUser, loginUser, getUserProfile } from '../controllers/users.js'
 import { createReview, deleteReview } from '../controllers/reviews.js'
 import { secureRoute } from './secureRoute.js'
@@ -11,6 +11,14 @@ const router = express.Router()
 router.route('/recipes')
   .get(getAllRecipes)
   .post(secureRoute, createRecipe)
+
+// Random route
+router.route('/recipes/random')
+  .get(randomRecipe)
+
+// // Top Rated route
+// router.route('/recipes/toprated')
+//   .get(topRatedRecipes)
 
 // Single route
 router.route('/recipes/:id')
@@ -29,6 +37,8 @@ router.route('/recipes/:id/reviews')
 // Single route
 router.route('/recipes/:recipeId/reviews/:reviewId')
   .delete(secureRoute, deleteReview)
+
+
 
 // ! Users
 // Register route

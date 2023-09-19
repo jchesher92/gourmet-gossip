@@ -1,5 +1,6 @@
 // ! Imports
 import mongoose from 'mongoose'
+import random from 'mongoose-random'
 
 // ! Review Schema
 const reviewSchema = new mongoose.Schema({
@@ -48,6 +49,10 @@ recipeSchema
 
 recipeSchema.set('toJSON', {
   // Adding this line means any virtuals created using get method will be included in the JSON response
+  virtuals: true
+})
+
+recipeSchema.set('toObject', {
   virtuals: true
 })
 
