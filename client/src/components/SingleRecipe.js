@@ -13,6 +13,8 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/esm/Button'
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/esm/FloatingLabel'
+import FormRange from 'react-bootstrap/FormRange'
+import { Range } from 'react-range'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -25,7 +27,7 @@ import { getToken, setToken } from '../utility/auth'
 export default function SingleRecipe() {
 
   const [recipe, setRecipe] = useState()
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({ rating: 5 })
   const [errorMessage, setErrorMessage] = useState('')
   const [validated, setValidated] = useState(false)
   const [ newCommentInput, setNewCommentInput ] = useState('')
@@ -79,7 +81,7 @@ export default function SingleRecipe() {
         setToken(data.token)
         setUser(true)
       }
-      setFormData({})
+      setFormData({ rating: 5 })
       console.log('comment value', formData.comment)
     } catch (error) {
       console.log(error)
@@ -87,6 +89,9 @@ export default function SingleRecipe() {
     }
   }
 
+  function handleChangeRange(e) {
+    console.log(e.target.value)
+  }
 
   return (
     <>
@@ -124,6 +129,7 @@ export default function SingleRecipe() {
             <p>{recipe.method}</p>
           </Row>
           {recipe.reviews.map((review, index) => {
+            console.log('user recipe', recipe)
             return (
               <Row key={index} className='reviews'>
                 <Col md='10'>
@@ -133,7 +139,7 @@ export default function SingleRecipe() {
                   <div>
                     {Array(review.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#fff' }} key={i} />)}
                   </div>
-                  <p>by {recipe.addedBy.username}</p>
+                  <p>by {recipe.reviews[index].addedBy.username}</p>
                 </Col>
               </Row>
             )
@@ -147,7 +153,7 @@ export default function SingleRecipe() {
                 </Form.Group>
                 <Row className='submit-review-container'>
                   <Col md='4'>
-                    <FloatingLabel
+                    {/* <FloatingLabel
                       controlId="floatingSelectGrid"
                       label="Rating"
                     >
@@ -157,15 +163,37 @@ export default function SingleRecipe() {
                         <option value="2">Two Stars</option>
                         <option value="3">Three Stars</option>
                         <option value="4">Four Stars</option>
-                        <option selected value="5">Five Stars</option>
+                        <option value="5">Five Stars</option>
                       </Form.Select>
-                    </FloatingLabel>
-                  </Col>
-                  <Col md='3'>
+                    </FloatingLabel> */}
                     <Form.Group>
-                      <Button type="submit" className='submit-review'>Submit</Button>
+                      <Form.Label className='fw-bold'>Select a rating </Form.Label>
+                      <Form.Range
+                        min={1}
+                        max={5}
+                        defaultValue='5'
+                        list="markers"
+                        onChange={handleChange}
+                        name='rating'
+                        style={{ background: '#000', appearance: 'auto' }}
+                        color='black'
+                      />
+                      <datalist id="markers" className='input-range' >
+                        <option value='1' label='1'></option>
+                        <option value='2' label='2'></option>
+                        <option value='3' label='3'></option>
+                        <option value='4' label='4'></option>
+                        <option value='5' label='5'></option>
+                      </datalist>
                     </Form.Group>
                   </Col>
+                  <Row>
+                    <Col>
+                      <Form.Group>
+                        <Button type="submit" className='submit-review'>Submit</Button>
+                      </Form.Group>
+                    </Col>
+                  </Row>
                 </Row>
               </Row>
             </Form>

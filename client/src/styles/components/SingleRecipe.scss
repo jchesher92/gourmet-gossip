@@ -46,5 +46,10 @@
 
 .submit-review-container {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
+}
+
+.input-range {
+  display: flex;
+  justify-content: space-between;
 }
