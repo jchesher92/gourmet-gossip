@@ -47,3 +47,19 @@
     padding: 0px;
   }
 }
+
+.container-recipe-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.favorites-icon {
+  position: absolute;
+    left: 26px;
+    top: 10px;
+}
+
+.favorites-icon-container {
+  position: relative;
+}
