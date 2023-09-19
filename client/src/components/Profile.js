@@ -4,10 +4,14 @@ import { UserContext } from '../App'
 import { getToken } from '../utility/auth'
 import { useNavigate } from 'react-router'
 import Spinner from './Spinner'
+import Container from 'react-bootstrap/esm/Container'
+import Row from 'react-bootstrap/esm/Row'
+import profileImg from '../images/profile-default.png'
 
 export default function Profile() {
   const { user, setUser } = useContext(UserContext)
   const [profile, setProfile] = useState({})
+  const [userRecipes, setUserRecipes] = useState([])
   const token = getToken()
   const redirect = useNavigate()
 
@@ -15,13 +19,15 @@ export default function Profile() {
     async function getUserProfile() {
       try {
         if (token) {
-          const { data } = await axios.get('/api/profile', {
+          const { data: profile } = await axios.get('/api/profile', {
             headers: {
               'Authorization': token,
             },
           })
-          setProfile(data)
-          console.log(data)
+          const { data: recipes } = await axios.get('/api/recipes')
+          const userRecipes = recipes.filter(recipe => recipe.addedBy === profile._id)
+          setUserRecipes(userRecipes)
+          setProfile(profile)
         } else {
           redirect('/login')
         }
@@ -33,22 +39,23 @@ export default function Profile() {
   }, [])
 
   return (
-    <>
-      <section className='container profile-container'>
-        {profile ?
-          <>
-            <h1>Profile</h1>
+    <Container className='profile-container'>
+      {profile ?
+        <>
+          <Row className='profile-details'>
             <div className='profile-info'>
-              <h1>Profile Name: {profile.username}</h1>
-              <h1>Email: {profile.email}</h1>
-              <h1>Recipes added: {profile.recipesAdded}</h1>
-              <h1>Favorites: {profile.favourites}</h1>
+              <img src={profileImg}></img>
+              <h1>{profile.username}</h1>
+              <h1>{profile.email}</h1>
             </div>
-          </>
-          :
-          <Spinner />
-        }
-      </section>
-    </>
+          </Row>
+          <Row>
+            <h1>Recipes added: {profile.recipesAdded}</h1>
+          </Row>
+        </>
+        :
+        <Spinner />
+      }
+    </Container>
   )
 }
