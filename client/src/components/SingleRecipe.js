@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { UserContext } from '../App.js'
 
 // COMPONENTS
 import Spinner from './Spinner'
@@ -15,12 +16,23 @@ import FloatingLabel from 'react-bootstrap/esm/FloatingLabel'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire, faUtensils } from '@fortawesome/free-solid-svg-icons'
-import { faClock, faStar } from '@fortawesome/free-regular-svg-icons'
+import { faFire, faUtensils, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faClock } from '@fortawesome/free-regular-svg-icons'
+
+// Utils
+import { getToken, setToken } from '../utility/auth'
 
 export default function SingleRecipe() {
 
   const [recipe, setRecipe] = useState()
+  const [formData, setFormData] = useState({})
+  const [errorMessage, setErrorMessage] = useState('')
+  const [validated, setValidated] = useState(false)
+  const [ newCommentInput, setNewCommentInput ] = useState('')
+  const [ newRatingInput, setNewRatingInput ] = useState('')
+  const [ reviewSent, setReviewSent ] = useState(false)
+
+  const { user, setUser } = useContext(UserContext)
   const { id } = useParams()
 
   useEffect(() => {
@@ -33,7 +45,47 @@ export default function SingleRecipe() {
       }
     }
     getRecipeData()
-  }, [])
+  }, [reviewSent])
+
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setReviewSent(false)
+    setErrorMessage('')
+    if (e.target.name === 'comment') {
+      setNewCommentInput(e.target.value)
+    } else if (e.target.name === 'rating') {
+      setNewRatingInput(e.target.value)
+    }
+  }
+
+  async function handleSubmit(e) {
+    const form = e.currentTarget
+    if (form.checkValidity() === false) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    setValidated(true)
+    e.preventDefault()
+    try {
+      const { data } = await axios.post(`/api/recipes/${id}/reviews`, formData, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+      setReviewSent(true)
+      setNewCommentInput('')
+      setNewRatingInput('')
+      if (data.token) {
+        setToken(data.token)
+        setUser(true)
+      }
+      setFormData({})
+      console.log('comment value', formData.comment)
+    } catch (error) {
+      console.log(error)
+      setErrorMessage(error.response.data.error)
+    }
+  }
 
 
   return (
@@ -86,34 +138,38 @@ export default function SingleRecipe() {
               </Row>
             )
           })}
-          <Row className='mt-4'>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label className='fw-bold'>Write a review</Form.Label>
-              <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-            <Row className='submit-review-container'>
-              <Col md='3'>
-                <FloatingLabel
-                  controlId="floatingSelectGrid"
-                  label="Rating"
-                >
-                  <Form.Select aria-label="Rating">
-                    <option disabled>Select a rating</option>
-                    <option value="1">One Star</option>
-                    <option value="2">Two Stars</option>
-                    <option value="3">Three Stars</option>
-                    <option value="4">Four Stars</option>
-                    <option value="5">Five Stars</option>
-                  </Form.Select>
-                </FloatingLabel>
-              </Col>
-              <Col md='3'>
-                <Form.Group>
-                  <Button className='submit-review'>Submit</Button>
+          { user &&
+            <Form onSubmit={handleSubmit}>
+              <Row className='mt-4'>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                  <Form.Label className='fw-bold'>Write a review</Form.Label>
+                  <Form.Control as="textarea" rows={3} onChange={handleChange} value={newCommentInput} name='comment' />
                 </Form.Group>
-              </Col>
-            </Row>
-          </Row>
+                <Row className='submit-review-container'>
+                  <Col md='4'>
+                    <FloatingLabel
+                      controlId="floatingSelectGrid"
+                      label="Rating"
+                    >
+                      <Form.Select aria-label="Rating" onChange={handleChange} value={newRatingInput} name='rating' >
+                        <option disabled>Select a rating</option>
+                        <option value="1">One Star</option>
+                        <option value="2">Two Stars</option>
+                        <option value="3">Three Stars</option>
+                        <option value="4">Four Stars</option>
+                        <option selected value="5">Five Stars</option>
+                      </Form.Select>
+                    </FloatingLabel>
+                  </Col>
+                  <Col md='3'>
+                    <Form.Group>
+                      <Button type="submit" className='submit-review'>Submit</Button>
+                    </Form.Group>
+                  </Col>
+                </Row>
+              </Row>
+            </Form>
+          }
         </Container>
         :
         <Spinner />
