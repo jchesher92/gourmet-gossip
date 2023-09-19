@@ -33,4 +33,22 @@ const recipeSchema = new mongoose.Schema({
   ],
 })
 
+// Average rating field using virtual field
+recipeSchema
+  .virtual('avgRating')
+  .get(function () {
+    // Return a string of No ratings if the reviews array is empty
+    if (!this.reviews.length > 0) return 'No ratings'
+    // Return the average of the review ratings
+    const ratingsSum = this.reviews.reduce((total, review) => {
+      return total + review.rating
+    }, 0)
+    return (ratingsSum / this.reviews.length).toFixed(1)
+  })
+
+recipeSchema.set('toJSON', {
+  // Adding this line means any virtuals created using get method will be included in the JSON response
+  virtuals: true
+})
+
 export default mongoose.model('Recipe', recipeSchema)

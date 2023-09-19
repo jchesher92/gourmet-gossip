@@ -30,9 +30,9 @@ export default function SingleRecipe() {
   const [formData, setFormData] = useState({ rating: 5 })
   const [errorMessage, setErrorMessage] = useState('')
   const [validated, setValidated] = useState(false)
-  const [ newCommentInput, setNewCommentInput ] = useState('')
-  const [ newRatingInput, setNewRatingInput ] = useState('')
-  const [ reviewSent, setReviewSent ] = useState(false)
+  const [newCommentInput, setNewCommentInput] = useState('')
+  const [newRatingInput, setNewRatingInput] = useState('')
+  const [reviewSent, setReviewSent] = useState(false)
 
   const { user, setUser } = useContext(UserContext)
   const { id } = useParams()
@@ -104,6 +104,8 @@ export default function SingleRecipe() {
                   <p className="p-next-icon-first">{recipe.time} min</p>
                   <FontAwesomeIcon icon={faUtensils} style={{ color: '#FF5F40' }} />
                   <p className="p-next-icon-first">{recipe.serves} serves</p>
+                  <FontAwesomeIcon icon={faStar} style={{ color: '#FF5F40' }} />
+                  <p className="p-next-icon-first">{recipe.avgRating}</p>
                 </div>
               </>
             </Col>
