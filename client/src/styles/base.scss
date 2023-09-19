@@ -10,7 +10,13 @@
 body {
   font-family: 'Roboto Flex', sans-serif;
   background: $light-pink;
-  margin-top: 122px;
+  background-image: linear-gradient(to bottom, rgba($light-pink, 0.8), rgba($light-pink, 0.8)), url('../images/restaurant-splash.webp');
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 122px; // This pushes content below the header
+
 }
 
 h1 {
