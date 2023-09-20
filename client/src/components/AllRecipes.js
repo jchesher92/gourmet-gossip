@@ -66,11 +66,7 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
           </Row>
         </Container>
         :
-        <Container>
-          <Row>
-            <Col><p>Unfortunately no recipe matched your search!</p></Col>
-          </Row>
-        </Container>
+        <Spinner />
       }
     </>
   )
