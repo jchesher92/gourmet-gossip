@@ -24,7 +24,6 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
   function addFields(e) {
     e.preventDefault()
     setInputIngredients([...inputIngredients, { name: '', amount: '' }])
-    // setFormData({ ...formData, ingredients: moreIngredients[0].ingredients })
   }
 
   useEffect(() => {
@@ -76,35 +75,14 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
       if (i !== objectToUpdate) return i
       return { ...i, [type]: value }
     })
-
     setInputIngredients(newIngredientsList)
   }
-
-  // function handleChangeIngredients(index, event) {
-  //   if (event.target.name === 'name' || event.target.name === 'amount') {
-  //     console.log(index)
-  //     const name = event.target.name + index
-  //     console.log(name)
-  //     setInputIngredients([{ ...inputIngredients, [name]: event.target.value }])
-  //     setFormData({ ...formData, ingredients: inputIngredients })
-  //   } else {
-  //     setFormData({ ...formData, [event.target.name]: event.target.value })
-  //   }
-  //   setErrorMessage('')
-  // }
 
   function handleChange(event) {
     // console.log('input changed but not ingredients:', event)
     setFormData({ ...formData, [event.target.name]: event.target.value })
     setErrorMessage('')
   }
-
-
-
-  // function handleChange(e) {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value })
-  //   setErrorMessage('')
-  // }
 
   async function handleSubmit(e) {
     console.log('event', e)
