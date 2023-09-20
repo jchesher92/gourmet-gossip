@@ -23,7 +23,8 @@ h1 {
   font-size: 1.8rem;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-size: 1.3rem;
   font-weight: bold;
 }
@@ -32,4 +33,11 @@ h2, h3 {
   .container {
     max-width: 1160px;
   }
+}
+
+.main-content {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
