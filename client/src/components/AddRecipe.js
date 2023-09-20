@@ -14,7 +14,7 @@ export default function AddRecipe() {
     {
       type: 'select',
       name: 'Category',
-      options: ['Breakfast', 'Lunch', 'Dinner', 'Desert', 'Snack'],
+      options: ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snack'],
     },
     {
       type: 'text',
