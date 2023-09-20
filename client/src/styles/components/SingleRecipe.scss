@@ -58,3 +58,18 @@
   display: flex;
   justify-content: space-between;
 }
+
+.diet-icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trash-edit-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.trash-edit-icons svg:hover {
+  color: rgb(251 118 92) !important;
+}

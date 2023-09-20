@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { UserContext } from '../App.js'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // COMPONENTS
 import Spinner from './Spinner'
@@ -18,11 +20,12 @@ import { Range } from 'react-range'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFire, faUtensils, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faFire, faUtensils, faStar, faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 
 // Utils
 import { getToken, setToken } from '../utility/auth'
+import { trusted } from 'mongoose'
 
 export default function SingleRecipe() {
 
@@ -33,9 +36,11 @@ export default function SingleRecipe() {
   const [newCommentInput, setNewCommentInput] = useState('')
   const [newRatingInput, setNewRatingInput] = useState('')
   const [reviewSent, setReviewSent] = useState(false)
+  const redirect = useNavigate()
 
   const { user, setUser } = useContext(UserContext)
   const { id } = useParams()
+  const urlToUpdate = `/recipes/${id}/update`
 
   useEffect(() => {
     const getRecipeData = async () => {
@@ -89,6 +94,46 @@ export default function SingleRecipe() {
     }
   }
 
+
+  // DELETE RECIPE
+
+  const [profile, setProfile] = useState({})
+  const token = getToken()
+
+  useEffect(() => {
+    async function getUserProfile() {
+      try {
+        if (token) {
+          const { data: profile } = await axios.get('/api/profile', {
+            headers: {
+              'Authorization': token,
+            },
+          })
+          setProfile(profile)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getUserProfile()
+  }, [])
+
+  function deleteItem() {
+    async function deleteRecipe() {
+      try {
+        const { data } = await axios.delete(`/api/recipes/${id}`, {
+          headers: {
+            'Authorization': token,
+          },
+        })
+        redirect('/profile')
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    deleteRecipe()
+  }
+
   return (
     <>
       {recipe ?
@@ -97,7 +142,7 @@ export default function SingleRecipe() {
             <Col md='6' sm='12'>
               <>
                 <img src={recipe.image}></img>
-                <div className='mt-3'>
+                <div className='mt-3 mb-3'>
                   <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
                   <p className="p-next-icon-first">{recipe.difficulty}</p>
                   <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
@@ -110,7 +155,19 @@ export default function SingleRecipe() {
               </>
             </Col>
             <Col md='6' sm='12'>
-              <p className='diet-button'>{recipe.diet}</p>
+              <div className='diet-icon-container'>
+                <p className='diet-button'>{recipe.diet}</p>
+                { (recipe.addedBy._id === profile._id) &&
+                <div className='trash-edit-icons'>
+                  <Link to={urlToUpdate}>
+                    <FontAwesomeIcon icon={faPen} size='xl' style={{ color: '#ff5f40' }} />
+                  </Link>
+                  <Link onClick={deleteItem}>
+                    <FontAwesomeIcon icon={faTrashCan} size='xl' style={{ color: '#ff5f40' }} />
+                  </Link>
+                </div>
+                }
+              </div>
               <p className='category mt-4'>{recipe.category}</p>
               <h1>{recipe.title}</h1>
               <p>{recipe.description}</p>
@@ -127,7 +184,6 @@ export default function SingleRecipe() {
             <p>{recipe.method}</p>
           </Row>
           {recipe.reviews.map((review, index) => {
-            console.log('user recipe', recipe)
             return (
               <Row key={index} className='reviews'>
                 <Col md='10'>

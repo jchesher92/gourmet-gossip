@@ -39,6 +39,11 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  img {
+    max-height: 200px;
+    width: auto;
+    object-fit: cover;
+  }
 }
 
 @media (min-width: 576px) {
@@ -49,8 +54,8 @@
 
 .container-recipe-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
+  gap: 20px;
+  align-items: center;
 }
 
 .favorites-icon {
@@ -67,4 +72,8 @@
   .star-rating p {
     margin-bottom: 0px;
   }
+}
+
+.trash-edit-icons:hover {
+  content: 'test';
 }

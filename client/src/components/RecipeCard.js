@@ -2,16 +2,19 @@ import Col from 'react-bootstrap/esm/Col'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../App.js'
 import { useContext } from 'react'
+import { getToken } from '../utility/auth.js'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faStar, faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faClock, faStar, faHeart, faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 
 export default function RecipeCard({ recipe }) {
   const linkUrl = `/recipes/${recipe._id}`
   const { user, setUser } = useContext(UserContext)
-
+ 
   return (
     <Col
       lg='3'
@@ -42,7 +45,11 @@ export default function RecipeCard({ recipe }) {
         </div>
         <div className='container-recipe-buttons mt-3'>
           <Link to={linkUrl} className="red-button">SEE RECIPE</Link>
+          {/* <div className='trash-edit-icons'><Link onClick={deleteItem}>{ recipe.addedBy === profile._id && <FontAwesomeIcon icon={faTrashCan} size='xl' style={{ color: '#ff5f40' }} /> }</Link></div> */}
         </div>
+        
+        
+
       </div>
     </Col>
   )
