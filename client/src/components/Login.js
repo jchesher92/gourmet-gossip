@@ -5,11 +5,11 @@ export default function Login() {
   const formStructure = [
     {
       type: 'email',
-      name: 'email',
+      name: 'Email',
     },
     {
       type: 'password',
-      name: 'password',
+      name: 'Password',
     }
   ]
 

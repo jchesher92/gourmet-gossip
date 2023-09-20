@@ -6,19 +6,19 @@ export default function Register({ setUser }) {
   const formStructure = [
     {
       type: 'text',
-      name: 'username',
+      name: 'Username',
     },
     {
       type: 'email',
-      name: 'email',
+      name: 'Email',
     },
     {
       type: 'password',
-      name: 'password',
+      name: 'Password',
     },
     {
       type: 'password',
-      name: 'passwordConfirmation',
+      name: 'Password Confirmation',
     }
   ]
   // * Set the request type for axios
