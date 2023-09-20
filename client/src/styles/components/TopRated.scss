@@ -16,7 +16,7 @@
   left: 20%;
   right: 20%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -24,7 +24,7 @@
   background: none;
 }
 
-.carousel-item > a {
+.carousel-item>a {
   width: 60%;
 }
 
