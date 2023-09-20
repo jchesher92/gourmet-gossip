@@ -82,27 +82,29 @@ export default function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <Header resetFilters={resetFilters} />
-        <Routes>
-          <Route path='/' element={<Home
-            handleChange={handleChange} />} />
-          <Route path='/recipes' element={<AllRecipes
-            filter={filter}
-            newSearch={newSearch}
-            newCategory={newCategory}
-            newDiet={newDiet}
-            newDifficulty={newDifficulty}
-            resetFilters={resetFilters}
-            handleChange={handleChange} />} />
-          <Route path='/recipes/:id' element={<SingleRecipe />} />
-          <Route path='/login' element={<Login setUser={setUser} />} />
-          <Route path='/register' element={<Register setUser={setUser} />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='/recipes/add' element={<AddRecipe />} />
-          <Route path='/recipes/:id/update' element={<UpdateRecipe />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-        <Footer />
+        <section className='main-content'>
+          <Routes>
+            <Route path='/' element={<Home
+              handleChange={handleChange} />} />
+            <Route path='/recipes' element={<AllRecipes
+              filter={filter}
+              newSearch={newSearch}
+              newCategory={newCategory}
+              newDiet={newDiet}
+              newDifficulty={newDifficulty}
+              resetFilters={resetFilters}
+              handleChange={handleChange} />} />
+            <Route path='/recipes/:id' element={<SingleRecipe />} />
+            <Route path='/login' element={<Login setUser={setUser} />} />
+            <Route path='/register' element={<Register setUser={setUser} />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/recipes/add' element={<AddRecipe />} />
+            <Route path='/recipes/:id/update' element={<UpdateRecipe />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </section>
       </UserContext.Provider>
     </BrowserRouter>
   )
