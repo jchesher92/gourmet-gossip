@@ -9,7 +9,6 @@ import { faClock, faStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 
 export default function RecipeCard({ recipe }) {
-  console.log(recipe)
   const linkUrl = `/recipes/${recipe._id}`
   const { user, setUser } = useContext(UserContext)
 
@@ -20,7 +19,7 @@ export default function RecipeCard({ recipe }) {
       sm='6'
       className="recipes-flex favorites-icon-container"
     >
-      { user && 
+      {user &&
         <span className='favorites-icon'>
           <FontAwesomeIcon icon={faHeart} size="2xl" style={{ color: '#ff5f40' }} />
         </span>
