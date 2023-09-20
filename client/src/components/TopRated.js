@@ -1,5 +1,4 @@
-import Col from 'react-bootstrap/Col'
-import RecipeCard from './RecipeCard'
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { sortByAvgRating } from '../utility/common'
@@ -24,9 +23,9 @@ export default function TopRated() {
   }, [])
 
   return (
-    <>
+    <section className='mt-4' style={{ textAlign: 'center' }}>
       <h1>Top Rated Recipes</h1>
-      <Carousel fade data-bs-theme="dark">
+      <Carousel fade data-bs-theme="dark" className='container my-4'>
         {topRated.length > 0 ?
           topRated.map(recipe => {
             const linkUrl = `/recipes/${recipe._id}`
@@ -46,15 +45,6 @@ export default function TopRated() {
           <Spinner />
         }
       </Carousel>
-      {/* {topRated.length > 0 ?
-        topRated.map(recipe => {
-          return (
-            <RecipeCard key={recipe._id} recipe={recipe} />
-          )
-        })
-        :
-        <Spinner />
-      } */}
-    </>
+    </section>
   )
 }
