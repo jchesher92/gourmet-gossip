@@ -89,12 +89,8 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     setErrorMessage('')
   }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> development
 
-  
   // function handleChange(e) {
   //   setFormData({ ...formData, [e.target.name]: e.target.value })
   //   setErrorMessage('')
@@ -142,10 +138,9 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   id={idx}
                 >
                   {/* SELECT */}
-<<<<<<< HEAD
                   {field.type === 'select' &&
                     <>
-                      <Form.Control as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
+                      <Form.Control value={formData[newValue]} as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
                         <option value="">- {field.name} -</option>
                         {field.options.map((option, index) => {
                           return <option value={option} key={index}>{option}</option>
@@ -153,18 +148,6 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                       </Form.Control>
                       <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
                     </>
-=======
-                  { field.type === 'select' &&
-                  <>
-                    <Form.Control value={formData[newValue]} as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
-                      <option value="">- {field.name} -</option>
-                      { field.options.map((option, index) => {
-                        return <option value={option} key={index}>{option}</option>
-                      })}
-                    </Form.Control>
-                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                  </>
->>>>>>> development
                   }
                   {/* INGREDIENTS */}
                   {field.type === 'text-list' &&
@@ -189,35 +172,19 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                     </>
                   }
                   {/* TEXT -NUMBER */}
-<<<<<<< HEAD
                   {(field.type === 'text' || field.type === 'number') &&
                     <>
-                      <Form.Control required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                      <Form.Control value={formData[newValue]} required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
                       <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
                     </>
                   }
                   {/* TEXTAREA */}
                   {field.type === 'textarea' &&
                     <>
-                      <Form.Control required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                      <Form.Control value={formData[newValue]} required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
                       <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
                     </>
                   }
-=======
-                  { (field.type === 'text' || field.type === 'number') && 
-                  <>
-                    <Form.Control value={formData[newValue]} required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                  </>
-                  }
-                  {/* TEXTAREA */}
-                  { field.type === 'textarea' &&
-                  <>
-                    <Form.Control value={formData[newValue]} required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                  </>
-                  }                  
->>>>>>> development
                 </FloatingLabel>
               )
             })
