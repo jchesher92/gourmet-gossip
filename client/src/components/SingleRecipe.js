@@ -152,19 +152,6 @@ export default function SingleRecipe() {
                 </Form.Group>
                 <Row className='submit-review-container'>
                   <Col md='4'>
-                    {/* <FloatingLabel
-                      controlId="floatingSelectGrid"
-                      label="Rating"
-                    >
-                      <Form.Select aria-label="Rating" onChange={handleChange} value={newRatingInput} name='rating' >
-                        <option disabled>Select a rating</option>
-                        <option value="1">One Star</option>
-                        <option value="2">Two Stars</option>
-                        <option value="3">Three Stars</option>
-                        <option value="4">Four Stars</option>
-                        <option value="5">Five Stars</option>
-                      </Form.Select>
-                    </FloatingLabel> */}
                     <Form.Group>
                       <Form.Label className='fw-bold'>Select a rating </Form.Label>
                       <Form.Range

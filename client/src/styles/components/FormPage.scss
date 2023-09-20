@@ -4,7 +4,8 @@
 .form-container {
   @include flex-align-justify-center(column);
   @include box-shadow-regular;
-  background-color: $light-grey;
+  background-color: $white;
+  padding: 5rem;
 
   form {
     display: flex;

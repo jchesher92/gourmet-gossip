@@ -21,8 +21,8 @@ export default function Header({ resetFilters }) {
     <header>
       <Container className='header'>
         <Row>
-          <Col md='5'><Link to='/' onClick={resetFilters}><p>Gourmet Gossip</p></Link></Col>
-          <Col md='7' className='navbar-right'>
+          <Col><Link to='/' onClick={resetFilters}><p>Gourmet Gossip</p></Link></Col>
+          <Col className='navbar-right'>
             <NavLink to='/recipes'>All recipes</NavLink>
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic"><FontAwesomeIcon icon={faUser} size='lg' style={{ color: '#fff' }} /></Dropdown.Toggle>

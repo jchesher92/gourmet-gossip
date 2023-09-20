@@ -5,7 +5,6 @@ header {
     url('../../images/texture.jpg');
   background-color: $green;
   padding: 16px 0;
-  margin-bottom: 30px;
   position: fixed;
   top: 0;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.6);
@@ -46,4 +45,19 @@ header {
 
 .navbar-right {
   @extend %flex-end;
+}
+
+@media (max-width: 576px) {
+  header p {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 364px) {
+  header p {
+    font-size: 23px;
+  }
+  .navbar-right {
+    gap: 2px;
+  }
 }

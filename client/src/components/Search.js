@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, Form } from 'react-router-dom'
 import { useState } from 'react'
 
 // BOOTSTRAP
@@ -18,11 +18,11 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
       </div>
       <form>
         <Row>
-          <Col md='4'>
+          <Col md='4' className='mb-2'>
             <label hidden htmlFor="search-recipe">Search Recipe</label>
             <input className="form-control" type="search" placeholder="Search recipe ..." name="search" value={newSearch} onChange={handleChange} />
           </Col>
-          <Col md='2'>
+          <Col md='2' className='mb-2'>
             <select className="form-control" name="category" value={newCategory} onChange={handleChange}>
               <option value="All">- Category -</option>
               <option value="Breakfast">Breakfast</option>
@@ -32,7 +32,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
               <option value="Snack">Snack</option>
             </select>
           </Col>
-          <Col md='2'>
+          <Col md='2' className='mb-2'>
             <select className="form-control" name="diet" value={newDiet} onChange={handleChange}>
               <option value="All">- Diet -</option>
               <option value="Meat">Meat</option>
@@ -41,7 +41,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
               <option value="Vegan">Vegan</option>
             </select>
           </Col>
-          <Col md='2'>
+          <Col md='2' className='mb-2'>
             <select className="form-control" name="difficulty" value={newDifficulty} onChange={handleChange}>
               <option value="All">- Difficulty -</option>
               <option value="Easy">Easy</option>

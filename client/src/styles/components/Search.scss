@@ -1,5 +1,5 @@
 .search-container {
-  padding: 30px;
+  padding: 30px 30px 24px;
   background: $white;
   margin-top: 320px;
 
@@ -8,7 +8,7 @@
   }
 
   .btn {
-    @extend %green-button-diet
+    @extend %green-button;
   }
 
   .btn-red {
@@ -18,12 +18,6 @@
   .row>* {
     padding-right: calc(var(--bs-gutter-x) * .2);
     padding-left: calc(var(--bs-gutter-x) * .2);
-  }
-}
-
-@media (min-width: 992px) {
-  .search-container {
-    padding: 40px;
   }
 }
 
@@ -39,5 +33,32 @@
     left: 0;
     max-height: 500px;
     object-fit: cover; // This prevents the image from stretching 
+  }
+}
+
+@media (min-width: 992px) {
+  .search-container {
+    padding: 40px 40px 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-picture img {
+    max-height: 380px;
+  }
+  .search-container {
+    margin-top: 190px;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-container {
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 430px) {
+  .search-container {
+    margin-top: 90px;
   }
 }

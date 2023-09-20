@@ -5,7 +5,6 @@
   .star-rating {
     text-align: right;
     display: block;
-    margin-bottom: 15px;
   }
 
   .diet-button {
@@ -62,4 +61,10 @@
 
 .favorites-icon-container {
   position: relative;
+}
+
+@media (max-width: 767px) {
+  .star-rating p {
+    margin-bottom: 0px;
+  }
 }

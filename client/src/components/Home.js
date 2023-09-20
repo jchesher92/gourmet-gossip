@@ -10,19 +10,11 @@ import Row from 'react-bootstrap/Row'
 export default function Home({ handleChange, newSearch }) {
   return (
     <>
-      <Container>
-        <Row>
-          <Search
-            handleChange={handleChange}
-            newSeach={newSearch} />
-        </Row>
-        <Row>
-          <TopRated />
-        </Row>
-        <Row>
-          <RecipeOfDay />
-        </Row>
-      </Container>
+      <Search
+        handleChange={handleChange}
+        newSeach={newSearch} />
+      <TopRated />
+      <RecipeOfDay />
     </>
   )
 }

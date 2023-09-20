@@ -49,11 +49,11 @@ recipeSchema
 
 recipeSchema.set('toJSON', {
   // Adding this line means any virtuals created using get method will be included in the JSON response
-  virtuals: true
+  virtuals: true,
 })
 
 recipeSchema.set('toObject', {
-  virtuals: true
+  virtuals: true,
 })
 
 export default mongoose.model('Recipe', recipeSchema)
