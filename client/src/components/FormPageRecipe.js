@@ -90,8 +90,8 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     setErrorMessage('')
   }
 
-  
 
+  
   // function handleChange(e) {
   //   setFormData({ ...formData, [e.target.name]: e.target.value })
   //   setErrorMessage('')
@@ -129,6 +129,8 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           {
             formValues(formStructure).map((field, idx) => {
+              const newValue = field.variable
+              console.log(newValue)
               return (
                 <FloatingLabel
                   key={idx}
@@ -139,7 +141,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   {/* SELECT */}
                   { field.type === 'select' &&
                   <>
-                    <Form.Control as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
+                    <Form.Control value={formData[newValue]} as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
                       <option value="">- {field.name} -</option>
                       { field.options.map((option, index) => {
                         return <option value={option} key={index}>{option}</option>
@@ -154,9 +156,9 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                       {field.ingredients.map((ingredient, index) => {
                         return (
                           <Fragment key={index}>
-                            <Form.Control required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control value={formData[newValue]} required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
                             <Form.Control.Feedback type="invalid">Name of ingredient is required.</Form.Control.Feedback>
-                            <Form.Control required type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control required value={formData[newValue]} type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={() => handleChangeIngredients(index, event)} />
                             <Form.Control.Feedback type="invalid">Amount of ingredient is required.</Form.Control.Feedback>
                           </Fragment>
                         )
@@ -173,14 +175,14 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   {/* TEXT -NUMBER */}
                   { (field.type === 'text' || field.type === 'number') && 
                   <>
-                    <Form.Control required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                    <Form.Control value={formData[newValue]} required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
                     <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
                   </>
                   }
                   {/* TEXTAREA */}
                   { field.type === 'textarea' &&
                   <>
-                    <Form.Control required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                    <Form.Control value={formData[newValue]} required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
                     <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
                   </>
                   }                  
