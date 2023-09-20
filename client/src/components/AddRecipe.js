@@ -14,7 +14,7 @@ export default function AddRecipe() {
     {
       type: 'select',
       name: 'Category',
-      options: ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snack'],
+      options: ['Breakfast', 'Lunch', 'Dinner', 'Desert', 'Snack'],
     },
     {
       type: 'text',
@@ -28,7 +28,7 @@ export default function AddRecipe() {
     {
       type: 'select',
       name: 'Difficulty',
-      options: ['Easy', 'Intermediate', 'Advanced'],
+      options: ['Easy', 'Intermediate'],
     },
     {
       type: 'number',
