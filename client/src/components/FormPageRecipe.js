@@ -23,15 +23,13 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
 
   function addFields(e) {
     e.preventDefault()
-    const moreIngredients = formStructure.filter((object, index) => {
-      if (object.name === 'Ingredients') {
-        return object.ingredients.push({ name: '', amount: '' })
-      }
-    })
-    console.log(inputIngredients)
-    setFormData({ ...formData, ingredients: moreIngredients[0].ingredients })
-    console.log('formStructure after button', formStructure)
+    setInputIngredients([...inputIngredients, { name: '', amount: '' }])
+    // setFormData({ ...formData, ingredients: moreIngredients[0].ingredients })
   }
+
+  useEffect(() => {
+    setFormData({ ...formData, ingredients: inputIngredients })
+  }, [inputIngredients])
 
   function stateValues(formStructure) {
     const fieldsObj = {}
@@ -59,6 +57,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
         console.log('data', data)
         console.log('title', data.title)
         setFormData(data)
+        setInputIngredients(data.ingredients)
         console.log('formdata', formData)
       } catch (error) {
         console.log(error)
@@ -70,18 +69,29 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     }
   }, [onLoad])
 
-  function handleChangeIngredients(index, event) {
-    if (event.target.name === 'name' || event.target.name === 'amount') {
-      console.log(index)
-      const name = event.target.name + index
-      console.log(name)
-      setInputIngredients([{ ...inputIngredients, [name]: event.target.value }])
-      setFormData({ ...formData, ingredients: inputIngredients })
-    } else {
-      setFormData({ ...formData, [event.target.name]: event.target.value })
-    }
-    setErrorMessage('')
+  const handleUpdateIngredients = (e, objectToUpdate) => {
+    const { dataset: { type }, value } = e.target
+
+    const newIngredientsList = inputIngredients.map(i => {
+      if (i !== objectToUpdate) return i
+      return { ...i, [type]: value }
+    })
+
+    setInputIngredients(newIngredientsList)
   }
+
+  // function handleChangeIngredients(index, event) {
+  //   if (event.target.name === 'name' || event.target.name === 'amount') {
+  //     console.log(index)
+  //     const name = event.target.name + index
+  //     console.log(name)
+  //     setInputIngredients([{ ...inputIngredients, [name]: event.target.value }])
+  //     setFormData({ ...formData, ingredients: inputIngredients })
+  //   } else {
+  //     setFormData({ ...formData, [event.target.name]: event.target.value })
+  //   }
+  //   setErrorMessage('')
+  // }
 
   function handleChange(event) {
     // console.log('input changed but not ingredients:', event)
@@ -152,12 +162,12 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   {/* INGREDIENTS */}
                   {field.type === 'text-list' &&
                     <>
-                      {field.ingredients.map((ingredient, index) => {
+                      {inputIngredients.map((ingredientObject, index) => {
                         return (
                           <Fragment key={index}>
-                            <Form.Control value={formData[newValue]} required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control value={ingredientObject.name} data-type="name" required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
                             <Form.Control.Feedback type="invalid">Name of ingredient is required.</Form.Control.Feedback>
-                            <Form.Control required value={formData[newValue]} type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control required value={ingredientObject.amount} data-type="amount" type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
                             <Form.Control.Feedback type="invalid">Amount of ingredient is required.</Form.Control.Feedback>
                           </Fragment>
                         )
