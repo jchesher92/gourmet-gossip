@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { getToken } from '../utility/auth'
 
 export default function AddRecipe() {
-  const [ formStructure, setFormStructure ] = useState([
+  const [formStructure, setFormStructure] = useState([
     {
       type: 'text',
       name: 'Title',
@@ -45,7 +45,7 @@ export default function AddRecipe() {
     {
       type: 'text-list',
       name: 'Ingredients',
-      ingredients: [ { name: '', amount: '' } ],
+      ingredients: [{ name: '', amount: '' }],
     },
     // {
     //   type: 'textarea',
