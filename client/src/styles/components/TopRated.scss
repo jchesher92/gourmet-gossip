@@ -16,7 +16,7 @@
   left: 25%;
   right: 25%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -24,8 +24,8 @@
   background: none;
 }
 
-.carousel-item > a {
-  width: 50%;
+.carousel-item>a {
+  width: 60%;
 }
 
 .top-rated-container {

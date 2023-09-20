@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
+import { formValues, stateValues } from '../utility/common.js'
 
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
@@ -9,7 +9,7 @@ import { UserContext } from '../App.js'
 
 export default function FormPage({ title, formStructure, request }) {
   const { user, setUser } = useContext(UserContext)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState(stateValues(formStructure))
   const [errorMessage, setErrorMessage] = useState('')
   const [validated, setValidated] = useState(false)
   const navigate = useNavigate()
@@ -47,7 +47,7 @@ export default function FormPage({ title, formStructure, request }) {
         <h1>{title}</h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit} className='mb-4'>
           {
-            formStructure.map((field, idx) => {
+            formValues(formStructure).map((field, idx) => {
               return (
                 <Form.Group className="form-floating mb-3" key={idx} controlId={field.name}>
                   <Form.Control type={field.type} name={field.name} placeholder={field.name} onChange={handleChange} required></Form.Control>

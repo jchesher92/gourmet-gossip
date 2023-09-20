@@ -12,7 +12,7 @@ import { Fragment } from 'react'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Form from 'react-bootstrap/Form'
 
-export default function FormPage({ title, formStructure, setFormStructure, request, redirect, onLoad }) {
+export default function FormPageRecipe({ title, formStructure, setFormStructure, request, redirect, onLoad }) {
 
   const [inputIngredients, setInputIngredients] = useState([])
   const { user, setUser } = useContext(UserContext)
