@@ -14,27 +14,21 @@ import Form from 'react-bootstrap/Form'
 
 export default function FormPage({ title, formStructure, setFormStructure, request, redirect, onLoad }) {
 
-  const [ingredients, setIngredients] = useState([{}])
+  const [inputIngredients, setInputIngredients] = useState([])
   const { user, setUser } = useContext(UserContext)
   const [formData, setFormData] = useState(stateValues(formStructure))
   const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
   const [validated, setValidated] = useState(false)
 
-  // function addFields(e) {
-  //   console.log('button clicked')
-  //   e.preventDefault()
-  //   const moreIngredients = formStructure.filter(object => {
-  //     if (object.name === 'Ingredients') {
-  //       return object.ingredients.push({ name: '', amount: '' })
-  //       // console.log(object)
-  //     }
-  //   })
-  //   // console.log(moreIngredients)
-  //   // setFormStructure(formStructure)
-  //   setFormData(stateValues(formStructure))
-  //   console.log('formStructure after button', formStructure)
-  // }
+  function addFields(e) {
+    e.preventDefault()
+    setInputIngredients([...inputIngredients, { name: '', amount: '' }])
+  }
+
+  useEffect(() => {
+    setFormData({ ...formData, ingredients: inputIngredients })
+  }, [inputIngredients])
 
   function stateValues(formStructure) {
     const fieldsObj = {}
@@ -62,6 +56,7 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
         console.log('data', data)
         console.log('title', data.title)
         setFormData(data)
+        setInputIngredients(data.ingredients)
         console.log('formdata', formData)
       } catch (error) {
         console.log(error)
@@ -73,15 +68,14 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     }
   }, [onLoad])
 
-  function handleChangeIngredients(index, event) {
-    // console.log('ingredients changed:', event)
-    if (event.target.name === 'name' || event.target.name === 'amount') {
-      setIngredients([{ ...ingredients[index], [event.target.name]: event.target.value }])
-      setFormData({ ...formData, ingredients })
-    } else {
-      setFormData({ ...formData, [event.target.name]: event.target.value })
-    }
-    setErrorMessage('')
+  const handleUpdateIngredients = (e, objectToUpdate) => {
+    const { dataset: { type }, value } = e.target
+
+    const newIngredientsList = inputIngredients.map(i => {
+      if (i !== objectToUpdate) return i
+      return { ...i, [type]: value }
+    })
+    setInputIngredients(newIngredientsList)
   }
 
   function handleChange(event) {
@@ -89,13 +83,6 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
     setFormData({ ...formData, [event.target.name]: event.target.value })
     setErrorMessage('')
   }
-
-
-  
-  // function handleChange(e) {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value })
-  //   setErrorMessage('')
-  // }
 
   async function handleSubmit(e) {
     console.log('event', e)
@@ -139,53 +126,53 @@ export default function FormPage({ title, formStructure, setFormStructure, reque
                   id={idx}
                 >
                   {/* SELECT */}
-                  { field.type === 'select' &&
-                  <>
-                    <Form.Control value={formData[newValue]} as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
-                      <option value="">- {field.name} -</option>
-                      { field.options.map((option, index) => {
-                        return <option value={option} key={index}>{option}</option>
-                      })}
-                    </Form.Control>
-                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                  </>
+                  {field.type === 'select' &&
+                    <>
+                      <Form.Control value={formData[newValue]} as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
+                        <option value="">- {field.name} -</option>
+                        {field.options.map((option, index) => {
+                          return <option value={option} key={index}>{option}</option>
+                        })}
+                      </Form.Control>
+                      <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
+                    </>
                   }
                   {/* INGREDIENTS */}
                   {field.type === 'text-list' &&
                     <>
-                      {field.ingredients.map((ingredient, index) => {
+                      {inputIngredients.map((ingredientObject, index) => {
                         return (
                           <Fragment key={index}>
-                            <Form.Control value={formData[newValue]} required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control value={ingredientObject.name} data-type="name" required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
                             <Form.Control.Feedback type="invalid">Name of ingredient is required.</Form.Control.Feedback>
-                            <Form.Control required value={formData[newValue]} type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={() => handleChangeIngredients(index, event)} />
+                            <Form.Control required value={ingredientObject.amount} data-type="amount" type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
                             <Form.Control.Feedback type="invalid">Amount of ingredient is required.</Form.Control.Feedback>
                           </Fragment>
                         )
                       })}
-                      {/* <button onClick={addFields}>Add ingredient</button> */}
+                      <button onClick={addFields}>Add ingredient</button>
                     </>
                   }
                   {/* IMAGE */}
-                  { field.type === 'file' &&
-                  <>
-                    <ImageUpload required formData={formData} setFormData={setFormData} />
-                  </>
+                  {field.type === 'file' &&
+                    <>
+                      <ImageUpload required formData={formData} setFormData={setFormData} />
+                    </>
                   }
                   {/* TEXT -NUMBER */}
-                  { (field.type === 'text' || field.type === 'number') && 
-                  <>
-                    <Form.Control value={formData[newValue]} required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                  </>
+                  {(field.type === 'text' || field.type === 'number') &&
+                    <>
+                      <Form.Control value={formData[newValue]} required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                      <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
+                    </>
                   }
                   {/* TEXTAREA */}
-                  { field.type === 'textarea' &&
-                  <>
-                    <Form.Control value={formData[newValue]} required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                    <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                  </>
-                  }                  
+                  {field.type === 'textarea' &&
+                    <>
+                      <Form.Control value={formData[newValue]} required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
+                      <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
+                    </>
+                  }
                 </FloatingLabel>
               )
             })
