@@ -23,7 +23,7 @@ export default function TopRated() {
   }, [])
 
   return (
-    <section className='mt-4' style={{ textAlign: 'center' }}>
+    <section className='mt-4 top-rated-container' style={{ textAlign: 'center' }}>
       <h1>Top Rated Recipes</h1>
       <Carousel fade data-bs-theme="dark" className='container my-4'>
         {topRated.length > 0 ?

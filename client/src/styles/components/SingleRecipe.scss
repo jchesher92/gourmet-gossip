@@ -6,6 +6,9 @@
     max-height: 450px;
     width: 100%;
   }
+  h1 {
+    font-size: 1.8rem;
+  }
 }
 
 .diet-button {
@@ -72,4 +75,14 @@
 
 .trash-edit-icons svg:hover {
   color: rgb(251 118 92) !important;
+}
+
+.space-above-method {
+  margin-top: 1rem;
+}
+
+@media (min-width: 992px) {
+  .space-above-method {
+    margin-top: 2rem;
+  }
 }
