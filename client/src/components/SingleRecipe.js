@@ -179,7 +179,7 @@ export default function SingleRecipe() {
               </ul>
             </Col>
           </Row>
-          <Row className='mt-5 mb-3'>
+          <Row className='space-above-method mb-3'>
             <h3>Method</h3>
             <p>{recipe.method}</p>
           </Row>

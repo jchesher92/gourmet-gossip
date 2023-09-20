@@ -76,3 +76,13 @@
 .trash-edit-icons svg:hover {
   color: rgb(251 118 92) !important;
 }
+
+.space-above-method {
+  margin-top: 1rem;
+}
+
+@media (min-width: 992px) {
+  .space-above-method {
+    margin-top: 2rem;
+  }
+}
