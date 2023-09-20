@@ -16,10 +16,6 @@ router.route('/recipes')
 router.route('/recipes/random')
   .get(randomRecipe)
 
-// // Top Rated route
-// router.route('/recipes/toprated')
-//   .get(topRatedRecipes)
-
 // Single route
 router.route('/recipes/:id')
   .get(getSingleRecipe)
@@ -38,8 +34,6 @@ router.route('/recipes/:id/reviews')
 router.route('/recipes/:recipeId/reviews/:reviewId')
   .delete(secureRoute, deleteReview)
 
-
-
 // ! Users
 // Register route
 router.route('/register')
@@ -52,6 +46,5 @@ router.route('/login')
 // Profile route
 router.route('/profile')
   .get(secureRoute, getUserProfile)
-
 
 export default router
