@@ -27,8 +27,8 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
               <option value="All">- Category -</option>
               <option value="Breakfast">Breakfast</option>
               <option value="Lunch">Lunch</option>
-              <option value="Diner">Diner</option>
-              <option value="Desert">Desert</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Dessert">Dessert</option>
               <option value="Snack">Snack</option>
             </select>
           </Col>

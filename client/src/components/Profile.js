@@ -47,8 +47,8 @@ export default function Profile() {
           <Row className='profile-details'>
             <div className='profile-info'>
               <img src={profileImg}></img>
-              <h1>{profile.username}</h1>
-              <h1>{profile.email}</h1>
+              <h1>Welcome {profile.username}!</h1>
+              <h2>Your email: {profile.email}</h2>
             </div>
           </Row>
           <Row>

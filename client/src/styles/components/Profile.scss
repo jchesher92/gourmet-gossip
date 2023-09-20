@@ -1,14 +1,9 @@
-.profile-container {
-  background-color: $light-grey;
-
-}
-
 .profile-details {
   @include flex-align-justify-center(column);
   text-align: center;
   padding: 2vw;
 
   img {
-    width: 200px
+    width: 140px
   }
 }
