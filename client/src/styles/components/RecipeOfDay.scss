@@ -9,6 +9,9 @@
     font-size: 2.4rem;
     font-weight: 500;
   }
+  h1 {
+    font-size: 1.8rem;
+  }
   .container-random-recipe-inside {
     background: $white;
     max-width: 900px;
@@ -21,6 +24,8 @@
   }
   .image-recipe {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .red-button {
     @extend %red-button;
