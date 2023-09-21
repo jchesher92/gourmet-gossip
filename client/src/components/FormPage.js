@@ -46,7 +46,7 @@ export default function FormPage({ title, formStructure, request }) {
 
   return (
     <>
-      <section className="container form-container">
+      <section className="container sign-form-container">
         <Row>
           <Col md={6} sm={0} className='welcome-message'>
             {
@@ -70,7 +70,7 @@ export default function FormPage({ title, formStructure, request }) {
                 formValues(formStructure).map((field, idx) => {
                   return (
                     <Form.Group className="form-floating mb-3" key={idx} controlId={field.name}>
-                      <Form.Control type={field.type} name={field.variable} placeholder={field.name} onChange={handleChange} required></Form.Control>
+                      <Form.Control id='sign-form-control' type={field.type} name={field.variable} placeholder={field.name} onChange={handleChange} required></Form.Control>
                       <Form.Label>{field.name}</Form.Label>
                       <Form.Control.Feedback type="invalid">
                         {field.name} is required.
