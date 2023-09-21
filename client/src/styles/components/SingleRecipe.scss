@@ -82,7 +82,13 @@
 }
 
 .trash-edit-icons svg:hover {
-  color: rgb(251 118 92) !important;
+  opacity: 0.9 !important;
+  cursor: pointer;
+}
+
+.trash-icon {
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 .space-above-method {

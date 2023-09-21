@@ -25,9 +25,9 @@ export default function TopRated() {
   return (
     <section className='mt-4 top-rated-container' style={{ textAlign: 'center' }}>
       <h1>Top Rated Recipes</h1>
-      <Carousel fade data-bs-theme="dark" className='container my-4'>
-        {topRated.length > 0 ?
-          topRated.map(recipe => {
+      {topRated.length > 0 ?
+        <Carousel fade data-bs-theme="dark" className='container my-4'>
+          { topRated.map(recipe => {
             const linkUrl = `/recipes/${recipe._id}`
             return (
               <Carousel.Item key={recipe._id} className="d-flex justify-content-center">
@@ -40,11 +40,11 @@ export default function TopRated() {
                 </Link>
               </Carousel.Item>
             )
-          })
-          :
-          <Spinner />
-        }
-      </Carousel>
+          })}
+        </Carousel>
+        :
+        <Spinner />
+      }
     </section>
   )
 }
