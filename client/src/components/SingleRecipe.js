@@ -36,6 +36,7 @@ export default function SingleRecipe() {
   const [newCommentInput, setNewCommentInput] = useState('')
   const [newRatingInput, setNewRatingInput] = useState('')
   const [reviewSent, setReviewSent] = useState(false)
+  const [reviewDeleted, setReviewDeleted] = useState(false)
   const redirect = useNavigate()
 
   const { user, setUser } = useContext(UserContext)
@@ -52,7 +53,7 @@ export default function SingleRecipe() {
       }
     }
     getRecipeData()
-  }, [reviewSent])
+  }, [reviewSent, reviewDeleted])
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -110,6 +111,7 @@ export default function SingleRecipe() {
             },
           })
           setProfile(profile)
+          console.log('profile', profile)
         }
       } catch (error) {
         console.log(error)
@@ -132,6 +134,25 @@ export default function SingleRecipe() {
       }
     }
     deleteRecipe()
+  }
+
+  const deleteReview = (e, index) => {
+    setReviewDeleted(false)
+    e.preventDefault()
+    const reviewId = recipe.reviews[index]._id
+    async function deleteReviewNow() {
+      try {
+        const { data } = await axios.delete(`/api/recipes/${id}/reviews/${reviewId}`, {
+          headers: {
+            'Authorization': token,
+          },
+        })
+        setReviewDeleted(true)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    deleteReviewNow()
   }
 
   return (
@@ -194,11 +215,18 @@ export default function SingleRecipe() {
                     {Array(review.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#fff' }} key={i} />)}
                   </div>
                   <p>by {recipe.reviews[index].addedBy.username}</p>
+                  {(review.addedBy._id === profile._id) && 
+                    <>
+                      <div className='trash-icon'>
+                        <FontAwesomeIcon onClick={(e) => deleteReview(e, index)} icon={faTrashCan} style={{ color: '#fff' }} />  
+                      </div> 
+                    </>          
+                  }
                 </Col>
               </Row>
             )
           })}
-          { user &&
+          { (user && (recipe.addedBy._id !== profile._id)) &&
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className='mt-4'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
