@@ -2,6 +2,11 @@ import express from 'express'
 import mongoose from 'mongoose'
 import router from './config/routes.js'
 import 'dotenv/config'
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const app = express()
 
@@ -16,6 +21,13 @@ app.use((req, res, next) => {
 
 // ! Specifc routes
 app.use('/api', router)
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+})
 
 // ?  Route Not Found
 app.use((req, res) => {
