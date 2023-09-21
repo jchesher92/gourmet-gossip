@@ -16,7 +16,7 @@ export default [
       { name: 'Sugar', amount: '2 tbsp' },
       { name: 'Salt', amount: '1/2 tsp' }
     ],
-    image: 'pancakes.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695239699/gourmet-gossip/apple_pie_w4wuu6.jpg',
   },
   {
     title: 'Veggie Omelette',

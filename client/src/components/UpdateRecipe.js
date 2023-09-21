@@ -76,6 +76,6 @@ export default function UpdateRecipe() {
   }
 
   return (
-    <FormPageRecipe title='Update Recipe' formStructure={formStructure} setFormStructure={setFormStructure} request={updateRecipe} redirect={`/recipes/${id}`} onLoad={getRecipeData} />
+    <FormPageRecipe title='Update your Recipe' formStructure={formStructure} setFormStructure={setFormStructure} request={updateRecipe} redirect={`/recipes/${id}`} onLoad={getRecipeData} />
   )
 }

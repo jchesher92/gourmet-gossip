@@ -9,7 +9,7 @@ import { UserContext } from '../App.js'
 
 export default function FormPage({ title, formStructure, request }) {
   const { user, setUser } = useContext(UserContext)
-  const [formData, setFormData] = useState(stateValues(formStructure))
+  const [formData, setFormData] = useState(formValues(formStructure))
   const [errorMessage, setErrorMessage] = useState('')
   const [validated, setValidated] = useState(false)
   const navigate = useNavigate()
@@ -50,7 +50,7 @@ export default function FormPage({ title, formStructure, request }) {
             formValues(formStructure).map((field, idx) => {
               return (
                 <Form.Group className="form-floating mb-3" key={idx} controlId={field.name}>
-                  <Form.Control type={field.type} name={field.name} placeholder={field.name} onChange={handleChange} required></Form.Control>
+                  <Form.Control type={field.type} name={field.variable} placeholder={field.name} onChange={handleChange} required></Form.Control>
                   <Form.Label>{field.name}</Form.Label>
                   <Form.Control.Feedback type="invalid">
                     {field.name} is required.

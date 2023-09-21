@@ -52,10 +52,14 @@ export default function Profile() {
             </div>
           </Row>
           <Row>
-            {userRecipes.length > 0 &&
+            {userRecipes.length > 0 ?
               userRecipes.map(recipe => {
                 return <RecipeCard key={recipe._id} recipe={recipe} />
               })
+              :
+              <div className='empty-profile-page'>
+                <h3>You haven&apos;t created any recipes yet!</h3>
+              </div>
             }
           </Row>
         </>

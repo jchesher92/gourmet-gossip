@@ -12,6 +12,11 @@ import { Fragment } from 'react'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Form from 'react-bootstrap/Form'
 
+// BOOTSTRAP
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 export default function FormPageRecipe({ title, formStructure, setFormStructure, request, redirect, onLoad }) {
 
   const [inputIngredients, setInputIngredients] = useState([])
@@ -109,78 +114,120 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
     }
   }
 
+  function deleteIngredient(e) {
+    const newInputIngredients = [...inputIngredients]
+    newInputIngredients.splice(e.target.value, 1)
+    setInputIngredients(newInputIngredients)
+  }
+
   return (
     <>
-      <section className="container form-container">
+      <Container className="container recipe-form-container">
         <h1>{title}</h1>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          {
-            formValues(formStructure).map((field, idx) => {
-              const newValue = field.variable
-              console.log(newValue)
-              return (
-                <FloatingLabel
-                  key={idx}
-                  label={field.name}
-                  className="mb-3"
-                  id={idx}
-                >
-                  {/* SELECT */}
-                  {field.type === 'select' &&
-                    <>
-                      <Form.Control value={formData[newValue]} as='select' required aria-label="Floating label select example" name={field.variable} className="form-control" id={field.variable} placeholder={field.name} onChange={handleChange}>
-                        <option value="">- {field.name} -</option>
-                        {field.options.map((option, index) => {
-                          return <option value={option} key={index}>{option}</option>
-                        })}
-                      </Form.Control>
-                      <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                    </>
-                  }
-                  {/* INGREDIENTS */}
-                  {field.type === 'text-list' &&
-                    <>
-                      {inputIngredients.map((ingredientObject, index) => {
-                        return (
-                          <Fragment key={index}>
-                            <Form.Control value={ingredientObject.name} data-type="name" required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
-                            <Form.Control.Feedback type="invalid">Name of ingredient is required.</Form.Control.Feedback>
-                            <Form.Control required value={ingredientObject.amount} data-type="amount" type='text' className="form-control" id='amount-ingredient' name='amount' placeholder='Amount' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
-                            <Form.Control.Feedback type="invalid">Amount of ingredient is required.</Form.Control.Feedback>
-                          </Fragment>
-                        )
-                      })}
-                      <button onClick={addFields}>Add ingredient</button>
-                    </>
-                  }
-                  {/* IMAGE */}
-                  {field.type === 'file' &&
-                    <>
-                      <ImageUpload required formData={formData} setFormData={setFormData} />
-                    </>
-                  }
-                  {/* TEXT -NUMBER */}
-                  {(field.type === 'text' || field.type === 'number') &&
-                    <>
-                      <Form.Control value={formData[newValue]} required placeholder={field.name} type={field.type} className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                      <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                    </>
-                  }
-                  {/* TEXTAREA */}
-                  {field.type === 'textarea' &&
-                    <>
-                      <Form.Control value={formData[newValue]} required placeholder={field.name} as='textarea' className="form-control" id={field.variable} name={field.variable} onChange={handleChange} />
-                      <Form.Control.Feedback type="invalid">{field.name} is required.</Form.Control.Feedback>
-                    </>
-                  }
+        <Form noValidate validated={validated} onSubmit={handleSubmit} className='mt-4'>
+          <Container>
+            <Row>
+              <Col className='md-4'>
+                {/* Title */}
+                <FloatingLabel label='Title' className='mb-3'>
+                  <Form.Control type='text' value={formData.title} placeholder='Title' required className='form-control' id='title' name='title' onChange={handleChange} />
+                  <Form.Control.Feedback type="invalid">Title is required.</Form.Control.Feedback>
                 </FloatingLabel>
-              )
-            })
-          }
-          {/* {errorMessage && <h2>{errorMessage}</h2>} */}
-          <Button type="submit">{title}</Button>
+                {/* Category */}
+                <FloatingLabel label='Category' className='mb-3'>
+                  <Form.Control as='select' value={formData.category} placeholder='Category' required aria-label="Floating label select example" className='form-control' id='category' name='category' onChange={handleChange}>
+                    <option value=''>- Category -</option>
+                    <option value='Breakfast'>Breakfast</option>
+                    <option value='Lunch'>Lunch</option>
+                    <option value='Dinner'>Dinner</option>
+                    <option value='Dessert'>Dessert</option>
+                    <option value='Snack'>Snack</option>
+                  </Form.Control>
+                  <Form.Control.Feedback type="invalid">Category is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Diet */}
+                <FloatingLabel label='Diet' className='mb-3'>
+                  <Form.Control as='select' value={formData.diet} placeholder='Diet' required aria-label="Floating label select example" className='form-control' id='diet' name='diet' onChange={handleChange}>
+                    <option value=''>- Diet -</option>
+                    <option value='Meat'>Meat</option>
+                    <option value='Fish'>Fish</option>
+                    <option value='Vegetarian'>Vegetarian</option>
+                    <option value='Vegan'>Vegan</option>
+                  </Form.Control>
+                  <Form.Control.Feedback type="invalid">Diet is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Description */}
+                <FloatingLabel label='Description' className='mb-3'>
+                  <Form.Control as='textarea' rows='2' value={formData.description} placeholder='Description' required className='form-control textarea' id='description' name='description' onChange={handleChange} />
+                  <Form.Control.Feedback type="invalid">Description is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Image */}
+                <ImageUpload required formData={formData} setFormData={setFormData} />
+                
+              </Col>
+              <Col className='md-8'>
+                {/* Difficulty */}
+                <FloatingLabel label='Difficulty' className='mb-3'>
+                  <Form.Control as='select' value={formData.difficulty} placeholder='Difficulty' required aria-label="Floating label select example" className='form-control' id='difficulty' name='difficulty' onChange={handleChange}>
+                    <option value=''>- Difficulty -</option>
+                    <option value='Easy'>Easy</option>
+                    <option value='Intermediate'>Intermediate</option>
+                  </Form.Control>
+                  <Form.Control.Feedback type="invalid">Difficulty is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Time */}
+                <FloatingLabel label='Time in minutes' className='mb-3'>
+                  <Form.Control type='number' value={formData.time} placeholder='Time' required className='form-control' id='time' name='time' onChange={handleChange} />
+                  <Form.Control.Feedback type="invalid">Time is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Serves */}
+                <FloatingLabel label='Serves' className='mb-3'>
+                  <Form.Control type='number' value={formData.serves} placeholder='Serves' required className='form-control' id='serves' name='serves' onChange={handleChange} />
+                  <Form.Control.Feedback type="invalid">Servse is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Method */}
+                <FloatingLabel label='Method' className='mb-3'>
+                  <Form.Control as='textarea' value={formData.method} placeholder='Method' required className='form-control textarea' id='method' name='method' onChange={handleChange} />
+                  <Form.Control.Feedback type="invalid">Method is required.</Form.Control.Feedback>
+                </FloatingLabel>
+                {/* Ingredients */}
+                <Button className='mb-4 green-button' onClick={addFields}>Click to add ingredients</Button>
+                {inputIngredients.map((ingredientObject, index) => {
+                  return (
+                    <Row key={index}>
+                      <Col className='md-5'>
+                        <FloatingLabel label='Name' className='mb-3'>
+                          <Form.Control value={ingredientObject.name} data-type='name' required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
+                          <Form.Control.Feedback type='invalid'>Name of ingredient is required.</Form.Control.Feedback>
+                        </FloatingLabel>
+                      </Col>
+                      <Col className='md-5'>
+                        <FloatingLabel label='Amount' className='mb-3'>
+                          <Form.Control required value={ingredientObject.amount} data-type='amount' type='text' className='form-control' id='amount-ingredient' name='amount' placeholder='Amount' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
+                          <Form.Control.Feedback type='invalid'>Amount of ingredient is required.</Form.Control.Feedback>
+                        </FloatingLabel>
+                      </Col>
+                      <Col className='md-2'>
+                        <Button value={index} onClick={deleteIngredient} className='red-button-delete'>x</Button>
+                      </Col>
+                    </Row>
+                  )
+                })}
+              </Col>
+            </Row>
+            <Row>
+              <Col className='submit-button'>
+                {/* Submit */}
+                <Button className='mt-4' type="submit">{title}</Button>
+              </Col>
+            </Row>
+          </Container>
+          
+          
+          
+
         </Form>
-      </section>
+      </Container>
     </>
   )
 }
