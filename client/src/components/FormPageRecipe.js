@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router'
 import { UserContext } from '../App.js'
 import ImageUpload from './ImageUpload.js'
 import { Fragment } from 'react'
-// import { stateValues, formValues } from '../utility/common.js'
+import { stateValues, formValues } from '../utility/common.js'
 
 // FORM
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
@@ -29,25 +29,6 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
   useEffect(() => {
     setFormData({ ...formData, ingredients: inputIngredients })
   }, [inputIngredients])
-
-  function stateValues(formStructure) {
-    const fieldsObj = {}
-    // console.log('formStructure state values', formStructure)
-    formStructure.map(field => {
-      // console.log('name', field.name)
-      const name = field.name[0].toLowerCase() + field.name.substr(1).replace(' ', '')
-      fieldsObj[name] = ''
-    })
-    return fieldsObj
-  }
-
-  function formValues(formStructure) {
-    return formStructure.map(field => {
-      let name = field.name.replace(' ', '')
-      name = name[0].toLowerCase() + name.substr(1)
-      return { ...field, variable: name }
-    })
-  }
 
   useEffect(() => {
     async function fillFormFields() {

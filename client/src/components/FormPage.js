@@ -21,6 +21,7 @@ export default function FormPage({ title, formStructure, request }) {
   }
 
   async function handleSubmit(e) {
+    console.log(e)
     const form = e.currentTarget
     if (form.checkValidity() === false) {
       e.preventDefault()
