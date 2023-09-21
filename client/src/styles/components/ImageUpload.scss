@@ -3,6 +3,11 @@
   max-height: 200px;
 }
 
-.image-upload + label {
-  display: none;
+.container-delete-image {
+  display: flex;
+  gap: 15px;
+  button {
+    max-height: 27px;
+    padding: 0px 10px 3px;
+  }
 }

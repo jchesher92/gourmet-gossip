@@ -3,9 +3,8 @@
 }
 .form-container {
   @include flex-align-justify-center(column);
-  @include box-shadow-regular;
   background-color: $white;
-  padding: 5rem;
+  padding: 4rem;
 
   form {
     display: flex;
@@ -18,20 +17,6 @@
 
     * {
       width: 100%;
-    }
-  }
-}
-
-@media (min-width: 1200px) {
-  .form-container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 768px) {
-  .form-container {
-    form {
-      width: 360px;
     }
   }
 }

@@ -46,7 +46,6 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
               <option value="All">- Difficulty -</option>
               <option value="Easy">Easy</option>
               <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
             </select>
           </Col>
           {location.pathname !== '/recipes' ?

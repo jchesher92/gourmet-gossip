@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/esm/Button'
 
 export default function ImageUpload({ formData, setFormData }) {
 
@@ -15,15 +16,22 @@ export default function ImageUpload({ formData, setFormData }) {
     }
   }
 
+  function deleteImage() {
+    setFormData({ ...formData, image: '' })
+  }
+
   return (
     <>
       { formData.image ?
-        <img src={formData.image} alt="uploaded image" className='image-upload' />
+        <div className='container-delete-image'>
+          <img src={formData.image} alt="uploaded image" className='image-upload' />
+          <Button onClick={deleteImage}>x</Button>
+        </div>
         :
         <>
           <Form.Control required type='file' className='form-control' name='image' onChange={handleUpload}></Form.Control>
           <Form.Control.Feedback type="invalid">Image is required.</Form.Control.Feedback>
-          <label  htmlFor="image" className="form-label">Image Upload</label>
+          <label hidden htmlFor="image" className="image-label">Image Upload</label>
         </>
       }
     </>
