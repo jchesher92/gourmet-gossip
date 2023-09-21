@@ -44,8 +44,8 @@ export default function FormPage({ title, formStructure, request }) {
   return (
     <>
       <section className="container form-container">
-        <h1>{title}</h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit} className='mb-4'>
+          <h1>{title}</h1>
           {
             formValues(formStructure).map((field, idx) => {
               return (
@@ -59,8 +59,8 @@ export default function FormPage({ title, formStructure, request }) {
               )
             })
           }
+          <Button type='submit' className='mb-4'>{title}</Button>
           {errorMessage && <h2>{errorMessage}</h2>}
-          <Button type='submit'>{title}</Button>
         </Form>
       </section>
     </>
