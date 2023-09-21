@@ -1,13 +1,27 @@
 export default [
   {
-    username: 'admin',
-    email: 'admin@email.com',
+    username: 'Jill',
+    email: 'jill@email.com',
     password: 'pass',
     passwordConfirmation: 'pass',
   },
   {
-    username: 'jill',
-    email: 'jill@email.com',
+    username: 'Alex',
+    email: 'alex@email.com',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+  }
+  ,
+  {
+    username: 'James',
+    email: 'james@email.com',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+  }
+  ,
+  {
+    username: 'Nadja',
+    email: 'nadja@email.com',
     password: 'pass',
     passwordConfirmation: 'pass',
   }
