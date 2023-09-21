@@ -74,14 +74,9 @@
   gap: 14px;
 }
 
-.trash-edit-icons svg:hover {
-  opacity: 0.9 !important;
+.trash-edit-icons svg:hover, .trash-icon:hover {
+  opacity: 0.8 !important;
   cursor: pointer;
-}
-
-.trash-icon {
-  cursor: pointer;
-  opacity: 0.9;
 }
 
 .space-above-method {

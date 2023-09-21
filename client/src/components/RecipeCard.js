@@ -8,8 +8,8 @@ import axios from 'axios'
 
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faStar, faHeart, faTrashCan } from '@fortawesome/free-regular-svg-icons'
-import { faFire } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faTrashCan } from '@fortawesome/free-regular-svg-icons'
+import { faFire, faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function RecipeCard({ recipe }) {
   const linkUrl = `/recipes/${recipe._id}`
@@ -24,7 +24,7 @@ export default function RecipeCard({ recipe }) {
     >
       {user &&
         <span className='favorites-icon'>
-          <FontAwesomeIcon icon={faHeart} size="2xl" style={{ color: '#ff5f40' }} />
+          <FontAwesomeIcon icon={faHeart} size="2xl" style={{ color: '#fff' }} />
         </span>
       }
       <img src={recipe.image} />
