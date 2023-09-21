@@ -18,6 +18,6 @@ export default function Login() {
   }
 
   return (
-    <FormPage title='Login' formStructure={formStructure} request={login} />
+    <FormPage title='Your Account' formStructure={formStructure} request={login} />
   )
 }
