@@ -38,12 +38,18 @@ export default function RecipeCard({ recipe }) {
         <div className='same-colum-height'>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
-          <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
-          <p className="p-next-icon-first">{recipe.difficulty}</p>
-          <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
-          <p className="p-next-icon-second">{recipe.time} min</p>
+          <div className='d-flex difficulty'>
+            <div>
+              <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
+              <p className="p-next-icon-first">{recipe.difficulty}</p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
+              <p className="p-next-icon-second">{recipe.time} min</p>
+            </div>
+          </div>
         </div>
-        <div className='container-recipe-buttons mt-3'>
+        <div className='container-recipe-buttons mt-1'>
           <Link to={linkUrl} className="red-button">SEE RECIPE</Link>
           {/* <div className='trash-edit-icons'><Link onClick={deleteItem}>{ recipe.addedBy === profile._id && <FontAwesomeIcon icon={faTrashCan} size='xl' style={{ color: '#ff5f40' }} /> }</Link></div> */}
         </div>
