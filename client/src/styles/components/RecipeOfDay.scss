@@ -40,6 +40,10 @@
   }
 }
 
+.diet-button-recipe-of-day {
+  @extend %diet-button-recipe-of-day;
+}
+
 .same-colum-height {
   min-height: 0px;
 }
