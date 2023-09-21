@@ -57,3 +57,11 @@
     margin-bottom: 1rem;
   }
 }
+
+#category {
+  option {
+    &:active {
+      background-color: $green !important;
+    }
+  }
+}

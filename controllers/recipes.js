@@ -54,7 +54,6 @@ export const createRecipe = async (req, res) => {
     return res.status(201).json(recipeCreated)
   } catch (error) {
     console.log(error.code)
-    console.log(error)
     if (error.code === 11000) {
       return res.status(422).json({
         error: {
