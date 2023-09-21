@@ -4,7 +4,12 @@
 
 .form-container {
   background-color: $white;
-  padding: 4rem;
+  padding: 2rem;
+
+  .row {
+    padding: 2rem;
+    border: 2px solid $green;
+  }
 
   form {
     text-align: center;
@@ -15,5 +20,43 @@
       @extend %red-button;
       margin: 0 auto;
     }
+  }
+}
+
+.form-control {
+  border: none;
+  border-bottom: 2px solid $green;
+  border-radius: 0px;
+
+  &:focus {
+    border: none;
+    border-bottom: 2px solid $green;
+    box-shadow: none !important;
+  }
+}
+
+.invalid-feedback {
+  text-align: left;
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+h6 a {
+  text-decoration: none;
+  color: $red;
+}
+
+h2 {
+  font-size: 4rem;
+  font-family: 'Lobster', cursive;
+}
+
+@media (max-width: 768px) {
+  .welcome-message {
+    display: none;
   }
 }
