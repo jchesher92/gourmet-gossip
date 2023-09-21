@@ -13,3 +13,7 @@
 @import './components/RecipeOfDay.scss';
 @import './components/TopRated.scss';
 @import './components/NotFound.scss';
+
+$form-select-color: $green;
+
+@import "../../node_modules/bootstrap/scss/bootstrap"

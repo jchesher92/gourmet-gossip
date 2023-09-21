@@ -9,9 +9,8 @@ import { getToken } from '../utility/auth'
 export default function UpdateRecipe() {
 
   const { id } = useParams()
-  console.log('params', id)
 
-  const [ formStructure, setFormStructure ] = useState([
+  const [formStructure, setFormStructure] = useState([
     {
       type: 'text',
       name: 'Title',
@@ -50,7 +49,7 @@ export default function UpdateRecipe() {
     {
       type: 'text-list',
       name: 'Ingredients',
-      ingredients: [ { name: '', amount: '' } ],
+      ingredients: [{ name: '', amount: '' }],
     },
     // {
     //   type: 'textarea',

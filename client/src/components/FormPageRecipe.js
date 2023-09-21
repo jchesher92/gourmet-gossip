@@ -43,11 +43,8 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
     async function fillFormFields() {
       try {
         const { data } = await onLoad()
-        console.log('data', data)
-        console.log('title', data.title)
         setFormData(data)
         setInputIngredients(data.ingredients)
-        console.log('formdata', formData)
       } catch (error) {
         console.log(error)
         setErrorMessage(error)
@@ -69,13 +66,11 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
   }
 
   function handleChange(event) {
-    // console.log('input changed but not ingredients:', event)
     setFormData({ ...formData, [event.target.name]: event.target.value })
     setErrorMessage('')
   }
 
   async function handleSubmit(e) {
-    console.log('event', e)
     const form = e.currentTarget
     if (form.checkValidity() === false) {
       e.preventDefault()
@@ -85,7 +80,6 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
     e.preventDefault()
     try {
       const { data } = await request(formData)
-      console.log('data', data)
       if (data.token) {
         setToken(data.token)
         setUser(true)
@@ -115,12 +109,12 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
               <Col xs={12} md={6} id='left-column'>
                 {/* Title */}
                 <FloatingLabel label='Title' className='mb-3'>
-                  <Form.Control type='text' value={formData.title} placeholder='Title' required className='form-control' id='title' name='title' onChange={handleChange} />
+                  <Form.Control type='text' value={formData.title} placeholder='Title' required id='title' name='title' onChange={handleChange} />
                   <Form.Control.Feedback type="invalid">Title is required.</Form.Control.Feedback>
                 </FloatingLabel>
                 {/* Category */}
                 <FloatingLabel label='Category' className='mb-3'>
-                  <Form.Control as='select' value={formData.category} placeholder='Category' required aria-label="Floating label select example" className='form-control' id='category' name='category' onChange={handleChange}>
+                  <Form.Control as='select' value={formData.category} placeholder='Category' required aria-label="Floating label select example" id='category' name='category' onChange={handleChange} >
                     <option value=''>- Category -</option>
                     <option value='Breakfast'>Breakfast</option>
                     <option value='Lunch'>Lunch</option>

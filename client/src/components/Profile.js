@@ -29,7 +29,6 @@ export default function Profile() {
           const userRecipes = recipes.filter(recipe => recipe.addedBy === profile._id)
           setUserRecipes(userRecipes)
           setProfile(profile)
-          console.log(userRecipes)
         } else {
           redirect('/login')
         }

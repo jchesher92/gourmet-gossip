@@ -28,7 +28,6 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
       }
     }
     getRecipeData()
-    console.log('recipes', recipes) // This is empty because setRecipes is a promise
   }, [])
 
   useEffect(() => {
