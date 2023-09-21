@@ -113,7 +113,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                 {/* Category */}
                 <FloatingLabel label='Category' className='mb-3'>
                   <Form.Control as='select' value={formData.category} placeholder='Category' required aria-label="Floating label select example" id='category' name='category' onChange={handleChange} >
-                    <option value=''>- Category -</option>
+                    <option disabled value=''>- Category -</option>
                     <option value='Breakfast'>Breakfast</option>
                     <option value='Lunch'>Lunch</option>
                     <option value='Dinner'>Dinner</option>
@@ -125,7 +125,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                 {/* Diet */}
                 <FloatingLabel label='Diet' className='mb-3'>
                   <Form.Control as='select' value={formData.diet} placeholder='Diet' required aria-label="Floating label select example" className='form-control' id='diet' name='diet' onChange={handleChange}>
-                    <option value=''>- Diet -</option>
+                    <option disabled value=''>- Diet -</option>
                     <option value='Meat'>Meat</option>
                     <option value='Fish'>Fish</option>
                     <option value='Vegetarian'>Vegetarian</option>
@@ -146,7 +146,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                 {/* Difficulty */}
                 <FloatingLabel label='Difficulty' className='mb-3'>
                   <Form.Control as='select' value={formData.difficulty} placeholder='Difficulty' required aria-label="Floating label select example" id='difficulty' name='difficulty' onChange={handleChange}>
-                    <option value=''>- Difficulty -</option>
+                    <option disabled value=''>- Difficulty -</option>
                     <option value='Easy'>Easy</option>
                     <option value='Intermediate'>Intermediate</option>
                   </Form.Control>
