@@ -58,10 +58,9 @@
   }
 }
 
-#category {
-  option {
-    &:active {
-      background-color: $green !important;
-    }
-  }
+select option:hover {
+  background-color: $green;
+  /* Change the background color of selected options */
+  color: white;
+  /* Change the text color of selected options */
 }

@@ -1,12 +1,10 @@
 import { useState, useContext, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
-// import Select from 'react-select'
 import { setToken } from '../utility/auth.js'
 import { useNavigate } from 'react-router'
 import { UserContext } from '../App.js'
 import ImageUpload from './ImageUpload.js'
-import { Fragment } from 'react'
-import { stateValues, formValues } from '../utility/common.js'
+import { stateValues } from '../utility/common.js'
 
 // FORM
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
@@ -170,7 +168,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                   <Form.Control.Feedback type="invalid">Method is required.</Form.Control.Feedback>
                 </FloatingLabel>
                 {/* Ingredients */}
-                <Button className='mb-4 green-button' onClick={addFields}>Click to add ingredients</Button>
+                <Button className='mb-4 green-button w-100' onClick={addFields}>Click to add ingredients</Button>
                 {inputIngredients.map((ingredientObject, index) => {
                   return (
                     <Row key={index} className='mb-3'>
