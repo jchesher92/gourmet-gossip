@@ -16,7 +16,7 @@ export default [
       { name: 'Sugar', amount: '2 tbsp' },
       { name: 'Salt', amount: '1/2 tsp' }
     ],
-    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695239699/gourmet-gossip/apple_pie_w4wuu6.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286864/gourmet-gossip/pancakes_jyldrf.jpg',
   },
   {
     title: 'Veggie Omelette',
@@ -35,7 +35,7 @@ export default [
       { name: 'Salt', amount: '1/2 tsp' },
       { name: 'Black Pepper', amount: '1/4 tsp' }
     ],
-    image: 'omelette.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286866/gourmet-gossip/omelette_yvq2dc.jpg',
   },
   {
     title: 'Blueberry Muffins',
@@ -54,7 +54,7 @@ export default [
       { name: 'Sugar', amount: '1/2 cup' },
       { name: 'Baking Powder', amount: '2 tsp' }
     ],
-    image: 'blueberry_muffins.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286854/gourmet-gossip/blueberry_muffins_kbllid.jpg',
   },
   {
     title: 'Avocado Toast',
@@ -71,7 +71,7 @@ export default [
       { name: 'Salt', amount: 'to taste' },
       { name: 'Black Pepper', amount: 'to taste' }
     ],
-    image: 'avocado_toast.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286871/gourmet-gossip/avocado_toast_vbkcyg.jpg',
   },
   {
     title: 'French Toast',
@@ -90,7 +90,7 @@ export default [
       { name: 'Maple Syrup', amount: '1/4 cup' },
       { name: 'Butter', amount: '2 tbsp' }
     ],
-    image: 'french_toast.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286859/gourmet-gossip/french_toast_mjuluz.jpg',
   },
   {
     title: 'Breakfast Burrito',
@@ -109,7 +109,7 @@ export default [
       { name: 'Salt', amount: 'to taste' },
       { name: 'Black Pepper', amount: 'to taste' }
     ],
-    image: 'breakfast_burrito.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286856/gourmet-gossip/breakfast_burrito_hufz5c.jpg',
   },
   {
     title: 'Fruit Smoothie',
@@ -126,7 +126,7 @@ export default [
       { name: 'Greek Yogurt', amount: '1/2 cup' },
       { name: 'Honey', amount: '2 tbsp' }
     ],
-    image: 'fruit_smoothie.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/fruit_smoothie_txmmlx.jpg',
   },
   {
     title: 'Eggs Benedict',
@@ -143,7 +143,7 @@ export default [
       { name: 'Canadian Bacon', amount: '4 slices' },
       { name: 'Hollandaise Sauce', amount: '1/2 cup' }
     ],
-    image: 'eggs_benedict.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286858/gourmet-gossip/eggs_benedict_anul1v.jpg',
   },
   {
     title: 'Oatmeal with Berries',
@@ -159,7 +159,7 @@ export default [
       { name: 'Mixed Berries', amount: '1/2 cup' },
       { name: 'Honey', amount: '2 tbsp' }
     ],
-    image: 'oatmeal_with_berries.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286863/gourmet-gossip/oatmeal_with_berries_rbd8gl.jpg',
   },
   {
     title: 'Breakfast Tacos',
@@ -178,7 +178,7 @@ export default [
       { name: 'Salt', amount: 'to taste' },
       { name: 'Black Pepper', amount: 'to taste' }
     ],
-    image: 'breakfast_tacos.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286856/gourmet-gossip/breakfast_tacos_xx2yof.jpg',
   },
   {
     title: 'Peanut Butter Banana Toast',
@@ -195,7 +195,7 @@ export default [
       { name: 'Banana', amount: '1' },
       { name: 'Honey', amount: '1 tbsp' }
     ],
-    image: 'peanut_butter_banana_toast.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286867/gourmet-gossip/peanut_butter_banana_toast_mevv3i.jpg',
   },
   {
     title: 'Cinnamon Rolls',
@@ -214,7 +214,7 @@ export default [
       { name: 'Cream Cheese', amount: '4 oz' },
       { name: 'Powdered Sugar', amount: '1 cup' }
     ],
-    image: 'cinnamon_rolls.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286857/gourmet-gossip/cinnamon_rolls_hlq711.jpg',
   },
   {
     title: 'Breakfast Quesadilla',
@@ -233,7 +233,7 @@ export default [
       { name: 'Onion', amount: '1/4 cup, diced' },
       { name: 'Flour Tortillas', amount: '2' }
     ],
-    image: 'breakfast_quesadilla.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286855/gourmet-gossip/breakfast_quesadilla_zobku8.jpg',
   },
   {
     title: 'Chicken Caesar Salad',
@@ -252,7 +252,7 @@ export default [
       { name: 'Caesar Dressing', amount: '1/4 cup' },
       { name: 'Salt', amount: 'to taste' }
     ],
-    image: 'caesar_salad.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286856/gourmet-gossip/caesar_salad_lspqz0.jpg',
   },
   {
     title: 'Caprese Sandwich',
@@ -270,7 +270,7 @@ export default [
       { name: 'Balsamic Glaze', amount: '2 tbsp' },
       { name: 'Bread', amount: '4 slices' }
     ],
-    image: 'caprese_sandwich.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286854/gourmet-gossip/caprese_sandwich_qmxbvc.jpg',
   },
   {
     title: 'Mediterranean Quinoa Salad',
@@ -289,7 +289,7 @@ export default [
       { name: 'Feta Cheese', amount: '1/2 cup, crumbled' },
       { name: 'Greek Dressing', amount: '3 tbsp' }
     ],
-    image: 'quinoa_salad.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/quinoa_salad_f0zhwh.jpg',
   },
   {
     title: 'BLT Sandwich',
@@ -307,7 +307,7 @@ export default [
       { name: 'Mayonnaise', amount: '2 tbsp' },
       { name: 'Bread Slices', amount: '4' }
     ],
-    image: 'blt_sandwich.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286854/gourmet-gossip/blt_sandwich_mysnog.jpg',
   },
   {
     title: 'Spinach and Mushroom Quiche',
@@ -326,7 +326,7 @@ export default [
       { name: 'Milk', amount: '1 cup' },
       { name: 'Cheddar Cheese', amount: '1 cup, shredded' }
     ],
-    image: 'spinach_quiche.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286869/gourmet-gossip/spinach_quiche_mlo69s.jpg',
   },
   {
     title: 'Chicken and Vegetable Wrap',
@@ -345,7 +345,7 @@ export default [
       { name: 'Cucumber', amount: '1/2, sliced' },
       { name: 'Zesty Sauce', amount: '2 tbsp' }
     ],
-    image: 'chicken_wrap.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286857/gourmet-gossip/chicken_wrap_geyvcl.jpg',
   },
   {
     title: 'Vegetable Noodle Soup',
@@ -364,7 +364,7 @@ export default [
       { name: 'Egg Noodles', amount: '2 cups' },
       { name: 'Salt', amount: 'to taste' }
     ],
-    image: 'vegetable_soup.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286871/gourmet-gossip/vegetable_soup_k1njss.jpg',
   },
   {
     title: 'Turkey Club Sandwich',
@@ -383,7 +383,7 @@ export default [
       { name: 'Mayonnaise', amount: '2 tbsp' },
       { name: 'Bread Slices', amount: '6' }
     ],
-    image: 'turkey_club_sandwich.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286867/gourmet-gossip/turkey_club_sandwich_emridd.jpg',
   },
   {
     title: 'Pasta Primavera',
@@ -402,7 +402,7 @@ export default [
       { name: 'Parmesan Cheese', amount: '1/2 cup, grated' },
       { name: 'Olive Oil', amount: '2 tbsp' }
     ],
-    image: 'pasta_primavera.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286866/gourmet-gossip/pasta_primavera_otqoue.jpg',
   },
   {
     title: 'Tuna Salad Wrap',
@@ -421,7 +421,7 @@ export default [
       { name: 'Tortillas', amount: '2' },
       { name: 'Salt', amount: 'to taste' }
     ],
-    image: 'tuna_salad_wrap.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286870/gourmet-gossip/tuna_salad_wrap_xyxjm9.jpg',
   },
   {
     title: 'Veggie Pizza',
@@ -440,7 +440,7 @@ export default [
       { name: 'Mushrooms', amount: '1 cup, sliced' },
       { name: 'Black Olives', amount: '1/4 cup, sliced' }
     ],
-    image: 'veggie_pizza.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/veggie_pizza_cmjxku.jpg',
   },
   {
     title: 'Grilled Salmon',
@@ -459,7 +459,7 @@ export default [
       { name: 'Salt', amount: 'to taste' },
       { name: 'Black Pepper', amount: 'to taste' }
     ],
-    image: 'grilled_salmon.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/grilled_salmon_upqcck.jpg',
   },
   {
     title: 'Spaghetti Carbonara',
@@ -478,7 +478,7 @@ export default [
       { name: 'Garlic', amount: '2 cloves, minced' },
       { name: 'Black Pepper', amount: '1/2 tsp' }
     ],
-    image: 'spaghetti_carbonara.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/spaghetti_carbonara_oqyhwv.jpg',
   },
   {
     title: 'Vegetable Curry',
@@ -497,7 +497,7 @@ export default [
       { name: 'Garlic', amount: '2 cloves, minced' },
       { name: 'Rice', amount: '2 cups, cooked' }
     ],
-    image: 'vegetable_curry.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/vegetable_curry_szmcaz.jpg',
   },
   {
     title: 'Beef Stir-Fry',
@@ -516,7 +516,7 @@ export default [
       { name: 'Ginger', amount: '1 tsp, minced' },
       { name: 'Rice', amount: '2 cups, cooked' }
     ],
-    image: 'beef_stir_fry.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286854/gourmet-gossip/beef_stir_fry_ki4wjl.jpg',
   },
   {
     title: 'Chicken Alfredo',
@@ -535,7 +535,7 @@ export default [
       { name: 'Garlic', amount: '2 cloves, minced' },
       { name: 'Butter', amount: '2 tbsp' }
     ],
-    image: 'chicken_alfredo.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286856/gourmet-gossip/chicken_alfredo_lezy92.jpg',
   },
   {
     title: 'Vegetarian Lasagna',
@@ -554,7 +554,7 @@ export default [
       { name: 'Marinara Sauce', amount: '3 cups' },
       { name: 'Mozzarella Cheese', amount: '1 cup, shredded' }
     ],
-    image: 'vegetarian_lasagna.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286871/gourmet-gossip/vegetarian_lasagna_nuwjys.jpg',
   },
   {
     title: 'Lemon Herb Roast Chicken',
@@ -573,7 +573,7 @@ export default [
       { name: 'Garlic', amount: '4 cloves, minced' },
       { name: 'Salt', amount: 'to taste' }
     ],
-    image: 'roast_chicken.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286867/gourmet-gossip/roast_chicken_p1yywn.jpg',
   },
   {
     title: 'Shrimp Scampi',
@@ -592,7 +592,7 @@ export default [
       { name: 'White Wine', amount: '1/4 cup' },
       { name: 'Parsley', amount: '2 tbsp, chopped' }
     ],
-    image: 'shrimp_scampi.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/shrimp_scampi_l75m1a.jpg',
   },
   {
     title: 'Vegetable Lo Mein',
@@ -611,7 +611,7 @@ export default [
       { name: 'Soy Sauce', amount: '1/4 cup' },
       { name: 'Sesame Oil', amount: '2 tbsp' }
     ],
-    image: 'vegetable_lo_mein.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286870/gourmet-gossip/vegetable_lo_mein_vdejxl.jpg',
   },
   {
     title: 'Beef Tacos',
@@ -630,7 +630,7 @@ export default [
       { name: 'Tomato', amount: '1, diced' },
       { name: 'Cheddar Cheese', amount: '1 cup, shredded' }
     ],
-    image: 'beef_tacos.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286854/gourmet-gossip/beef_tacos_o2jrqu.jpg',
   },
   {
     title: 'Mushroom Risotto',
@@ -649,7 +649,7 @@ export default [
       { name: 'Parmesan Cheese', amount: '1/2 cup, grated' },
       { name: 'Onion', amount: '1, diced' }
     ],
-    image: 'mushroom_risotto.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286865/gourmet-gossip/mushroom_risotto_vdapvt.jpg',
   },
   {
     title: 'Honey Glazed Salmon',
@@ -668,7 +668,7 @@ export default [
       { name: 'Garlic', amount: '2 cloves, minced' },
       { name: 'Green Beans', amount: '1 cup' }
     ],
-    image: 'honey_glazed_salmon.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286862/gourmet-gossip/honey_glazed_salmon_lvqgrv.jpg',
   },
   {
     title: 'Chicken Fajitas',
@@ -687,7 +687,7 @@ export default [
       { name: 'Flour Tortillas', amount: '8' },
       { name: 'Sour Cream', amount: '1/2 cup' }
     ],
-    image: 'chicken_fajitas.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286857/gourmet-gossip/chicken_fajitas_xs1xad.jpg',
   },
   {
     title: 'Stuffed Bell Peppers',
@@ -706,7 +706,7 @@ export default [
       { name: 'Onion', amount: '1, diced' },
       { name: 'Garlic', amount: '2 cloves, minced' }
     ],
-    image: 'stuffed_bell_peppers.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286867/gourmet-gossip/stuffed_bell_peppers_ha9nef.jpg',
   },
   {
     title: 'Teriyaki Chicken',
@@ -725,7 +725,7 @@ export default [
       { name: 'Rice', amount: '2 cups, cooked' },
       { name: 'Broccoli', amount: '2 cups, florets' }
     ],
-    image: 'teriyaki_chicken.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286870/gourmet-gossip/teriyaki_chicken_nhulwi.jpg',
   },
   {
     title: 'Vegetable Stir-Fry',
@@ -744,7 +744,7 @@ export default [
       { name: 'Soy Sauce', amount: '3 tbsp' },
       { name: 'Ginger', amount: '1 tsp, minced' }
     ],
-    image: 'vegetable_stir_fry.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286871/gourmet-gossip/vegetable_stir_fry_lonkar.jpg',
   },
   {
     title: 'Chocolate Cake',
@@ -763,7 +763,7 @@ export default [
       { name: 'Butter', amount: '1/2 cup' },
       { name: 'Chocolate Chips', amount: '1/2 cup' }
     ],
-    image: 'chocolate_cake.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286857/gourmet-gossip/chocolate_cake_cvarxy.jpg',
   },
   {
     title: 'Vanilla Ice Cream',
@@ -782,7 +782,7 @@ export default [
       { name: 'Salt', amount: '1/4 tsp' },
       { name: 'Milk', amount: '1 cup' }
     ],
-    image: 'vanilla_ice_cream.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/vanilla_ice_cream_kc6jd5.jpg',
   },
   {
     title: 'Apple Pie',
@@ -801,7 +801,7 @@ export default [
       { name: 'Nutmeg', amount: '1/4 tsp' },
       { name: 'Butter', amount: '2 tbsp' }
     ],
-    image: 'apple_pie.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695239699/gourmet-gossip/apple_pie_w4wuu6.jpg',
   },
   {
     title: 'Strawberry Shortcake',
@@ -820,7 +820,7 @@ export default [
       { name: 'Vanilla Extract', amount: '1 tsp' },
       { name: 'Mint Leaves', amount: 'for garnish' }
     ],
-    image: 'strawberry_shortcake.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286870/gourmet-gossip/strawberry_shortcake_vaukrf.jpg',
   },
   {
     title: 'Chocolate Chip Cookies',
@@ -839,7 +839,7 @@ export default [
       { name: 'Eggs', amount: '2' },
       { name: 'Chocolate Chips', amount: '2 cups' }
     ],
-    image: 'chocolate_chip_cookies.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286857/gourmet-gossip/chocolate_chip_cookies_rgvh6q.jpg',
   },
   {
     title: 'Cheesecake',
@@ -858,7 +858,7 @@ export default [
       { name: 'Vanilla Extract', amount: '1 tsp' },
       { name: 'Sour Cream', amount: '1 cup' }
     ],
-    image: 'cheesecake.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286854/gourmet-gossip/cheesecake_umimha.jpg',
   },
   {
     title: 'Banana Bread',
@@ -877,7 +877,7 @@ export default [
       { name: 'Butter', amount: '1/2 cup' },
       { name: 'Walnuts', amount: '1/2 cup, chopped' }
     ],
-    image: 'banana_bread.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/banana_bread_jyflkx.jpg',
   },
   {
     title: 'Raspberry Sorbet',
@@ -894,7 +894,7 @@ export default [
       { name: 'Lemon Juice', amount: '1 tbsp' },
       { name: 'Water', amount: '1/4 cup' }
     ],
-    image: 'raspberry_sorbet.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286867/gourmet-gossip/raspberry_sorbet_ubjbxy.jpg',
   },
   {
     title: 'Tiramisu',
@@ -913,7 +913,7 @@ export default [
       { name: 'Coffee', amount: '1 cup, brewed and cooled' },
       { name: 'Cocoa Powder', amount: '2 tbsp' }
     ],
-    image: 'tiramisu.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/tiramisu_ttajg7.jpg',
   },
   {
     title: 'Lemon Bars',
@@ -932,7 +932,7 @@ export default [
       { name: 'Lemons', amount: '2, juiced and zested' },
       { name: 'Baking Powder', amount: '1/2 tsp' }
     ],
-    image: 'lemon_bars.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286863/gourmet-gossip/lemon_bars_uboknb.jpg',
   },
   {
     title: 'Pecan Pie',
@@ -951,7 +951,7 @@ export default [
       { name: 'Eggs', amount: '3' },
       { name: 'Vanilla Extract', amount: '1 tsp' }
     ],
-    image: 'pecan_pie.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286868/gourmet-gossip/pecan_pie_jvkgk9.jpg',
   },
   {
     title: 'Fruit Salad',
@@ -968,7 +968,7 @@ export default [
       { name: 'Lime Juice', amount: '2 tbsp' },
       { name: 'Fresh Mint Leaves', amount: 'for garnish' }
     ],
-    image: 'fruit_salad.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/fruit_salad_av6eih.jpg',
   },
   {
     title: 'Rice Pudding',
@@ -987,7 +987,7 @@ export default [
       { name: 'Vanilla Extract', amount: '1 tsp' },
       { name: 'Raisins', amount: '1/4 cup' }
     ],
-    image: 'rice_pudding.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286869/gourmet-gossip/rice_pudding_m1namq.jpg',
   },
   {
     title: 'Chocolate Mousse',
@@ -1006,7 +1006,7 @@ export default [
       { name: 'Vanilla Extract', amount: '1 tsp' },
       { name: 'Whipped Cream', amount: 'for garnish' }
     ],
-    image: 'chocolate_mousse.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286857/gourmet-gossip/chocolate_mousse_cgj3pq.jpg',
   },
   {
     title: 'Cherry Pie',
@@ -1025,7 +1025,7 @@ export default [
       { name: 'Lemon Juice', amount: '1 tbsp' },
       { name: 'Egg Wash', amount: 'for brushing' }
     ],
-    image: 'cherry_pie.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286855/gourmet-gossip/cherry_pie_tg9o2r.jpg',
   },
   {
     title: 'Guacamole',
@@ -1044,7 +1044,7 @@ export default [
       { name: 'Cilantro', amount: '2 tbsp, chopped' },
       { name: 'Salt', amount: '1/2 tsp' }
     ],
-    image: 'guacamole.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/guacamole_rjyvyb.jpg',
   },
   {
     title: 'Hummus and Pita',
@@ -1063,7 +1063,7 @@ export default [
       { name: 'Olive Oil', amount: '2 tbsp' },
       { name: 'Pita Bread', amount: '4 rounds, warmed' }
     ],
-    image: 'hummus_and_pita.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286864/gourmet-gossip/hummus_and_pita_i0s8ca.jpg',
   },
   {
     title: 'Popcorn',
@@ -1081,7 +1081,7 @@ export default [
       { name: 'Butter', amount: 'optional, for extra flavor' },
       { name: 'Nutritional Yeast', amount: 'optional, for cheesy flavor' }
     ],
-    image: 'popcorn.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286867/gourmet-gossip/popcorn_ktcirs.jpg',
   },
   {
     title: 'Fruit Kabobs',
@@ -1100,7 +1100,7 @@ export default [
       { name: 'Wooden Skewers', amount: '8' },
       { name: 'Kiwi', amount: '2, peeled and sliced' }
     ],
-    image: 'fruit_kabobs.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286859/gourmet-gossip/fruit_kabobs_roapx2.jpg',
   },
   {
     title: 'Caprese Salad Skewers',
@@ -1119,7 +1119,7 @@ export default [
       { name: 'Olive Oil', amount: '1 tbsp' },
       { name: 'Salt', amount: 'to taste' }
     ],
-    image: 'caprese_salad_skewers.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286856/gourmet-gossip/caprese_salad_skewers_jwqkvp.jpg',
   },
   {
     title: 'Trail Mix',
@@ -1138,7 +1138,7 @@ export default [
       { name: 'Pretzels', amount: '1/4 cup' },
       { name: 'M&Ms', amount: '1/4 cup' }
     ],
-    image: 'trail_mix.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286870/gourmet-gossip/trail_mix_dexf0g.jpg',
   },
   {
     title: 'Deviled Eggs',
@@ -1157,7 +1157,7 @@ export default [
       { name: 'Salt', amount: 'to taste' },
       { name: 'Pepper', amount: 'to taste' }
     ],
-    image: 'deviled_eggs.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286858/gourmet-gossip/deviled_eggs_f30uab.jpg',
   },
   {
     title: 'Stuffed Mushrooms',
@@ -1176,7 +1176,7 @@ export default [
       { name: 'Parsley', amount: '2 tbsp, chopped' },
       { name: 'Olive Oil', amount: '2 tbsp' }
     ],
-    image: 'stuffed_mushrooms.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286870/gourmet-gossip/stuffed_mushrooms_vkwzoe.jpg',
   },
   {
     title: 'Cucumber Slices',
@@ -1193,7 +1193,7 @@ export default [
       { name: 'Pepper', amount: 'to taste' },
       { name: 'Lemon Juice', amount: 'optional, for extra flavor' }
     ],
-    image: 'cucumber_slices.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286859/gourmet-gossip/cucumber_slices_rt48rc.jpg',
   },
   {
     title: 'Granola Bars',
@@ -1212,7 +1212,7 @@ export default [
       { name: 'Peanut Butter', amount: '1/2 cup' },
       { name: 'Vanilla Extract', amount: '1 tsp' }
     ],
-    image: 'granola_bars.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/granola_bars_dskhfa.jpg',
   },
   {
     title: 'Stuffed Dates',
@@ -1230,7 +1230,7 @@ export default [
       { name: 'Balsamic Glaze', amount: 'for drizzling' },
       { name: 'Toothpicks', amount: 'for securing' }
     ],
-    image: 'stuffed_dates.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286869/gourmet-gossip/stuffed_dates_lsdeqv.jpg',
   },
   {
     title: 'Veggie Chips',
@@ -1249,7 +1249,7 @@ export default [
       { name: 'Salt', amount: 'to taste' },
       { name: 'Pepper', amount: 'to taste' }
     ],
-    image: 'veggie_chips.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286871/gourmet-gossip/veggie_chips_p7rpeh.jpg',
   },
   {
     title: 'Peanut Butter Energy Balls',
@@ -1268,7 +1268,7 @@ export default [
       { name: 'Flaxseeds', amount: '2 tbsp' },
       { name: 'Vanilla Extract', amount: '1 tsp' }
     ],
-    image: 'energy_balls.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/energy_balls_cnfhw4.jpg',
   },
   {
     title: 'Cottage Cheese with Pineapple',
@@ -1284,7 +1284,7 @@ export default [
       { name: 'Pineapple', amount: '1 cup, diced' },
       { name: 'Honey', amount: 'for drizzling' }
     ],
-    image: 'cottage_cheese_with_pineapple.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286858/gourmet-gossip/cottage_cheese_with_pineapple_mgronq.jpg',
   },
   {
     title: 'Greek Yogurt Parfait',
@@ -1301,6 +1301,6 @@ export default [
       { name: 'Mixed Berries', amount: '1/2 cup' },
       { name: 'Honey', amount: 'for drizzling' }
     ],
-    image: 'greek_yogurt_parfait.jpg',
+    image: 'https://res.cloudinary.com/djhbqxz1j/image/upload/v1695286861/gourmet-gossip/greek_yogurt_parfait_yqnqbj.jpg',
   }
 ]
