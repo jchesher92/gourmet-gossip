@@ -32,6 +32,10 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
   }
 
   useEffect(() => {
+    !user && navigate('/login')
+  })
+
+  useEffect(() => {
     setFormData({ ...formData, ingredients: inputIngredients })
   }, [inputIngredients])
 
@@ -103,12 +107,12 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
 
   return (
     <>
-      <Container className="container recipe-form-container">
+      <div className=" container recipe-form-container">
         <h1>{title}</h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit} className='mt-4'>
-          <Container>
+          <Container fluid>
             <Row>
-              <Col className='md-4'>
+              <Col xs={12} md={6} id='left-column'>
                 {/* Title */}
                 <FloatingLabel label='Title' className='mb-3'>
                   <Form.Control type='text' value={formData.title} placeholder='Title' required className='form-control' id='title' name='title' onChange={handleChange} />
@@ -144,12 +148,12 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                 </FloatingLabel>
                 {/* Image */}
                 <ImageUpload required formData={formData} setFormData={setFormData} />
-                
+
               </Col>
-              <Col className='md-8'>
+              <Col xs={12} md={6}>
                 {/* Difficulty */}
                 <FloatingLabel label='Difficulty' className='mb-3'>
-                  <Form.Control as='select' value={formData.difficulty} placeholder='Difficulty' required aria-label="Floating label select example" className='form-control' id='difficulty' name='difficulty' onChange={handleChange}>
+                  <Form.Control as='select' value={formData.difficulty} placeholder='Difficulty' required aria-label="Floating label select example" id='difficulty' name='difficulty' onChange={handleChange}>
                     <option value=''>- Difficulty -</option>
                     <option value='Easy'>Easy</option>
                     <option value='Intermediate'>Intermediate</option>
@@ -158,37 +162,37 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                 </FloatingLabel>
                 {/* Time */}
                 <FloatingLabel label='Time in minutes' className='mb-3'>
-                  <Form.Control type='number' value={formData.time} placeholder='Time' required className='form-control' id='time' name='time' onChange={handleChange} />
+                  <Form.Control type='number' value={formData.time} placeholder='Time' required id='time' name='time' onChange={handleChange} />
                   <Form.Control.Feedback type="invalid">Time is required.</Form.Control.Feedback>
                 </FloatingLabel>
                 {/* Serves */}
                 <FloatingLabel label='Serves' className='mb-3'>
-                  <Form.Control type='number' value={formData.serves} placeholder='Serves' required className='form-control' id='serves' name='serves' onChange={handleChange} />
+                  <Form.Control type='number' value={formData.serves} placeholder='Serves' required id='serves' name='serves' onChange={handleChange} />
                   <Form.Control.Feedback type="invalid">Servse is required.</Form.Control.Feedback>
                 </FloatingLabel>
                 {/* Method */}
                 <FloatingLabel label='Method' className='mb-3'>
-                  <Form.Control as='textarea' value={formData.method} placeholder='Method' required className='form-control textarea' id='method' name='method' onChange={handleChange} />
+                  <Form.Control as='textarea' value={formData.method} placeholder='Method' required className='textarea' id='method' name='method' onChange={handleChange} />
                   <Form.Control.Feedback type="invalid">Method is required.</Form.Control.Feedback>
                 </FloatingLabel>
                 {/* Ingredients */}
                 <Button className='mb-4 green-button' onClick={addFields}>Click to add ingredients</Button>
                 {inputIngredients.map((ingredientObject, index) => {
                   return (
-                    <Row key={index}>
-                      <Col className='md-5'>
-                        <FloatingLabel label='Name' className='mb-3'>
-                          <Form.Control value={ingredientObject.name} data-type='name' required type='text' className="form-control" id='name-ingredient' name='name' placeholder='Name' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
-                          <Form.Control.Feedback type='invalid'>Name of ingredient is required.</Form.Control.Feedback>
+                    <Row key={index} className='mb-3'>
+                      <Col sm={6} xs={12}>
+                        <FloatingLabel label='Name'>
+                          <Form.Control value={ingredientObject.name} data-type='name' required type='text' id='name-ingredient' name='name' placeholder='Name' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
+                          <Form.Control.Feedback type='invalid'>Name is required.</Form.Control.Feedback>
                         </FloatingLabel>
                       </Col>
-                      <Col className='md-5'>
-                        <FloatingLabel label='Amount' className='mb-3'>
-                          <Form.Control required value={ingredientObject.amount} data-type='amount' type='text' className='form-control' id='amount-ingredient' name='amount' placeholder='Amount' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
-                          <Form.Control.Feedback type='invalid'>Amount of ingredient is required.</Form.Control.Feedback>
+                      <Col sm={5} xs={10}>
+                        <FloatingLabel label='Amount'>
+                          <Form.Control required value={ingredientObject.amount} data-type='amount' type='text' id='amount-ingredient' name='amount' placeholder='Amount' onChange={(e) => handleUpdateIngredients(e, ingredientObject)} />
+                          <Form.Control.Feedback type='invalid'>Amount is required.</Form.Control.Feedback>
                         </FloatingLabel>
                       </Col>
-                      <Col className='md-2'>
+                      <Col sm={1} xs={2} className='d-flex col-delete pt-2'>
                         <Button value={index} onClick={deleteIngredient} className='red-button-delete'>x</Button>
                       </Col>
                     </Row>
@@ -203,12 +207,12 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
               </Col>
             </Row>
           </Container>
-          
-          
-          
+
+
+
 
         </Form>
-      </Container>
+      </div>
     </>
   )
 }
