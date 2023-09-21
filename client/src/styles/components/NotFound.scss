@@ -1,0 +1,7 @@
+.not-found-container {
+  @extend %container-content;
+}
+
+.not-found-content {
+  @include flex-align-justify-center(column);
+}

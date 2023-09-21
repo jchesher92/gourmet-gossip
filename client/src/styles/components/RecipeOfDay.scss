@@ -1,0 +1,62 @@
+.container-random-recipe {
+  background: $green;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  h4 {
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .container-random-recipe-inside {
+    background: $white;
+    max-width: 900px;
+  }
+  .colum-left {
+    padding: 0px;
+  }
+  .colum-right {
+    padding: 40px;
+  }
+  .image-recipe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .red-button {
+    @extend %red-button;
+  }
+}
+
+.same-colum-height {
+  min-height: 200px;
+}
+
+@media (min-width: 576px) {
+  .same-colum-height {
+    min-height: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .same-colum-height {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .same-colum-height {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-recipe {
+    object-fit: cover;
+    max-height: 250px;
+  }
+}

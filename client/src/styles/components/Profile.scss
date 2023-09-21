@@ -1,0 +1,15 @@
+.profile-details {
+  @include flex-align-justify-center(column);
+  text-align: center;
+  padding: 2vw;
+
+  img {
+    width: 140px
+  }
+}
+
+.empty-profile-page {
+  padding: 6rem 3rem;
+  background: #fff;
+  text-align: center;
+}

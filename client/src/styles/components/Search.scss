@@ -1,0 +1,64 @@
+.search-container {
+  padding: 30px 30px 24px;
+  background: $white;
+  margin-top: 320px;
+
+  .form-control:focus {
+    border-color: $green;
+  }
+
+  .btn {
+    @extend %green-button;
+  }
+
+  .btn-red {
+    @extend %red-button
+  }
+
+  .row>* {
+    padding-right: calc(var(--bs-gutter-x) * .2);
+    padding-left: calc(var(--bs-gutter-x) * .2);
+  }
+}
+
+.header-picture {
+  position: static;
+
+  img {
+    width: 100%;
+    padding: 0px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    object-fit: cover; // This prevents the image from stretching 
+  }
+}
+
+@media (min-width: 992px) {
+  .search-container {
+    padding: 40px 40px 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-picture img {
+    max-height: 380px;
+  }
+  .search-container {
+    margin-top: 190px;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-container {
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 430px) {
+  .search-container {
+    margin-top: 90px;
+  }
+}

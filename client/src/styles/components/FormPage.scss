@@ -1,0 +1,22 @@
+.form-container textarea {
+  min-height: 200px !important;
+}
+.form-container {
+  @include flex-align-justify-center(column);
+  background-color: $white;
+  padding: 4rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      @extend %red-button
+    }
+
+    * {
+      width: 100%;
+    }
+  }
+}

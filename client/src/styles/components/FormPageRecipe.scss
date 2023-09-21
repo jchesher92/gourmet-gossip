@@ -1,0 +1,38 @@
+.recipe-form-container {
+  background-color: $white;
+  padding: 4rem 5rem;
+  button {
+    @extend %red-button;
+  }
+  .green-button {
+    @extend %green-button;
+  }
+  .red-button-delete {
+    @extend %red-button;
+    margin-right: 0px;
+    padding: 0px 10px 3px;
+    display: inline;
+  }
+  h1 {
+    text-align: center;
+  }
+  .submit-button {
+    display: flex;
+    justify-content: center;
+  }
+  .textarea {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .recipe-form-container {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .recipe-form-container {
+    padding: 3rem 2rem;
+  }
+}
