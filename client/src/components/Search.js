@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import headerPicture from '../images/header-food.jpg'
+import headerPicture from '../images/header-wood.jpg'
 
 export default function Search({ handleChange, newSearch, newCategory, newDiet, newDifficulty, resetFilters }) {
 

@@ -20,6 +20,8 @@ header {
     font-size: 40px;
     margin-bottom: 0px;
     text-shadow: 3px 3px $dark-green;
+    position: relative;
+    bottom: 3px;
   }
 
   .dropdown {
@@ -51,6 +53,7 @@ header {
 @media (max-width: 576px) {
   header p {
     font-size: 25px;
+    bottom: 0px;
   }
 }
 
