@@ -30,9 +30,9 @@ $form-range-thumb-bg: $green !important;
   text-decoration: none;
   width: fit-content;
 
-  &:hover {
+  &:hover, &:active {
     border-color: $green;
-    background: $green;
+    background: $green !important;
     color: $white;
   }
 }
@@ -69,19 +69,19 @@ $form-range-thumb-bg: $green !important;
 }
 
 %green-button {
-  background: $green;
-  color: $white;
+  background: #226A57;
+  color: #fff;
   display: table;
-  padding: 6px 23px;
+  padding: 15px 23px;
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: 18px;
   letter-spacing: 1px;
   border: none;
   text-align: center;
 
-  &:hover {
+  &:hover, &:active {
     border-color: $red;
-    background: $red;
+    background: $red !important;
   }
 }
 

@@ -10,7 +10,8 @@
     text-align: right;
     display: block;
     p {
-      margin-bottom: -6px;
+      margin-bottom: -11px;
+      margin-top: 3px;
     }
   }
 
@@ -40,6 +41,7 @@
 
 .difficulty {
   flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 
 .recipes-flex {

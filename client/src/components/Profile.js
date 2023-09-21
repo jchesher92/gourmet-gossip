@@ -11,7 +11,7 @@ import RecipeCard from './RecipeCard'
 
 export default function Profile() {
   const { user, setUser } = useContext(UserContext)
-  const [profile, setProfile] = useState({})
+  const [profile, setProfile] = useState()
   const [userRecipes, setUserRecipes] = useState([])
   const token = getToken()
   const redirect = useNavigate()
