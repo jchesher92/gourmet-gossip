@@ -1,14 +1,17 @@
-.diet-button {
-  @extend %green-button-diet;
+.diet-button-recipecard {
+  @extend %diet-button-recipecard;
 }
 
 .recipe-colum {
   background: $white;
-  padding: 6px 11px 24px 24px;
+  padding: 6px 20px 24px 24px;
 
   .star-rating {
     text-align: right;
     display: block;
+    p {
+      margin-bottom: -6px;
+    }
   }
 
   .category {

@@ -28,7 +28,7 @@ export default function RecipeCard({ recipe }) {
         </span>
       }
       <img src={recipe.image} />
-      <p className="diet-button">{recipe.diet}</p>
+      <p className="diet-button-recipecard">{recipe.diet}</p>
       <div className='recipe-colum'>
         <span className="star-rating">
           {/* {Array(recipe.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#fff' }} key={i} />)} */}
