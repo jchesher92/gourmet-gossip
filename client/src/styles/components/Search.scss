@@ -3,10 +3,6 @@
   background: $white;
   margin-top: 320px;
 
-  .form-control:focus {
-    border-color: $green;
-  }
-
   .btn {
     @extend %green-button;
   }
@@ -46,6 +42,7 @@
   .header-picture img {
     height: 270px;
   }
+
   .search-container {
     margin-top: 190px;
   }
@@ -55,6 +52,7 @@
   .search-container {
     margin-top: 150px;
   }
+
   .header-picture img {
     height: 220px;
     top: 70px;
@@ -65,6 +63,7 @@
   .search-container {
     margin-top: 90px;
   }
+
   .header-picture img {
     height: 150px;
   }

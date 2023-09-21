@@ -10,7 +10,7 @@
 body {
   font-family: 'Roboto Flex', sans-serif;
   background: $light-grey;
-  // background-image: linear-gradient(to bottom, rgba($light-pink, 0.8), rgba($light-pink, 0.8)), url('../images/restaurant-splash.webp');
+  background-image: linear-gradient(to bottom, rgba($light-pink, 0.8), rgba($light-pink, 0.8)), url('../images/restaurant-splash.webp');
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,6 +33,10 @@ h3 {
   .container {
     max-width: 1160px;
   }
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba($green, 1) !important;
 }
 
 // .main-content {

@@ -1,3 +1,7 @@
+.diet-button {
+  @extend %green-button-diet;
+}
+
 .recipe-colum {
   background: $white;
   padding: 6px 11px 24px 24px;
@@ -5,10 +9,6 @@
   .star-rating {
     text-align: right;
     display: block;
-  }
-
-  .diet-button {
-    @extend %green-button-diet;
   }
 
   .category {
