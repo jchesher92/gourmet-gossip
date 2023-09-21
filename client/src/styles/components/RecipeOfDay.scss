@@ -2,7 +2,11 @@
   background: $green;
   padding-top: 50px;
   padding-bottom: 80px;
+<<<<<<< HEAD
 
+=======
+  border-bottom: 1px solid white;
+>>>>>>> development
   h4 {
     color: white;
     text-align: center;
@@ -40,7 +44,7 @@
 }
 
 .same-colum-height {
-  min-height: 200px;
+  min-height: 0px;
 }
 
 @media (min-width: 576px) {

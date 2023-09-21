@@ -29,9 +29,9 @@
     padding: 0px;
     z-index: -1;
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 0;
-    height: 500px;
+    height: 400px;
     object-fit: cover; // This prevents the image from stretching 
   }
 }
@@ -44,7 +44,7 @@
 
 @media (max-width: 768px) {
   .header-picture img {
-    max-height: 380px;
+    height: 270px;
   }
   .search-container {
     margin-top: 190px;
@@ -55,10 +55,17 @@
   .search-container {
     margin-top: 150px;
   }
+  .header-picture img {
+    height: 220px;
+    top: 70px;
+  }
 }
 
 @media (max-width: 430px) {
   .search-container {
     margin-top: 90px;
+  }
+  .header-picture img {
+    height: 150px;
   }
 }
