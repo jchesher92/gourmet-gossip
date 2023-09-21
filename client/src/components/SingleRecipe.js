@@ -156,16 +156,16 @@ export default function SingleRecipe() {
             </Col>
             <Col md='6' sm='12'>
               <div className='diet-icon-container'>
-                <p className='diet-button'>{recipe.diet}</p>
-                { (recipe.addedBy._id === profile._id) &&
-                <div className='trash-edit-icons'>
-                  <Link to={urlToUpdate}>
-                    <FontAwesomeIcon icon={faPen} size='xl' style={{ color: '#ff5f40' }} />
-                  </Link>
-                  <Link onClick={deleteItem}>
-                    <FontAwesomeIcon icon={faTrashCan} size='xl' style={{ color: '#ff5f40' }} />
-                  </Link>
-                </div>
+                <p className='diet-single-button'>{recipe.diet}</p>
+                {(recipe.addedBy._id === profile._id) &&
+                  <div className='trash-edit-icons'>
+                    <Link to={urlToUpdate}>
+                      <FontAwesomeIcon icon={faPen} size='xl' style={{ color: '#ff5f40' }} />
+                    </Link>
+                    <Link onClick={deleteItem}>
+                      <FontAwesomeIcon icon={faTrashCan} size='xl' style={{ color: '#ff5f40' }} />
+                    </Link>
+                  </div>
                 }
               </div>
               <p className='category mt-4'>{recipe.category}</p>
@@ -198,7 +198,7 @@ export default function SingleRecipe() {
               </Row>
             )
           })}
-          { user &&
+          {user &&
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className='mt-4'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
