@@ -65,7 +65,10 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
           </Row>
         </Container>
         :
-        <Spinner />
+        recipes.length > 0 ?
+          <h2 className='no-recipes-found'>No recipes found</h2>
+          :
+          <Spinner />
       }
     </>
   )
