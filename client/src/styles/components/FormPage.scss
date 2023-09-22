@@ -1,10 +1,10 @@
-.form-container textarea {
-  min-height: 200px !important;
-}
-
-.form-container {
+.sign-form-container {
   background-color: $white;
   padding: 2rem;
+
+  textarea {
+    min-height: 200px !important;
+  }
 
   .row {
     padding: 2rem;
@@ -23,7 +23,23 @@
   }
 }
 
-.form-control {
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  h6 a {
+    text-decoration: none;
+    color: $red;
+  }
+
+  h2 {
+    font-size: 4rem;
+    font-family: 'Lobster', cursive;
+  }
+}
+
+#sign-form-control {
   border: none;
   border-bottom: 2px solid $green;
   border-radius: 0px;
@@ -37,22 +53,6 @@
 
 .invalid-feedback {
   text-align: left;
-}
-
-.welcome-message {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-h6 a {
-  text-decoration: none;
-  color: $red;
-}
-
-h2 {
-  font-size: 4rem;
-  font-family: 'Lobster', cursive;
 }
 
 @media (max-width: 768px) {
