@@ -30,7 +30,6 @@ export default function Header({ resetFilters }) {
                 {user ?
                   <>
                     <Dropdown.Item as={NavLink} to="/profile">Profile</Dropdown.Item>
-                    <Dropdown.Item as={NavLink} to="/favorites">Favorites</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/recipes/add">Add Recipe</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="/" onClick={() => {
                       setUser(false)

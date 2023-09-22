@@ -9,7 +9,7 @@ import axios from 'axios'
 // ICON
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faTrashCan } from '@fortawesome/free-regular-svg-icons'
-import { faFire, faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faFire, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function RecipeCard({ recipe }) {
   const linkUrl = `/recipes/${recipe._id}`
@@ -22,11 +22,6 @@ export default function RecipeCard({ recipe }) {
       sm='6'
       className="recipes-flex favorites-icon-container"
     >
-      {user &&
-        <span className='favorites-icon'>
-          <FontAwesomeIcon icon={faHeart} size="2xl" style={{ color: '#fff' }} />
-        </span>
-      }
       <img src={recipe.image} />
       <p className="diet-button-recipecard">{recipe.diet}</p>
       <div className='recipe-colum'>
@@ -52,9 +47,6 @@ export default function RecipeCard({ recipe }) {
           <Link to={linkUrl} className="red-button">SEE RECIPE</Link>
           {/* <div className='trash-edit-icons'><Link onClick={deleteItem}>{ recipe.addedBy === profile._id && <FontAwesomeIcon icon={faTrashCan} size='xl' style={{ color: '#ff5f40' }} /> }</Link></div> */}
         </div>
-
-
-
       </div>
     </Col>
   )
