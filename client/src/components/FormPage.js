@@ -70,7 +70,7 @@ export default function FormPage({ title, formStructure, request }) {
                 formValues(formStructure).map((field, idx) => {
                   return (
                     <Form.Group className="form-floating mb-3" key={idx} controlId={field.name}>
-                      <Form.Control id='sign-form-control' type={field.type} name={field.variable} placeholder={field.name} onChange={handleChange} required></Form.Control>
+                      <Form.Control type={field.type} name={field.variable} placeholder={field.name} onChange={handleChange} required autoComplete='true'></Form.Control>
                       <Form.Label>{field.name}</Form.Label>
                       <Form.Control.Feedback type="invalid">
                         {field.name} is required.

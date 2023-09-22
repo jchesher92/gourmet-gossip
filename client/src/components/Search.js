@@ -24,7 +24,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
           {/* SEARCH */}
           <Col md='4' className='mb-2'>
             <FloatingLabel label='Search recipe'>
-              <Form.Control  className="form-control" type="search" placeholder="Search recipe ..." name="search" value={newSearch} onChange={handleChange} />
+              <Form.Control className="form-control" type="search" placeholder="Search recipe ..." name="search" value={newSearch} onChange={handleChange} />
             </FloatingLabel>
           </Col>
           {/* CATEGORY */}

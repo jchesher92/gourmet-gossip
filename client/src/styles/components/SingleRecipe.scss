@@ -10,15 +10,16 @@
   h1 {
     font-size: 1.8rem;
   }
+
+  .category {
+    @extend %category;
+  }
 }
 
 .diet-single-button {
   @extend %diet-button-recipe-of-day;
 }
 
-.category {
-  @extend %category;
-}
 
 .p-next-icon-first {
   margin-right: 18px;
@@ -74,7 +75,8 @@
   gap: 14px;
 }
 
-.trash-edit-icons svg:hover, .trash-icon:hover {
+.trash-edit-icons svg:hover,
+.trash-icon:hover {
   opacity: 0.8 !important;
   cursor: pointer;
 }

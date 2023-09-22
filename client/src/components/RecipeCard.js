@@ -30,11 +30,10 @@ export default function RecipeCard({ recipe }) {
       <img src={recipe.image} />
       <p className="diet-button-recipecard">{recipe.diet}</p>
       <div className='recipe-colum'>
-        <span className="star-rating">
-          {/* {Array(recipe.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#fff' }} key={i} />)} */}
-          <p>{recipe.avgRating}<FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} className='ps-1' /></p>
-        </span>
-        <p className="category">{recipe.category}</p>
+        <div className='category-rating'>
+          <p className="category">{recipe.category}</p>
+          <p className='rating-star'>{recipe.avgRating}<FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#212529' }} className='ps-1' /></p>
+        </div>
         <div className='same-colum-height'>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>

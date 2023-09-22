@@ -4,19 +4,25 @@
 
 .recipe-colum {
   background: $white;
-  padding: 6px 20px 24px 24px;
+  padding: 15px 15px 20px 20px;
 
-  .star-rating {
-    text-align: right;
-    display: block;
-    p {
-      margin-bottom: -11px;
-      margin-top: 3px;
+  .category-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .category {
+      font-style: italic;
     }
-  }
 
-  .category {
-    @extend %category;
+    p {
+      margin-bottom: 0;
+    }
+
+    .rating-star {
+      display: flex;
+      align-items: center
+    }
   }
 
   h3 {
@@ -49,10 +55,12 @@
   flex-direction: column;
   margin-bottom: 30px;
   transition: all .2s ease-in-out;
+
   &:hover {
     transform: scale(101%);
-    
+
   }
+
   img {
     height: 180px;
     width: auto;
