@@ -1,6 +1,8 @@
 .recipe-form-container {
   background-color: $white;
   padding: 4rem 5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 
   button {
     @extend %red-button;

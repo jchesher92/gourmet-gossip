@@ -104,8 +104,8 @@ export default function App() {
             <Route path='/recipes/:id/update' element={<UpdateRecipe />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
-          <Footer />
         </section>
+        <Footer />
       </UserContext.Provider>
     </BrowserRouter>
   )
