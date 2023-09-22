@@ -9,6 +9,9 @@ export const registerUser = async (req, res) => {
     return res.status(201).json({ message: `Welcome ${user.username}` })
   } catch (error) {
     console.log(error)
+    if (error.code === 11000) {
+      return res.status(401).json({ error: 'A user with those details already exists' })
+    }
     return res.status(422).json(error.errors)
   }
 }
