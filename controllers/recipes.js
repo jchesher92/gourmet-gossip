@@ -7,6 +7,7 @@ import { sendErrors } from '../utils/errors.js'
 export const getAllRecipes = async (req, res) => {
   // Extract data from the database via the model
   const recipes = await Recipe.find()
+  recipes.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
   return res.json(recipes)
 }
 
