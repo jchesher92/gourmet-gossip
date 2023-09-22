@@ -1,6 +1,8 @@
 .recipe-form-container {
   background-color: $white;
   padding: 4rem 5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 
   button {
     @extend %red-button;
@@ -8,6 +10,7 @@
 
   .green-button {
     @extend %green-button;
+    padding: 5px 15px
   }
 
   .red-button-delete {
@@ -56,11 +59,4 @@
   #name-ingredient {
     margin-bottom: 1rem;
   }
-}
-
-select option:hover {
-  background-color: $green;
-  /* Change the background color of selected options */
-  color: white;
-  /* Change the text color of selected options */
 }
