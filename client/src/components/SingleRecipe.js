@@ -84,10 +84,6 @@ export default function SingleRecipe() {
       setNewCommentInput('')
       setNewRatingInput('')
       setValidated('')
-      // if (data.token) {
-      //   setToken(data.token)
-      //   setUser(true)
-      // }
       setFormData({ rating: 5 })
     } catch (error) {
       console.log(error)
@@ -111,7 +107,6 @@ export default function SingleRecipe() {
             },
           })
           setProfile(profile)
-          console.log('profile', profile)
         }
       } catch (error) {
         console.log(error)
@@ -215,18 +210,18 @@ export default function SingleRecipe() {
                     {Array(review.rating).fill(true).map((_, i) => <FontAwesomeIcon icon={faStar} size="xs" style={{ color: '#fff' }} key={i} />)}
                   </div>
                   <p>by {recipe.reviews[index].addedBy.username}</p>
-                  {(review.addedBy._id === profile._id) && 
+                  {(review.addedBy._id === profile._id) &&
                     <>
                       <div className='trash-icon'>
-                        <FontAwesomeIcon onClick={(e) => deleteReview(e, index)} icon={faTrashCan} style={{ color: '#fff' }} />  
-                      </div> 
-                    </>          
+                        <FontAwesomeIcon onClick={(e) => deleteReview(e, index)} icon={faTrashCan} style={{ color: '#fff' }} />
+                      </div>
+                    </>
                   }
                 </Col>
               </Row>
             )
           })}
-          { (user && (recipe.addedBy._id !== profile._id)) &&
+          {(user && (recipe.addedBy._id !== profile._id)) &&
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className='mt-4'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
