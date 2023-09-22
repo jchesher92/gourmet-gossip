@@ -20,9 +20,9 @@
   justify-content: center;
 }
 
-.carousel-indicators button {
-  background: none;
-}
+// .carousel-indicators button {
+//   display: none;
+// }
 
 .carousel-item>a {
   width: 60%;
@@ -30,6 +30,11 @@
 
 .top-rated-container {
   padding: 40px 0px 60px;
+
+  h1 {
+    font-family: lobster, cursive;
+    font-size: 3rem;
+  }
 }
 
 .red-button {

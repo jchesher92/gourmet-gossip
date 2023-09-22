@@ -13,9 +13,7 @@ export function formValues(formStructure) {
 
 export function stateValues(formStructure) {
   const fieldsObj = {}
-  // console.log('formStructure state values', formStructure)
   formStructure.map(field => {
-    // console.log('name', field.name)
     const name = field.name[0].toLowerCase() + field.name.substr(1).replace(' ', '')
     fieldsObj[name] = ''
   })

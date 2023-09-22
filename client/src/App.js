@@ -7,6 +7,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 // PAGE COMPONENTS
+import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 import AllRecipes from './components/AllRecipes'
 import Login from './components/Login'
@@ -80,6 +81,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <ScrollToTop />
         <Header resetFilters={resetFilters} />
         <section className='main-content'>
           <Routes>
@@ -97,13 +99,12 @@ export default function App() {
             <Route path='/login' element={<Login setUser={setUser} />} />
             <Route path='/register' element={<Register setUser={setUser} />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/favorites' element={<Favorites />} />
             <Route path='/recipes/add' element={<AddRecipe />} />
             <Route path='/recipes/:id/update' element={<UpdateRecipe />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
-          <Footer />
         </section>
+        <Footer />
       </UserContext.Provider>
     </BrowserRouter>
   )

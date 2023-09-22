@@ -1,11 +1,12 @@
 $green: #226A57;
 $dark-green: #072b21;
 $red: #FF5F40;
-$light-grey: #ECECEC;
+$light-grey: #e9e8e8;
 $light-pink: #FFDEE6;
 $black: #000;
 $white: #fff;
 $grey: #212529;
+$form-range-thumb-bg: $green !important;
 
 %flex-end {
   display: flex;
@@ -29,20 +30,35 @@ $grey: #212529;
   text-decoration: none;
   width: fit-content;
 
-  &:hover {
+  &:hover,
+  &:active {
     border-color: $green;
-    background: $green;
+    background: $green !important;
     color: $white;
   }
 }
 
-%green-button-diet {
+%diet-button-recipecard {
   background: $green;
   color: $white;
   display: table;
-  padding: 7px 23px;
+  padding: 7px 12px 5px;
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+  position: absolute;
+  left: 18px;
+  top: 144px;
+}
+
+%diet-button-recipe-of-day {
+  background: $green;
+  color: $white;
+  display: table;
+  padding: 9px 19px 8px;
+  text-transform: uppercase;
+  font-size: 14px;
   letter-spacing: 1px;
   margin-bottom: 0px;
 }
@@ -54,18 +70,20 @@ $grey: #212529;
 }
 
 %green-button {
-  background: $green;
-  color: $white;
+  background: #226A57;
+  color: #fff;
   display: table;
-  padding: 6px 23px;
+  padding: 8px 14px;
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: 15px;
   letter-spacing: 1px;
   border: none;
   text-align: center;
-  &:hover {
+
+  &:hover,
+  &:active {
     border-color: $red;
-    background: $red;
+    background: $red !important;
   }
 }
 

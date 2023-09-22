@@ -41,7 +41,7 @@ export default function RecipeOfDay() {
               <img src={todaysRecipe.image} className='image-recipe' />
             </Col>
             <Col md='6' className='colum-right'>
-              <p className='diet-button'>{todaysRecipe.diet}</p>
+              <p className='diet-button-recipe-of-day'>{todaysRecipe.diet}</p>
               <p className='category mt-4'>{todaysRecipe.category}</p>
               <h1>{todaysRecipe.title}</h1>
               <p>{todaysRecipe.description}</p>

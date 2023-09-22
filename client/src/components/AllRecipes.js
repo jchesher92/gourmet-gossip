@@ -28,7 +28,6 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
       }
     }
     getRecipeData()
-    console.log('recipes', recipes) // This is empty because setRecipes is a promise
   }, [])
 
   useEffect(() => {
@@ -66,7 +65,10 @@ export default function AllRecipes({ filter, handleChange, newSearch, newCategor
           </Row>
         </Container>
         :
-        <Spinner />
+        recipes.length > 0 ?
+          <h2 className='no-recipes-found'>No recipes found</h2>
+          :
+          <Spinner />
       }
     </>
   )

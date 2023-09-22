@@ -3,7 +3,6 @@ header {
   background-image:
     linear-gradient(to bottom, rgba($green, 0.92), rgba($green, 0.78)),
     url('../../images/texture.jpg');
-  background-color: $green;
   padding: 16px 0;
   position: fixed;
   top: 0;
@@ -20,6 +19,8 @@ header {
     font-size: 40px;
     margin-bottom: 0px;
     text-shadow: 3px 3px $dark-green;
+    position: relative;
+    bottom: 3px;
   }
 
   .dropdown {
@@ -51,6 +52,7 @@ header {
 @media (max-width: 576px) {
   header p {
     font-size: 25px;
+    bottom: 0px;
   }
 }
 
@@ -58,6 +60,7 @@ header {
   header p {
     font-size: 23px;
   }
+
   .navbar-right {
     gap: 2px;
   }

@@ -1,11 +1,7 @@
 .search-container {
-  padding: 30px 30px 24px;
+  padding: 20px 55px 26px 47px;
   background: $white;
   margin-top: 320px;
-
-  .form-control:focus {
-    border-color: $green;
-  }
 
   .btn {
     @extend %green-button;
@@ -15,10 +11,18 @@
     @extend %red-button
   }
 
+  .search-row {
+    align-items: center;
+  }
+
   .row>* {
     padding-right: calc(var(--bs-gutter-x) * .2);
     padding-left: calc(var(--bs-gutter-x) * .2);
   }
+}
+
+.search-btn {
+  margin-top: 12px;
 }
 
 .header-picture {
@@ -29,25 +33,32 @@
     padding: 0px;
     z-index: -1;
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 0;
-    height: 500px;
+    height: 400px;
     object-fit: cover; // This prevents the image from stretching 
   }
 }
 
 @media (min-width: 992px) {
   .search-container {
-    padding: 40px 40px 35px;
+    padding: 32px 60px 39px;
   }
 }
 
 @media (max-width: 768px) {
   .header-picture img {
-    max-height: 380px;
+    height: 270px;
   }
+
+  .btn {
+    padding: 8px 23px !important;
+    font-size: 18px !important;
+  }
+
   .search-container {
     margin-top: 190px;
+    padding: 41px 51px 41px 46px !important;
   }
 }
 
@@ -55,10 +66,19 @@
   .search-container {
     margin-top: 150px;
   }
+
+  .header-picture img {
+    height: 220px;
+    top: 70px;
+  }
 }
 
 @media (max-width: 430px) {
   .search-container {
     margin-top: 90px;
+  }
+
+  .header-picture img {
+    height: 150px;
   }
 }
