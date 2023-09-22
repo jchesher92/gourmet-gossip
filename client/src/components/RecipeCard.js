@@ -37,15 +37,15 @@ export default function RecipeCard({ recipe }) {
         <div className='same-colum-height'>
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
-          <div className='d-flex difficulty'>
-            <div>
-              <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
-              <p className="p-next-icon-first">{recipe.difficulty}</p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
-              <p className="p-next-icon-second">{recipe.time} min</p>
-            </div>
+        </div>
+        <div className='d-flex difficulty'>
+          <div>
+            <FontAwesomeIcon icon={faFire} style={{ color: '#ff5f40' }} />
+            <p className="p-next-icon-first">{recipe.difficulty}</p>
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faClock} style={{ color: '#FF5F40' }} />
+            <p className="p-next-icon-second">{recipe.time} min</p>
           </div>
         </div>
         <div className='container-recipe-buttons mt-1'>

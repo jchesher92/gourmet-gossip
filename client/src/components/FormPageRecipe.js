@@ -147,7 +147,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
                   <Form.Control as='select' value={formData.difficulty} placeholder='Difficulty' required aria-label="Floating label select example" id='difficulty' name='difficulty' onChange={handleChange}>
                     <option value='' defaultValue={true} disabled>- Difficulty -</option>
                     <option value='Easy'>Easy</option>
-                    <option value='Intermediate'>Intermediate</option>
+                    <option value='Medium'>Medium</option>
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">Difficulty is required.</Form.Control.Feedback>
                 </FloatingLabel>

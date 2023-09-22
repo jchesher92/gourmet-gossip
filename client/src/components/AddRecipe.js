@@ -28,7 +28,7 @@ export default function AddRecipe() {
     {
       type: 'select',
       name: 'Difficulty',
-      options: ['Easy', 'Intermediate'],
+      options: ['Easy', 'Medium'],
     },
     {
       type: 'number',

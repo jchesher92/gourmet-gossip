@@ -30,7 +30,8 @@ $form-range-thumb-bg: $green !important;
   text-decoration: none;
   width: fit-content;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     border-color: $green;
     background: $green !important;
     color: $white;
@@ -72,14 +73,15 @@ $form-range-thumb-bg: $green !important;
   background: #226A57;
   color: #fff;
   display: table;
-  padding: 15px 23px;
+  padding: 5px 14px;
   text-transform: uppercase;
   font-size: 18px;
   letter-spacing: 1px;
   border: none;
   text-align: center;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     border-color: $red;
     background: $red !important;
   }

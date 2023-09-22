@@ -226,7 +226,7 @@ export default function SingleRecipe() {
               <Row className='mt-4'>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                   <Form.Label className='fw-bold'>Write a review</Form.Label>
-                  <Form.Control as="textarea" rows={3} onChange={handleChange} value={newCommentInput} name='comment' required />
+                  <Form.Control as="textarea" rows={1} onChange={handleChange} value={newCommentInput} name='comment' required />
                   <Form.Control.Feedback type="invalid">Review is required.</Form.Control.Feedback>
                 </Form.Group>
                 <Row className='submit-review-container'>

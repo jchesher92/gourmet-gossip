@@ -20,7 +20,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
         <img src={headerPicture} />
       </div>
       <Form>
-        <Row>
+        <Row className='search-row'>
           {/* SEARCH */}
           <Col md='4' className='mb-2'>
             <FloatingLabel label='Search recipe'>
@@ -29,7 +29,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
           </Col>
           {/* CATEGORY */}
           <Col md='2' className='mb-2'>
-            <FloatingLabel label='Category'>
+            <FloatingLabel label=''>
               <Form.Control as='select' className="form-control" name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select example" >
                 <option value='All'>- Category -</option>
                 <option value='Breakfast'>Breakfast</option>
@@ -42,7 +42,7 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
           </Col>
           {/* DIET */}
           <Col md='2' className='mb-2'>
-            <FloatingLabel label='Diet'>
+            <FloatingLabel label=''>
               <Form.Control as='select' className="form-control" name="diet" value={newDiet} onChange={handleChange} aria-label="Floating label select example">
                 <option value='All'>- Diet -</option>
                 <option value='Meat'>Meat</option>
@@ -54,21 +54,21 @@ export default function Search({ handleChange, newSearch, newCategory, newDiet, 
           </Col>
           {/* DIFFICULTY */}
           <Col md='2' className='mb-2'>
-            <FloatingLabel label='Difficulty'>
+            <FloatingLabel label=''>
               <Form.Control as='select' className="form-control" name="difficulty" value={newDifficulty} onChange={handleChange} aria-label="Floating label select example">
                 <option value='All'>- Difficulty -</option>
                 <option value='Easy'>Easy</option>
-                <option value='Intermediate'>Intermediate</option>
+                <option value='Medium'>Medium</option>
               </Form.Control>
             </FloatingLabel>
           </Col>
           {location.pathname !== '/recipes' ?
             <Col md='2'>
-              <Link className="btn btn-outline-dark w-100" to="/recipes">Search</Link>
+              <Link className="btn btn-outline-dark w-100 search-btn" to="/recipes">Search</Link>
             </Col>
             :
             <Col md='2'>
-              <Link className="btn btn-outline-dark w-100 btn-red" onClick={resetFilters}>Reset</Link>
+              <Link className="btn btn-outline-dark w-100 btn-red search-btn" onClick={resetFilters}>Reset</Link>
             </Col>
           }
         </Row>

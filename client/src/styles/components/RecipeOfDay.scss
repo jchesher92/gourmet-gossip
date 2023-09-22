@@ -10,15 +10,18 @@
     margin-bottom: 40px;
     font-size: 2.4rem;
     font-weight: 500;
+    font-family: lobster, cursive;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-family: lobster, cursive;
+    font-size: 1.7rem;
   }
 
   .container-random-recipe-inside {
     background: $white;
     max-width: 900px;
+    box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.5);
   }
 
   .colum-left {
@@ -27,6 +30,10 @@
 
   .colum-right {
     padding: 40px;
+
+    .category {
+      @extend %category
+    }
   }
 
   .image-recipe {
@@ -44,27 +51,7 @@
   @extend %diet-button-recipe-of-day;
 }
 
-.same-colum-height {
-  min-height: 0px;
-}
 
-@media (min-width: 576px) {
-  .same-colum-height {
-    min-height: 180px;
-  }
-}
-
-@media (min-width: 768px) {
-  .same-colum-height {
-    min-height: 200px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .same-colum-height {
-    min-height: 180px;
-  }
-}
 
 @media (max-width: 767px) {
   .image-recipe {

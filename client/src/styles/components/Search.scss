@@ -11,10 +11,18 @@
     @extend %red-button
   }
 
+  .search-row {
+    align-items: center;
+  }
+
   .row>* {
     padding-right: calc(var(--bs-gutter-x) * .2);
     padding-left: calc(var(--bs-gutter-x) * .2);
   }
+}
+
+.search-btn {
+  margin-top: 12px;
 }
 
 .header-picture {
@@ -42,10 +50,12 @@
   .header-picture img {
     height: 270px;
   }
+
   .btn {
     padding: 8px 23px !important;
     font-size: 18px !important;
   }
+
   .search-container {
     margin-top: 190px;
     padding: 41px 51px 41px 46px !important;
