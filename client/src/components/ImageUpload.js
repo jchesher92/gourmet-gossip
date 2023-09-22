@@ -22,14 +22,14 @@ export default function ImageUpload({ formData, setFormData }) {
 
   return (
     <>
-      { formData.image ?
+      {formData.image ?
         <div className='container-delete-image'>
           <img src={formData.image} alt="uploaded image" className='image-upload' />
           <Button onClick={deleteImage}>x</Button>
         </div>
         :
         <>
-          <Form.Control required type='file' className='form-control' name='image' onChange={handleUpload}></Form.Control>
+          <Form.Control required type='file' className='image-input' name='image' onChange={handleUpload}></Form.Control>
           <Form.Control.Feedback type="invalid">Image is required.</Form.Control.Feedback>
           <label hidden htmlFor="image" className="image-label">Image Upload</label>
         </>
