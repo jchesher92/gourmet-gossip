@@ -30,12 +30,25 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
   }
 
   useEffect(() => {
+    setFormData({ ...formData, ingredients: inputIngredients })
+  }, [inputIngredients])
+
+  const handleUpdateIngredients = (e, objectToUpdate) => {
+    const { dataset: { type }, value } = e.target
+    
+    const newIngredientsList = inputIngredients.map(i => {
+      if (i !== objectToUpdate) return i
+      return { ...i, [type]: value }
+    })
+    setInputIngredients(newIngredientsList)
+  }
+
+
+  useEffect(() => {
     !user && navigate('/login')
   })
 
-  useEffect(() => {
-    setFormData({ ...formData, ingredients: inputIngredients })
-  }, [inputIngredients])
+
 
   useEffect(() => {
     async function fillFormFields() {
@@ -53,15 +66,7 @@ export default function FormPageRecipe({ title, formStructure, setFormStructure,
     }
   }, [onLoad])
 
-  const handleUpdateIngredients = (e, objectToUpdate) => {
-    const { dataset: { type }, value } = e.target
 
-    const newIngredientsList = inputIngredients.map(i => {
-      if (i !== objectToUpdate) return i
-      return { ...i, [type]: value }
-    })
-    setInputIngredients(newIngredientsList)
-  }
 
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value })
